@@ -1,0 +1,54 @@
+.form-container {
+	max-width: 350px;
+	margin: 0 auto;
+  border: grey solid 1px;
+  margin-top: 145px;
+	margin-bottom: 100px;
+	background-color: mintcream;
+  padding: 15px;
+}
+
+.form-container h1 {
+	text-align: center;
+	color: grey;
+}
+.field-group {
+	margin-bottom: 10px;
+}
+.access-form {
+	overflow: hidden;
+	padding: 20px;
+}
+.access-form label {
+	font-size: 20px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.field-group input {
+	width: 100%;
+  border: 1px solid grey;
+  padding: 8px 38px 8px 8px;
+}
+.remember-me {
+	text-align: left;
+}
+.remember-me input {
+	width: auto;
+}
+.alert-hide {
+	color: rgb(239, 76, 39);
+	font-size: 14px;
+	margin-top: 5px;
+  text-align: left;
+}
+.access-form button {
+	font-size: 16px;
+  background-color: #18BC9C;
+  border: none;
+  color: #fff;
+  text-transform: capitalize;
+  width: 40%;
+  padding: 8px 14px;
+  border-radius: 10px;
+	cursor: pointer;
+}

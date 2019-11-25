@@ -1,0 +1,91 @@
+.container {
+  margin-top: 100px;
+}
+
+section.producto {
+  padding: 20px;
+}
+
+.imagen-producto {
+  width: 450px;
+}
+
+.carrousel-img {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-producto-peque {
+  width: 100px;
+}
+
+.productos-relacionados {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.ordenar {
+  display: flex;
+  justify-content: left;
+}
+
+.filaUno {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filaDos {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.filaTres {
+  justify-content: left;
+}
+
+.filaCuatro {
+  justify-content: space-around;
+}
+
+.filaCinco {
+  text-align: justify;
+}
+
+.filaSeis {
+  text-align: justify;
+}
+
+.filaSiete{
+  text-align: left;
+}
+
+.compartirEnRedes {
+  display: flex;
+  justify-content: center;
+}
+
+div .row div {
+  margin-top: 10px;
+}
+
+.talles {
+  width: 47px;
+  height: 26px;
+  margin: 0px 8px
+}
+
+.cantidad {
+  width: 47px;
+  height: 26px;
+  margin: 0px 8px
+}
+
+.disponibilidad {
+  line-height: 50px;
+  font-size: 10px;
+  width: 50px;
+}

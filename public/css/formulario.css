@@ -1,0 +1,33 @@
+.container {
+  text-align: left;
+  margin-top: 120px;
+  padding: 30px;
+  margin-bottom: 50px;
+  background-color: mintcream;
+  border: 1px solid grey;
+}
+
+.errorForm  {
+  color: red;
+}
+
+.form-control {
+  text-align: start;
+}
+
+.btn-success {
+  background-color: #18BC9C;
+  border: none;
+}
+
+.sin-archivo {
+  max-width: 265px;
+}
+
+@media (min-width: 768px) {
+
+  .sin-archivo {
+    max-width: 100%;
+  }
+
+}

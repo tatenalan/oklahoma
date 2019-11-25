@@ -1,0 +1,55 @@
+/* Footer */
+
+li a {
+  color: grey;
+}
+
+a:hover {
+  color: grey;
+}
+
+footer h5 {
+  color: grey;
+}
+
+.cuerpo-footer {
+  background-color: mintcream;
+  padding: 15px;
+}
+
+.linea-separadora {
+  border-bottom: 2px solid #607d8b;
+  padding: 10px;
+  margin: 0 auto;
+  width: 80%;
+  }
+
+footer li {
+  display: inline-block;
+}
+
+.rounded-circle {
+    padding: 8px;
+    color: grey;
+}
+
+input.newsletter {
+  text-align: center;
+}
+
+button.newsletter {
+  background-color: white;
+  border: none;
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 12px;
+}
+
+.creador {
+  color: green;
+}

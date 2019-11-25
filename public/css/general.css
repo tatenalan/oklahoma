@@ -1,0 +1,41 @@
+/* paleta de colores utilizada
+
+Body: #f8f9fa;
+Container: mintcream;
+Verde Header: #18BC9C;
+Copyright footer: rgba(0, 0, 0, 0.1);
+Letras , grey y black
+
+*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: Roboto;
+}
+
+body {
+  background-color: #f8f9fa !important;
+}
+
+.titulo {
+  font-family: Rubik;
+  padding: 15px;
+}
+
+.container {
+  margin: 25px auto;
+  text-align: center;
+  background-color: mintcream;
+}
+
+.oferta {
+  color: #18bc9c;
+  font-weight: 600;
+}
+
+.centrado {
+  text-align: center;
+}

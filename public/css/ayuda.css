@@ -1,0 +1,23 @@
+/* Preguntas frecuentes */
+main {
+margin-top: 130px;
+}
+
+.container {
+  padding: 10px;
+}
+
+.accordion {
+width: 80%;
+margin: 40px auto;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}

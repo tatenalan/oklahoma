@@ -24,8 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('address',100);
             $table->string('avatar',500);
             $table->timestamps();
-            // $table->unsignedBigInteger('cart_id')->nullable();
-            // $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
         });
     }
 

@@ -17,12 +17,12 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 50);
             $table->integer('price');
-            $table->boolean('onSale'); //a prueba
+            $table->boolean('onSale')->default(false); // a prueba
             $table->integer('discount')->nullable();
-            $table->bigInteger('genre_id')->unsigned();
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('genre_id')->references('id')->on('genres');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->bigInteger('genre_id')->nullable()->unsigned();
+            $table->bigInteger('category_id')->nullable()->unsigned();
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
 
 

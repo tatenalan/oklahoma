@@ -16,7 +16,7 @@ class CreateImagesTable extends Migration
         Schema::dropIfExists('images');
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('fileName', 250);
+            $table->string('path', 250);
             $table->bigInteger('product_id');
             $table->timestamps();
         });

@@ -9,6 +9,6 @@ class Image extends Model
   public $guarded = [];
 
   public function product(){
-    return $this->belongsTo("App\Product", "producto_id");)
+    return $this->belongsTo("App\Product", "product_id");
   }
 }

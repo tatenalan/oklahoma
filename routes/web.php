@@ -27,8 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home','ProductController@home');
+Route::get('/home', 'ProductController@directory');
 
-Route::get('/agregarProducto','ProductController@index');
+Route::get('/product/addProduct', 'ProductController@new');
 
-Route::post('/agregarProducto','ProductController@store');
+Route::post('/product/addProduct', 'ProductController@store');

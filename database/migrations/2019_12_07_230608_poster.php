@@ -14,7 +14,7 @@ class Poster extends Migration
     public function up()
     {
       Schema::table('products', function (Blueprint $table) {
-        $table->string('poster',500);
+        $table->string('poster',500)->nullable();
       });
     }
 

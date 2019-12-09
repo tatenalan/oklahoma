@@ -20,7 +20,19 @@ class CreateStockTable extends Migration
             $table->integer("S")->nullable();
             $table->integer("M")->nullable();
             $table->integer("L")->nullable();
-            $table->integer("XL")->nullable();
+            $table->integer("26")->nullable();
+            $table->integer("28")->nullable();
+            $table->integer("30")->nullable();
+            $table->integer("32")->nullable();
+            $table->integer("34")->nullable();
+            $table->integer("36")->nullable();
+            $table->integer("38")->nullable();
+            $table->integer("40")->nullable();
+            $table->integer("42")->nullable();
+            $table->integer("44")->nullable();
+            $table->integer("46")->nullable();
+            $table->integer("48")->nullable();
+            $table->integer("50")->nullable();
         });
     }
 

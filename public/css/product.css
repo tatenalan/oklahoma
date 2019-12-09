@@ -7,7 +7,7 @@ section.producto {
 }
 
 .imagen-producto {
-  width: 450px;
+  width: 100%;
 }
 
 .carrousel-img {
@@ -21,7 +21,7 @@ section.producto {
 }
 
 .productos-relacionados {
-  width: 200px;
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: 5px;
@@ -88,4 +88,44 @@ div .row div {
   line-height: 50px;
   font-size: 10px;
   width: 50px;
+}
+
+.tipo {
+  font-style: oblique;
+  font-size: 15px;
+  color: grey;
+}
+
+.precio {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.descuento {
+  padding-top: 10px;
+  position: absolute;
+  right: -16px;
+  top: -20px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  display: table;
+  color: white;
+  line-height: 15px;
+  background-color: red;
+  border-radius: 50px;
+}
+
+.precioAnterior {
+  font-weight: 600;
+  text-decoration: line-through;
+  color: red;
+  padding-right: 6px;
+  font-size: 18px;
+}
+
+/* para persistir las flechitas del input number sin necesidad de hacerle hover */
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
 }

@@ -127,7 +127,10 @@ class productController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
-      $vac = compact('product');
+      $image = Image::where('product_id', '=', $id)->get();
+      // $category = Category::find($id); si no lo llamo de esta manera utilizo la relacion del modelo. Ver Product.blade.php {{$product->category->name}}
+       dd($product->category());
+      $vac = compact('product', 'image');
       return view('product',$vac);
     }
 

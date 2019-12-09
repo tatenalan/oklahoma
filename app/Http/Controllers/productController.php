@@ -129,7 +129,7 @@ class productController extends Controller
       $product = Product::find($id);
       $image = Image::where('product_id', '=', $id)->get();
       // $category = Category::find($id); si no lo llamo de esta manera utilizo la relacion del modelo. Ver Product.blade.php {{$product->category->name}}
-       dd($product->category());
+       //dd($product->onSale);
       $vac = compact('product', 'image');
       return view('product',$vac);
     }
@@ -180,5 +180,45 @@ class productController extends Controller
       $category = Category::where('name', 'like', 'Remeras')->get();
       $vac = compact('products','category');
       return view('remeras',$vac);
+    }
+
+    public function camisas(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '2')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Camisas')->get();
+      $vac = compact('products','category');
+      return view('camisas',$vac);
+    }
+
+    public function jeans(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '3')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Jeans')->get();
+      $vac = compact('products','category');
+      return view('jeans',$vac);
+    }
+
+    public function buzos(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '4')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Buzos')->get();
+      $vac = compact('products','category');
+      return view('jeans',$vac);
+    }
+
+    public function camperas(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '5')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Camperas')->get();
+      $vac = compact('products','category');
+      return view('jeans',$vac);
+    }
+
+    public function accesorios(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '6')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Accesorios')->get();
+      $vac = compact('products','category');
+      return view('jeans',$vac);
     }
 }

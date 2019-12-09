@@ -51,6 +51,16 @@ Route::get('/home', 'ProductController@directory');
 
 Route::get('/remeras', 'ProductController@remeras');
 
+Route::get('/camisas', 'ProductController@camisas');
+
+Route::get('/jeans', 'ProductController@jeans');
+
+Route::get('/buzos', 'ProductController@buzos');
+
+Route::get('/camperas', 'ProductController@camperas');
+
+Route::get('/accesorios', 'ProductController@accesorios');
+
 Route::get('/products/addProduct', 'ProductController@new');
 
 Route::post('/products/addProduct', 'ProductController@store');

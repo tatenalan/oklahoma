@@ -38,6 +38,22 @@
         </select>
         <br>
 
+        <label for="">XS: </label>
+        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+
+        <label for="">S: </label>
+        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+
+        <label for="">M: </label>
+        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+
+        <label for="">L: </label>
+        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+
+        <label for="">XL: </label>
+        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <br>
+
         <label for="">Agregue una imagen para el producto</label>
         <br>
         {{-- para poder agregar varios archivos hay que colocar los [] en el name del file y el atributo multiple --}}
@@ -56,6 +72,6 @@
       @endforeach
     </ul>
 
-    @php
+    {{-- @php
       dd($_GET);
-    @endphp
+    @endphp --}}

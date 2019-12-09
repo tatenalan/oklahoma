@@ -61,7 +61,7 @@ p.descripcion {
   text-align: center;
   margin: 0 auto;
   display: block;
-  width: 100px;
+  width: 100%;
 }
 
 a.ordenar {

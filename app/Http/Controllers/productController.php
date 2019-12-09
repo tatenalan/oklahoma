@@ -91,9 +91,9 @@ class productController extends Controller
 
       // if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->poster)
         // obtengo el array de imagenes
-        $imagenes = $form->file('images');
+        $images = $form->file('images');
         // traigo las imagenes y recorro el array
-        $images = Image::all();
+        // $images = Image::all();
         foreach ($images as $image) {
           // guardo cada imagen en storage/public
           $file = $image->store('public');

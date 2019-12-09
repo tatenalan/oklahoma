@@ -124,9 +124,11 @@ class productController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show(Product $product)
+    public function show($id)
     {
-      //
+      $product = Product::find($id);
+      $vac = compact('product');
+      return view('product',$vac);
     }
 
     /**

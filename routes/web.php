@@ -54,3 +54,5 @@ Route::get('/remeras', 'ProductController@remeras');
 Route::get('/products/addProduct', 'ProductController@new');
 
 Route::post('/products/addProduct', 'ProductController@store');
+
+Route::get('/product/{id}', 'ProductController@show');

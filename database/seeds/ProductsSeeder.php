@@ -17,10 +17,10 @@ class ProductsSeeder extends Seeder
              "price" => "300",
              "onSale" => false,
              "discount" => 0,
-             // "genre_id" => 1,
-             // "category_id" => 1,
+             "genre_id" => 1,
+             "category_id" => 1,
            ]
          );
-
+        // factory(App\Product::class,2)->create();
      }
 }

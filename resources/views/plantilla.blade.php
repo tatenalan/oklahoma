@@ -15,14 +15,14 @@
     <!-- Mi css General --><link rel="stylesheet" href="/css/general.css">
     <!-- Mi css Footer --><link rel="stylesheet" href="/css/footer.css">
     <!-- Mi css Header --><link rel="stylesheet" href="/css/header.css">
-    <!-- Mi css Socialbar --><link rel="stylesheet" href="/css/socialbar.css">';
+    <!-- Mi css Socialbar --><link rel="stylesheet" href="/css/socialbar.css">
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="/css/@yield('css').css">
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="home"><img class="logo" src="/img/Logo2.png" alt = "Logo"></a>
+        <a class="navbar-brand" href="/home"><img class="logo" src="/img/Logo2.png" alt = "Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>

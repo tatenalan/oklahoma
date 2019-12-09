@@ -51,7 +51,11 @@ home
           @foreach ($products as $product)
             <div class="padding  col-6 col-md-4 col-lg-3">
               <div class="producto">
+<<<<<<< HEAD
                 <a href="product/{{$product->id}}"><img class="img-productos"  src="/img/{{$images[$i]->path}}" alt=<?= $product['nombre']?>></a>
+=======
+                <a href="product/{{$product->id}}"><img class="img-productos"  src="/img/remera2a.jpg" alt=<?= $product['nombre']?>></a>
+>>>>>>> 35d1007b236d7a29b20271a22fa176a5020c7d69
                 <h3><?= $product['tipo']?></h3>
                 <p class="descripcion">{{$product->name}}</p>
                 @if($product->onSale==true && isset($product->discount))

@@ -1,6 +1,6 @@
 @extends('plantilla')
 @section('titulo')
-Remeras
+Buzos
 @endsection
 @section('css')
 home
@@ -10,10 +10,9 @@ home
           <section class="productos">
             <div class="row">
               @foreach ($products as $product)
-                {{-- @if ($product->category_id =='1')  no es necesario ya que directamente llamamos desde el controlador a las remeras --}}
               <div class="padding  col-6 col-md-4 col-lg-3">
                 <div class="producto">
-                  <a href="producto/{{$product->id}}"><img class="img-productos"  src="/img/remera2a.jpg" alt="{{$product->name}}"></a>
+                  <a href="product/{{$product->id}}"><img class="img-productos"  src="/img/remera2a.jpg" alt="{{$product->name}}"></a>
                   <h3>{{$product->category->name}}</h3>
                   <p class="descripcion">{{$product->name}}</p>
                   @if ($product->onSale==true && isset($product->discount))
@@ -29,7 +28,6 @@ home
                   <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
                 </div>
               </div>
-                {{-- @endif --}}
               @endforeach
             </div>
           </section>

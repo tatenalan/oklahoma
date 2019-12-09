@@ -16,9 +16,9 @@ class productController extends Controller
      */
      public function directory(Product $product)
      {
-       $productos = Product::all();
+       $products = Product::all();
        $categories = Category::all();
-       $vac = compact('productos','categories');
+       $vac = compact('products','categories');
        return view('home',$vac);
      }
 
@@ -33,7 +33,7 @@ class productController extends Controller
        $categories = Category::all();
        $genres = Genre::all();
        $vac = compact('productos','categories', 'genres');
-       return view('product/addProduct',$vac);
+       return view('products/addProduct',$vac);
      }
 
     /**
@@ -55,7 +55,6 @@ class productController extends Controller
         'discount' => 'required|integer|min:0|max:80',
         'genre_id' => 'required',
         'category_id' => 'required',
-        'image' => "file"
       ];
 
 
@@ -168,5 +167,13 @@ class productController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function remeras(Product $product)
+    {
+      $products = Product::where('category_id', 'like', '1')->orderBy('price')->get();
+      $category = Category::where('name', 'like', 'Remeras')->get();
+      $vac = compact('products','category');
+      return view('remeras',$vac);
     }
 }

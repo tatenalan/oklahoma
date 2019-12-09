@@ -24,11 +24,33 @@ Auth::routes();
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
+});
+
+Route::get('/nosotros', function() {
+  return view('nosotros');
+});
+
+Route::get('/contact', function() {
+  return view('contact');
+});
+
+Route::get('/ayuda', function() {
+  return view('ayuda');
+});
+
+Route::get('/register', function() {
+  return view('register');
+});
+
+Route::get('/login', function() {
+  return view('login');
 });
 
 Route::get('/home', 'ProductController@directory');
 
-Route::get('/product/addProduct', 'ProductController@new');
+Route::get('/remeras', 'ProductController@remeras');
 
-Route::post('/product/addProduct', 'ProductController@store');
+Route::get('/products/addProduct', 'ProductController@new');
+
+Route::post('/products/addProduct', 'ProductController@store');

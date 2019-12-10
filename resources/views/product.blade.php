@@ -12,7 +12,7 @@ product
             <div class="col-sm">
               <div class="">
               @empty(!$image->all())
-                <img class="imagen-producto" src="/storage/{{$image->first()->path}}" alt="">
+                <img class="imagen-producto" src="/img/{{$image->first()->path}}" alt="">
               @endempty
                 @if ($product->onSale==true && isset($product->discount))
                     <span class="descuento"> {{$product->discount}} % off</span> <!-- Pone un cartelito de descuento sobre la imagen del producto-->
@@ -20,16 +20,16 @@ product
               </div>
             <div class="carrousel-img">
               <div class="">
-                <img class="imagen-producto-peque" src='/img/buzo2a.jpg' alt="">
+                <img class="imagen-producto-peque" src='/img/{{$image[0]->path}}' alt="">
               </div>
               <div class="">
-                <img class="imagen-producto-peque" src='/img/buzo2b.jpg' alt="">
+                <img class="imagen-producto-peque" src='/img/{{$image[0]->path}}' alt="">
               </div>
               <div class="">
-                <img class="imagen-producto-peque" src='/img/buzo2a.jpg' alt="">
+                <img class="imagen-producto-peque" src='/img/{{$image[0]->path}}' alt="">
               </div>
               <div class="">
-                <img class="imagen-producto-peque" src='/img/buzo2b.jpg' alt="">
+                <img class="imagen-producto-peque" src='/img/{{$image[0]->path}}' alt="">
               </div>
             </div>
           </div>

@@ -11,16 +11,6 @@ class ProductsSeeder extends Seeder
      */
      public function run()
      {
-         // DB::table('products')->insert(
-         //   [
-         //     "name" => "HR Sunny",
-         //     "price" => "300",
-         //     "onSale" => false,
-         //     "discount" => 0,
-         //     "genre_id" => 1,
-         //     "category_id" => 1,
-         //   ]
-         // );
          factory(App\Product::class,40)->create();
      }
 }

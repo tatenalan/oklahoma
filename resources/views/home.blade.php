@@ -46,7 +46,7 @@ home
         <section class="productos">
           <div class="row">
             @php
-            $i = 1;
+            $i = 0;
             @endphp
           @foreach ($products as $product)
             <div class="padding  col-6 col-md-4 col-lg-3">

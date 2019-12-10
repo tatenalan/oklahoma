@@ -108,7 +108,7 @@ class productController extends Controller
           $image->save();
         }
       }
-        
+
 
       // Redirijo
       return redirect('/home')

@@ -11,40 +11,30 @@ class CategoriesSeeder extends Seeder
      */
      public function run()
      {
-       DB::table('categories')->insert(
+       DB::table('categories')->insert([
          [
-           "name" => "Remeras",
-         ]
-       );
+           "name" => "Remera",
+         ],
 
-       DB::table('categories')->insert(
          [
-           "name" => "Camisas",
-         ]
-       );
+           "name" => "Camisa",
+         ],
 
-       DB::table('categories')->insert(
          [
-           "name" => "Jeans",
-         ]
-       );
+           "name" => "Jean",
+         ],
 
-        DB::table('categories')->insert(
          [
-           "name" => "Buzos",
-         ]
-       );
+           "name" => "Buzo",
+         ],
 
-        DB::table('categories')->insert(
          [
-           "name" => "Camperas",
-         ]
-       );
+           "name" => "Campera",
+         ],
 
-        DB::table('categories')->insert(
          [
-           "name" => "Accesorios",
+           "name" => "Accesorio",
          ]
-       );
+       ]);
      }
 }

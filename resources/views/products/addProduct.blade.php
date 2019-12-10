@@ -11,13 +11,13 @@
 
         <label for="">on sale? : </label>
         <select class="" name="onSale">
-          <option value =0 >No esta en oferta</option>
-          <option value =1 >Esta en oferta</option>
+            <option value =0 >No esta en oferta</option>
+            <option value =1 >Esta en oferta</option>
         </select>
         <br>
 
         <label for="">descuento: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="discount" min="15" max="80" step="5" value="15">
         <br>
 
         <label for="">Genero: </label>
@@ -39,19 +39,19 @@
         <br>
 
         <label for="">XS: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="xs" min="0" max="100" step="1" value="0">
 
         <label for="">S: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="s" min="0" max="100" step="1" value="0">
 
         <label for="">M: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="m" min="0" max="100" step="1" value="0">
 
         <label for="">L: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="l" min="0" max="100" step="1" value="0">
 
         <label for="">XL: </label>
-        <input class="cantidad" type="number" name="discount" min="0" max="100" step="1" value="0">
+        <input class="cantidad" type="number" name="xl" min="0" max="100" step="1" value="0">
         <br>
 
         <label for="">Agregue una imagen para el producto</label>

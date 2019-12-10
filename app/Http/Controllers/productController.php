@@ -28,12 +28,12 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function new()
+     public function new() // Se muestra un form con los campos vacios para agregar un producto
      {
-       $productos = Product::all();
+       $products = Product::all();
        $categories = Category::all();
        $genres = Genre::all();
-       $vac = compact('productos','categories', 'genres');
+       $vac = compact('products','categories', 'genres');
        return view('products/addProduct',$vac);
      }
 
@@ -81,7 +81,6 @@ class productController extends Controller
       $product->genre_id = $form['genre_id'];
       $product->category_id = $form['category_id'];
 
-
       // guardo en la base de datos
       $product->save();
 
@@ -90,7 +89,7 @@ class productController extends Controller
       $lastProduct = Product::all()->last();
       $productId = $lastProduct->id;
 
-      // if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->poster)
+      if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
         // obtengo el array de imagenes
         $images = $form->file('images');
         // traigo las imagenes y recorro el array
@@ -108,8 +107,8 @@ class productController extends Controller
           // guardo las imagenes
           $image->save();
         }
-      // }
-
+      }
+        
 
       // Redirijo
       return redirect('/home')
@@ -178,7 +177,7 @@ class productController extends Controller
     public function remeras(Product $product)
     {
       $products = Product::where('category_id', 'like', '1')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Remeras')->get();
+      $category = Category::where('name', 'like', 'Remera')->get();
       $vac = compact('products','category');
       return view('remeras',$vac);
     }
@@ -186,7 +185,7 @@ class productController extends Controller
     public function camisas(Product $product)
     {
       $products = Product::where('category_id', 'like', '2')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Camisas')->get();
+      $category = Category::where('name', 'like', 'Camisa')->get();
       $vac = compact('products','category');
       return view('camisas',$vac);
     }
@@ -194,7 +193,7 @@ class productController extends Controller
     public function jeans(Product $product)
     {
       $products = Product::where('category_id', 'like', '3')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Jeans')->get();
+      $category = Category::where('name', 'like', 'Jean')->get();
       $vac = compact('products','category');
       return view('jeans',$vac);
     }
@@ -202,7 +201,7 @@ class productController extends Controller
     public function buzos(Product $product)
     {
       $products = Product::where('category_id', 'like', '4')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Buzos')->get();
+      $category = Category::where('name', 'like', 'Buzo')->get();
       $vac = compact('products','category');
       return view('jeans',$vac);
     }
@@ -210,7 +209,7 @@ class productController extends Controller
     public function camperas(Product $product)
     {
       $products = Product::where('category_id', 'like', '5')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Camperas')->get();
+      $category = Category::where('name', 'like', 'Campera')->get();
       $vac = compact('products','category');
       return view('jeans',$vac);
     }
@@ -218,7 +217,7 @@ class productController extends Controller
     public function accesorios(Product $product)
     {
       $products = Product::where('category_id', 'like', '6')->orderBy('price')->get();
-      $category = Category::where('name', 'like', 'Accesorios')->get();
+      $category = Category::where('name', 'like', 'Accesorio')->get();
       $vac = compact('products','category');
       return view('jeans',$vac);
     }

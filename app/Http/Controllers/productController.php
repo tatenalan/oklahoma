@@ -18,7 +18,8 @@ class productController extends Controller
      {
        $products = Product::all();
        $categories = Category::all();
-       $vac = compact('products','categories');
+       $images = Image::all();
+       $vac = compact('products','categories','images');
        return view('home',$vac);
      }
 

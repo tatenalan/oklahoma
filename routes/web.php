@@ -63,9 +63,9 @@ Route::get('/accesorios', 'ProductController@accesorios');
 
 Route::get('/ofertas', 'ProductController@ofertas');
 
-Route::get('/products/addProduct', 'ProductController@new');
+Route::get('/products/addProduct', 'ProductController@new')->middleware('admin');
 
-Route::post('/products/addProduct', 'ProductController@store');
+Route::post('/products/addProduct', 'ProductController@store')->middleware('admin');
 
 Route::get('/product/{id}', 'ProductController@show');
 

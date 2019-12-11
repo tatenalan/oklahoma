@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -69,6 +70,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+      // Instancio un stock
+      $cart = new Cart;
+      $cart->quantity = 0;
+
+      $cart->save();
+
       $path = null;
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');
@@ -83,6 +90,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'avatar' => $path,
             'address' => $data['address'],
+            'cart_id' => $cart->id,
             'isAdmin' => false,
         ]);
     }

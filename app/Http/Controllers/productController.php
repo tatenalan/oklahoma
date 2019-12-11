@@ -71,20 +71,6 @@ class productController extends Controller
       // Validamos
       $this->validate($form,$reglas,$mensajes);
 
-      // Instancio un producto
-      $product = new Product();
-
-
-      $product->name = $form['name']; // alternativa $producto->name = $request->name;
-      $product->price = $form['price'];
-      $product->onSale = $form['onSale'];
-      $product->discount = $form['discount'];
-      $product->genre_id = $form['genre_id'];
-      $product->category_id = $form['category_id'];
-
-      // guardo en la base de datos
-      $product->save();
-
       // Instancio un stock
       $stock = new Stock;
       $stock->XS = $form->xs;
@@ -95,6 +81,21 @@ class productController extends Controller
 
       // guardo en la base de datos
       $stock->save();
+      // Instancio un producto
+      $product = new Product();
+
+
+      $product->name = $form['name']; // alternativa $producto->name = $request->name;
+      $product->price = $form['price'];
+      $product->onSale = $form['onSale'];
+      $product->discount = $form['discount'];
+      $product->genre_id = $form['genre_id'];
+      $product->category_id = $form['category_id'];
+      $product->stock_id = $stock->id;
+
+      // guardo en la base de datos
+      $product->save();
+
 
       // traigo el producto recien creado para obtener su ID
       $lastProduct = Product::all()->last();
@@ -120,6 +121,8 @@ class productController extends Controller
         }
       }
 
+      // dd($form->all());
+
       // Redirijo
       return redirect('/main')
       ->with('status', 'Producto creado exitosamente!!!')
@@ -139,8 +142,8 @@ class productController extends Controller
       $product = Product::find($id);
       $image = Image::where('product_id', '=', $id)->get();
       // $category = Category::find($id); si no lo llamo de esta manera utilizo la relacion del modelo. Ver Product.blade.php {{$product->category->name}}
-       //dd($product->onSale);
-      $vac = compact('product', 'image');
+      $stock = Stock::where('id', '=', $product->stock_id)->get();
+      $vac = compact('product', 'image', 'stock');
       return view('product',$vac);
     }
 

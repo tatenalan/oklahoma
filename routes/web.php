@@ -63,11 +63,16 @@ Route::get('/accesorios', 'ProductController@accesorios');
 
 Route::get('/ofertas', 'ProductController@ofertas');
 
-Route::get('/products/addProduct', 'ProductController@new')->middleware('admin');
+Route::get('/products/addProduct', 'ProductController@new');
 
-Route::post('/products/addProduct', 'ProductController@store')->middleware('admin');
+Route::post('/products/addProduct', 'ProductController@store');
 
 Route::get('/product/{id}', 'ProductController@show');
+
+Route::get('/cart', 'CartController@show');
+
+Route::post('/addToCart', 'CartController@addProduct');
+
 
 Auth::routes();
 

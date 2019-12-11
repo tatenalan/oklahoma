@@ -57,13 +57,14 @@
             <ul class="navbar-nav usuario">
             @if (Auth::user())
             <li class="nav-item">
-              <a class="nav-link" href="perfil.php"><i class="fas fa-plus-circle"></i> Add Product</a>
-              <a class="nav-link" href="perfil.php"><i class="fas fa-user"></i> {{auth::user()->first_name}} </a>
+              <a class="nav-link" href="products/addProduct"><i class="fas fa-plus-circle"></i> Add Product</a>
+              <a class="nav-link" href="/profile"><i class="fas fa-user"></i> {{auth::user()->first_name}} </a>
             </li>
             <li>
-                <form class="" action="logout.php" method="post">
+                <form class="" action="logout" method="post">
                   @csrf
-                  <a class="nav-link" href="/logout" alt="desloguearme"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+                  {{-- <a class="nav-link" type="submit" alt="desloguearme"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a> --}}
+                  <button class="nav-link" type="submit" name="button"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</button>
                 </form>
             </li>
             @else

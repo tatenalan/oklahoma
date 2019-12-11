@@ -53,7 +53,8 @@ product
                 <h6>3 o 6 cuotas sin interes con AMEX</h6>
               </div>
               <div class="filaTres">
-                <form class="ordenar" action="/action_page.php">
+                <form action="/addToCart" class="ordenar" method="post">
+                  @csrf
                   <label for="">Talle:</label>
                   <select class="talles" name="talles">
                     <option value="XS">XS</option>
@@ -64,10 +65,11 @@ product
                   </select>
                     <p>Cantidad:</p>
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">
+                  <input type="number" hidden name="id" value="{{$product->id}}">
+                  <div class="filaSiete">
+                    <button type="submit"><h2>Ordenar!</h2></button>
+                  </div>
                 </form>
-                <div class="filaSiete">
-                <button type="button" name="button"><h2>Ordenar!</h2></button>
-                </div>
               </div>
               <div class="filaCinco">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcou fugiat nulla pariatur. Excepteur sint</p>
@@ -107,3 +109,6 @@ product
       </section>
       </div>
 @endsection
+{{-- @php
+  dd($_GET);
+@endphp --}}

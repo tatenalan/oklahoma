@@ -57,7 +57,7 @@
             <ul class="navbar-nav usuario">
             @if (Auth::user())
             <li class="nav-item">
-              <a class="nav-link" href="perfil.php"><i class="fas fa-user"></i> {{auth::user()->name}} </a>
+              <a class="nav-link" href="perfil.php"><i class="fas fa-user"></i> {{auth::user()->first_name}} </a>
             </li>
             <li>
                 <form class="" action="logout.php" method="post">

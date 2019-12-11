@@ -47,7 +47,7 @@ Route::get('/login', function() {
   return view('login');
 });
 
-Route::get('/home', 'ProductController@directory');
+Route::get('/main', 'ProductController@directory');
 
 Route::get('/remeras', 'ProductController@remeras');
 
@@ -66,3 +66,11 @@ Route::get('/products/addProduct', 'ProductController@new');
 Route::post('/products/addProduct', 'ProductController@store');
 
 Route::get('/product/{id}', 'ProductController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

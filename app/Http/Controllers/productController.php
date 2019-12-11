@@ -20,7 +20,7 @@ class productController extends Controller
        $categories = Category::all();
        $images = Image::all();
        $vac = compact('products','categories','images');
-       return view('home',$vac);
+       return view('main',$vac);
      }
 
     /**
@@ -108,10 +108,10 @@ class productController extends Controller
           $image->save();
         }
       }
-        
+
 
       // Redirijo
-      return redirect('/home')
+      return redirect('/main')
       ->with('status', 'Producto creado exitosamente!!!')
       ->with('operation', 'success');
     }

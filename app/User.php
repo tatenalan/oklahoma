@@ -41,5 +41,4 @@ class User extends Authenticatable
       return $this->belongsTo("App\Cart", "cart_id");
     }
 
-  }
 }

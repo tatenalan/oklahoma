@@ -33,7 +33,7 @@
               Productos
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item oferta" href="ofertas.php">Ofertas</a>
+              <a class="dropdown-item oferta" href="ofertas">Ofertas</a>
               <a class="dropdown-item" href="remeras">Remeras</a>
               <a class="dropdown-item" href="camisas">Camisas</a>
               <a class="dropdown-item" href="jeans">Jeans</a>
@@ -57,6 +57,7 @@
             <ul class="navbar-nav usuario">
             @if (Auth::user())
             <li class="nav-item">
+              <a class="nav-link" href="perfil.php"><i class="fas fa-plus-circle"></i> Add Product</a>
               <a class="nav-link" href="perfil.php"><i class="fas fa-user"></i> {{auth::user()->first_name}} </a>
             </li>
             <li>

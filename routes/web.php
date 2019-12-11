@@ -61,6 +61,8 @@ Route::get('/camperas', 'ProductController@camperas');
 
 Route::get('/accesorios', 'ProductController@accesorios');
 
+Route::get('/ofertas', 'ProductController@ofertas');
+
 Route::get('/products/addProduct', 'ProductController@new');
 
 Route::post('/products/addProduct', 'ProductController@store');

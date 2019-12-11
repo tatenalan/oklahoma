@@ -221,4 +221,12 @@ class productController extends Controller
       $vac = compact('products','category');
       return view('jeans',$vac);
     }
+
+    public function ofertas(Product $product)
+    {
+      $products = Product::where('onSale', '=', true)->orderBy('price')->get();
+      $category = Category::all();
+      $vac = compact('products','category');
+      return view('jeans',$vac);
+    }
 }

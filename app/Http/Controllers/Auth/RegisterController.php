@@ -51,6 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'birthDate' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'avatar' => 'image|mimes:jpg,jpeg,png',
@@ -72,15 +73,17 @@ class RegisterController extends Controller
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');
         $path = basename($file);
-
       }
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'birthDate' => $data['birthDate'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'avatar' => $path,
             'address' => $data['address'],
+            'isAdmin' => false,
         ]);
     }
 }

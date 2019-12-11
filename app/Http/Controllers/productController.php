@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\Genre;
 use App\Image;
+use App\Stock;
 class productController extends Controller
 {
     /**
@@ -84,6 +85,16 @@ class productController extends Controller
       // guardo en la base de datos
       $product->save();
 
+      // Instancio un stock
+      $stock = new Stock;
+      $stock->XS = $form->xs;
+      $stock->S = $form->s;
+      $stock->M = $form->m;
+      $stock->L = $form->l;
+      $stock->XL = $form->xl;
+
+      // guardo en la base de datos
+      $stock->save();
 
       // traigo el producto recien creado para obtener su ID
       $lastProduct = Product::all()->last();
@@ -108,7 +119,6 @@ class productController extends Controller
           $image->save();
         }
       }
-
 
       // Redirijo
       return redirect('/main')

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
+  protected $table = 'stock';
   public $guarded = [];
 
   public function product(){

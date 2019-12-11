@@ -39,8 +39,8 @@ Route::get('/ayuda', function() {
   return view('ayuda');
 });
 
-Route::get('/register', function() {
-  return view('register');
+Route::get('/registro', function() {
+  return view('registro');
 });
 
 Route::get('/login', function() {

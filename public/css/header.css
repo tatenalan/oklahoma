@@ -58,6 +58,22 @@ ul.usuario {
   background-color: #ffffff36;
 }
 
+button.nav-link {
+	overflow: visible;
+	width: auto;
+  background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+  position: relative;
+  top: 8px;
+	cursor: pointer;
+  -moz-user-select: text;
+}
+
+/* Para hacer que un boton parezca un link (etiqueta a)https://blog.natbat.net/post/46614475051/styling-buttons-as-links */
+
+
 @media (min-width: 993px) {  /* Esto es para que se oculten los link del menu y aparezca el menu hamburguesa */
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox!important;

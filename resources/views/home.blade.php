@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    {{auth::user()->first_name}}
+                    <a href="/img/{{auth::user()->avatar}}"></a>
+
                 </div>
             </div>
         </div>

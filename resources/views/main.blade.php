@@ -75,8 +75,8 @@ home
             else {
               $i = 1;
             }
-            @endphp
-          @endforeach --}}
+            @endphp --}}
+          @endforeach
           </div>
         </section>
       </div>

@@ -29,18 +29,26 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 
 
+Necesario a terminar / errores a arreglar:
+- edit, destroy product
+- Filtros para productos / buscador
+- carrito funcional
+- cambio de imagenes en la vista product
+- colocarle middlewares a las rutas
+- mercadopago
 
-Herramientas a Incorporar / cosas por hacer / errores a arreglar:
 
+
+Herramientas a Incorporar / cosas extra por hacer 
+- pais y provincias con api
+- Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site
 - Un chat fixed abajo de todo a la derecha
 - Seccion Sucursales con api de google maps
-- Filtros para productos
 - Imagen con Paralax
-- Si el usuario no esta logueado,cuando intente comprar redirigirlo al login del sitio
 - Compartir publicaciones de ciertos productos en redes sociales
-- Permitirle al usuario cerrar la socialbar
+- socialbar oculta
 - Copiar Boton de perfil logueado del playground de digital
 - Darle el estilo del menu hamburguesa de la web Yagmour
 - validate strenght passwords como el form de monark.com.pk y agregar un captcha
 - Crear un dropdown form usando bootstrap o usando un modal como la web de pcs de nuestros compas
-- Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site
+- limitar la edad a 18 anos

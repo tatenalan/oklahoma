@@ -59,47 +59,47 @@ contact
             </select>
           </div>
 
-          {{-- <div class="form-group">
+          <div class="form-group">
             <label for="">XS: </label>
-            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="{{ old('xs',$stock->XS)}}">
+            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="">
           </div>
 
           <div class="form-group">
             <label for="">S: </label>
-            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="{{ old('s',$stock->S)}}">
+            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="">
           </div>
 
           <div class="form-group">
             <label for="">M: </label>
-            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="{{ old('m',$stock->M)}}">
+            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="">
           </div>
 
           <div class="form-group">
             <label for="">L: </label>
-            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="{{ old('l',$stock->L)}}">
+            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="">
           </div>
 
           <div class="form-group">
             <label for="">XL: </label>
-            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="{{ old('xl',$stock->XL)}}">
-          </div> --}}
+            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="">
+          </div>
 
-          {{-- <div class="form-group">
+          <div class="form-group">
             <label for="">Imagen del Producto: </label>
-            <br> --}}
+            <br>
             {{-- para poder agregar varios archivos hay que colocar los [] en el name del file y el atributo multiple --}}
-            {{-- <input type="file" name="images[]" value="" multiple>
+            <input type="file" name="images[]" value="" multiple>
             @php
-              $image_path = storage_path('app/public/') . $images->product_id; // traemos la variable con la ruta de la imagen
-            @endphp --}}
+              $image_path = storage_path('app/public/') . $product->$images->path; // traemos la variable con la ruta de la imagen
+            @endphp
 
             {{-- Si las imagenes existen tanto en la bd como en storage, las muestro --}}
-            {{-- @if ($images->product_id && file_exists($image_path))
+            @if ($images->product_id && file_exists($image_path))
               @foreach ($images as $image)
                 <img class="product-img" src="/storage/{{$image->path}}" alt="">
               @endforeach
             @endif
-          </div> --}}
+          </div>
 
           <div class="form-group">
             <button type="submit" class="btn btn-success" value="Edit Product">Editar producto</button>

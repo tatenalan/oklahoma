@@ -20,7 +20,7 @@ contact
 
           <div class="form-group">
             <label for="">Price: </label>
-            <input type="number" class="form-control" name="price" value="">
+            <input type="number" class="form-control" min="100" max="50000" step="100" name="price" value="0">
           </div>
 
           <div class="form-group">

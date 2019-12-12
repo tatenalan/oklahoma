@@ -107,7 +107,7 @@ class productController extends Controller
         // traigo las imagenes y recorro el array
         // $images = Image::all();
         foreach ($images as $image) {
-          // guardo cada imagen en storage/public
+          // guardo cada imagen en storage/public (no en la base de datos)
           $file = $image->store('public');
           // obtengo sus nombres
           $path = basename($file);
@@ -116,7 +116,7 @@ class productController extends Controller
           // asigno las rutas correspondientes
           $image->product_id = $productId;
           $image->path = $path;
-          // guardo las imagenes
+          // guardo el objeto imagen instanciado en la base de datos
           $image->save();
         }
       }
@@ -161,10 +161,10 @@ class productController extends Controller
       $product = Product::find($id);
       $genres = Genre::all();
       $categories = Category::all();
-      $images = Image::find($id);
+      $images = Image::all();
       $stock = Stock::find($id);
 
-      return view('/editProduct', compact('product', 'genres', 'categories'));
+      return view('/editProduct', compact('product', 'genres', 'categories', 'images'));
     }
 
     /**

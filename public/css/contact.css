@@ -24,6 +24,11 @@
   max-width: 265px;
 }
 
+.product-img {
+  width: 200px;
+}
+
+
 @media (min-width: 768px) {
 
   .sin-archivo {

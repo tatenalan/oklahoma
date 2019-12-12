@@ -1,0 +1,46 @@
+﻿////En este bloq escribimos datos varios como los colores o algunas fuentes utiles para el proyecto/////
+
+https://www.befunky.com/es/crear/cambiar-tamanos-de-imagenes/
+Esta web sirve para modificar el tamaño de las imagenes que vayamos a usar
+
+https://www.guidacode.com/2018/php/como-validar-una-fecha-en-php/
+para validar fecha de nacimiento mayor a 18 
+
+https://es.slideshare.net/MariaCabezn/juego-tab-adultos
+Pagina POO (Programacion orientada a objetos)
+
+
+
+
+Paginas en las que nos basamos:
+
+https://www.pizzahut.com/index.php#/home
+https://www.hinnezeiza.com/
+https://www.mohammed.com.ar/
+https://www.fames.com.ar/
+https://www.yagmour.com.ar/
+https://newportbeach.scoutandmollys.com/
+https://www.monark.com.pk/
+https://shop.mitchellstores.com
+https://romabyrochi.com.ar/
+
+para hacer que un boton parezca una etiqueta A
+https://blog.natbat.net/post/46614475051/styling-buttons-as-links
+
+
+
+
+Herramientas a Incorporar / cosas por hacer / errores a arreglar:
+
+- Un chat fixed abajo de todo a la derecha
+- Seccion Sucursales con api de google maps
+- Filtros para productos
+- Imagen con Paralax
+- Si el usuario no esta logueado,cuando intente comprar redirigirlo al login del sitio
+- Compartir publicaciones de ciertos productos en redes sociales
+- Permitirle al usuario cerrar la socialbar
+- Copiar Boton de perfil logueado del playground de digital
+- Darle el estilo del menu hamburguesa de la web Yagmour
+- validate strenght passwords como el form de monark.com.pk y agregar un captcha
+- Crear un dropdown form usando bootstrap o usando un modal como la web de pcs de nuestros compas
+- Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site

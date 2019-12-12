@@ -35,7 +35,7 @@ class productController extends Controller
        $categories = Category::all();
        $genres = Genre::all();
        $vac = compact('products','categories', 'genres');
-       return view('products/addProduct',$vac);
+       return view('addProduct',$vac);
      }
 
     /**
@@ -144,6 +144,7 @@ class productController extends Controller
       // $category = Category::find($id); si no lo llamo de esta manera utilizo la relacion del modelo. Ver Product.blade.php {{$product->category->name}}
       $stock = Stock::where('id', '=', $product->stock_id)->get();
       $vac = compact('product', 'image', 'stock');
+      // dd($image);
       return view('product',$vac);
     }
 
@@ -155,9 +156,15 @@ class productController extends Controller
      */
 
 
-    public function edit(Product $product)
+    public function edit($id) // se muestran los datos del producto elegido
     {
-        //
+      $product = Product::find($id);
+      $genres = Genre::all();
+      $categories = Category::all();
+      $images = Image::find($id);
+      $stock = Stock::find($id);
+
+      return view('/editProduct', compact('product', 'genres', 'categories'));
     }
 
     /**
@@ -169,10 +176,75 @@ class productController extends Controller
      */
 
 
-    public function update(Request $request, Product $product)
+    public function update(Request $form, int $id) // se muestra el producto con los campos completos listo para editar. A diferencia de guardar, update lleva tambien la variable $id
     {
-        //
-    }
+        // Declaro las variables de validacion
+
+        $reglas = [
+      'name' =>'required|string|min:3|max:40|',
+      'price' =>'required|numeric|min:0|max:100000|',
+      'onSale' => 'required',
+      'discount' => 'numeric|min:15|max:80',
+      'genre_id' => 'required',
+      'category_id' => 'required',
+      'xs' => 'numeric|min:0|max:1000',
+      's' => 'numeric|min:0|max:1000',
+      'm' => 'numeric|min:0|max:1000',
+      'l' => 'numeric|min:0|max:1000',
+      'xl' => 'numeric|min:0|max:1000',
+    ];
+
+    $mensajes = [
+      "required" => "El campo es obligatorio",
+      "string" => "El campo debe ser un texto",
+      "min" => "El minimo es de :min caracteres",
+      "max" => "El maximo es de :max caracteres",
+      "date" => "El campo :date debe ser una fecha",
+      "integer" => "El campo debe ser un numero entero",
+      "numeric" => "El campo debe ser un numero"
+    ];
+
+    // Validamos
+    $this->validate($form, $reglas, $mensajes);
+
+    // llamo al producto a editar
+    $product = Product::find($id);
+
+    // busco el stock del producto a editar
+    $stock = Stock::where('id', '=', $product->stock_id);
+
+    $stock->XS = $form->xs;
+    $stock->S = $form->s;
+    $stock->M = $form->m;
+    $stock->L = $form->l;
+    $stock->XL = $form->xl;
+
+    // guardo en la base de datos
+    $stock->save();
+
+    $product->name = $form['name']; // alternativa $producto->name = $request->name;
+    $product->price = $form['price'];
+    $product->onSale = $form['onSale'];
+    $product->discount = $form['discount'];
+    $product->genre_id = $form['genre_id'];
+    $product->category_id = $form['category_id'];
+    $product->stock_id = $stock->id;
+
+    // guardo en la base de datos
+    $product->save();
+
+
+    // si cambian la foto
+    // obtenemos la ruta de la foto anterior
+    // verificamos si existe en la base de datos y en storage
+    // elimina la foto del storage
+
+
+    // Redirijo
+    return redirect('/product/{id}')
+    ->with('status', 'Producto editado exitosamente!!!')
+    ->with('operation', 'success');
+  }
 
     /**
      * Remove the specified resource from storage.

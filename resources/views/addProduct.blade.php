@@ -24,7 +24,7 @@ contact
           </div>
 
           <div class="form-group">
-            <label for="" class="form-control">on sale? : </label>
+            <label for="">on sale? : </label>
             <select class="" name="onSale">
                 <option value =0 >No esta en oferta</option>
                 <option value =1 >Esta en oferta</option>
@@ -89,7 +89,7 @@ contact
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-success" name="button" value="Add Product">Agregar producto</button>
+            <button type="submit" class="btn btn-success" value="Add Product">Agregar producto</button>
           </div>
         </form>
 

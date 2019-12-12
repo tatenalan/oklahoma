@@ -63,9 +63,13 @@ Route::get('/accesorios', 'ProductController@accesorios');
 
 Route::get('/ofertas', 'ProductController@ofertas');
 
-Route::get('/products/addProduct', 'ProductController@new');
+Route::get('/addProduct', 'ProductController@new');
 
-Route::post('/products/addProduct', 'ProductController@store');
+Route::post('/addProduct', 'ProductController@store');
+
+Route::get('/editProduct/{id}', 'ProductController@edit');
+
+Route::put('/product/{id}', 'ProductController@update');
 
 Route::get('/product/{id}', 'ProductController@show');
 

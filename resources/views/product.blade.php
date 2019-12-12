@@ -24,8 +24,9 @@ product
               <div class="">
                 <img class="imagen-producto-peque" src="/storage/{{$image->path}}" alt="">
               </div>
-          @endforeach
-          </div>
+              @endforeach
+              </div>
+            </div>
             <div class="col-sm">
               <div class="filaUno">
                 <h3 class=""> {{$product->name}} </h3>

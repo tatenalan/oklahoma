@@ -45,9 +45,9 @@ home
       <div class="container">
         <section class="productos">
           <div class="row">
-            @php
+            {{-- @php
             $i = 0;
-            @endphp
+            @endphp --}}
           @foreach ($products as $product)
             <div class="padding  col-6 col-md-4 col-lg-3">
               <div class="producto">
@@ -68,7 +68,7 @@ home
                 <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
               </div>
             </div>
-            @php
+            {{-- @php
             if ($i<count($products)-1) {
               $i++;
             }
@@ -76,18 +76,8 @@ home
               $i = 1;
             }
             @endphp
-          @endforeach
+          @endforeach --}}
           </div>
         </section>
       </div>
-
-  {{-- @foreach ($productos as $product)
-  <div class="producto" style="margin-top: 70px; margin-left:50px;">
-    <p>{{$product->name}}</p>
-    <img style="height:200px;"src="/storage/{{$product->poster}}" alt="">
-    <p>
-    {{$product->price}}
-    </p>
-  </div>
-  @endforeach --}}
 @endsection('main')

@@ -13,7 +13,7 @@ product
               <div class="">
               @empty(!$image->all())
                 {{-- <img class="imagen-producto" src="/img/{{$image->first()->path}}" alt=""> para factories --}}
-                <img class="imagen-producto" src="/storage/{{$product->images[0]->path}}" alt="">
+                <img id="imagenGran"class="imagen-producto" lado-a="/storage/{{$product->images[0]->path}}" lado-b="/storage/{{$product->images[1]->path}}"  src="/storage/{{$product->images[0]->path}}" alt="">
               @endempty
                 @if ($product->onSale==true && isset($product->discount))
                     <span class="descuento"> {{$product->discount}} % off</span> <!-- Pone un cartelito de descuento sobre la imagen del producto-->
@@ -22,7 +22,7 @@ product
               <div class="carrousel-img">
               @foreach ($product->images as $image)
               <div class="">
-                <img class="imagen-producto-peque" src="/storage/{{$image->path}}" alt="">
+                <img class="imagen-producto-peque" onclick="changeImage()" src="/storage/{{$image->path}}" alt="">
               </div>
               @endforeach
               </div>
@@ -102,6 +102,12 @@ product
           </div>
       </section>
       </div>
+      <script type="text/javascript">
+        function changeImage() {
+          fotoGrande = document.getElementById("imagenGran");
+          fotoGrande.src = fotoGrande.getAttribute("lado-b");
+        }
+      </script>
 @endsection
 {{-- @php
   dd($_GET);

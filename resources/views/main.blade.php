@@ -52,7 +52,7 @@ home
             <div class="padding  col-6 col-md-4 col-lg-3">
               <div class="producto">
                 {{-- <a href="product/{{$product->id}}"><img class="img-productos"  src="/img/{{$images[$i]->path}}" alt="{{$product->category->name}}"></a>  para factories --}}
-                <a href="product/{{$product->id}}"><img class="img-productos"  src="/storage/{{$product->images[0]->path}}" alt={{$product->category->name}}></a>
+                <a href="product/{{$product->id}}"><img class="img-productos" onmouseover="newImage()" onmouseout="oldImage()" foto-a="/storage/{{$product->images[0]->path}}" foto-b="/storage/{{$product->images[1]->path}}"  src="/storage/{{$product->images[0]->path}}" alt="{{$product->category->name}}"></a>
                 <h3>{{$product->category->name}}</h3>
                 <p class="descripcion">{{$product->name}}</p>
                 @if($product->onSale==true && isset($product->discount))
@@ -80,4 +80,19 @@ home
           </div>
         </section>
       </div>
+      <script type="text/javascript">
+        function newImage(){
+          imagenes = document.querySelectorAll(".img-productos");
+          for (imagen of imagenes) {
+            imagen.src = imagen.getAttribute("foto-b");
+          }
+        }
+        function oldImage(){
+          imagenes = document.querySelectorAll(".img-productos");
+          for (imagen of imagenes) {
+            imagen.src = imagen.getAttribute("foto-a");
+          }
+        }
+      </script>
+
 @endsection('main')

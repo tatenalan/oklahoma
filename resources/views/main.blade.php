@@ -45,13 +45,10 @@ home
       <div class="container">
         <section class="productos">
           <div class="row">
-            {{-- @php
-            $i = 0;
-            @endphp --}}
+
           @foreach ($products as $product)
             <div class="padding  col-6 col-md-4 col-lg-3">
               <div class="producto">
-                {{-- <a href="product/{{$product->id}}"><img class="img-productos"  src="/img/{{$images[$i]->path}}" alt="{{$product->category->name}}"></a>  para factories --}}
                 <a href="product/{{$product->id}}"><img class="img-productos" onmouseover="newImage()" onmouseout="oldImage()" foto-a="/storage/{{$product->images[0]->path}}" foto-b="/storage/{{$product->images[1]->path}}"  src="/storage/{{$product->images[0]->path}}" alt="{{$product->category->name}}"></a>
                 <h3>{{$product->category->name}}</h3>
                 <p class="descripcion">{{$product->name}}</p>
@@ -68,14 +65,7 @@ home
                 <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
               </div>
             </div>
-            {{-- @php
-            if ($i<count($products)-1) {
-              $i++;
-            }
-            else {
-              $i = 1;
-            }
-            @endphp --}}
+
           @endforeach
           </div>
         </section>

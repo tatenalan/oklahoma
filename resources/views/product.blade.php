@@ -13,7 +13,7 @@ product
               <div class="">
               @empty(!$image->all())
                 {{-- <img class="imagen-producto" src="/img/{{$image->first()->path}}" alt=""> para factories --}}
-                <img id="imagenGran"class="imagen-producto" lado-a="/storage/{{$product->images[0]->path}}" lado-b="/storage/{{$product->images[1]->path}}"  src="/storage/{{$product->images[0]->path}}" alt="">
+                <img id="imagenGran"class="imagen-producto" src="/storage/{{$product->images[0]->path}}" alt="">
               @endempty
                 @if ($product->onSale==true && isset($product->discount))
                     <span class="descuento"> {{$product->discount}} % off</span> <!-- Pone un cartelito de descuento sobre la imagen del producto-->
@@ -21,7 +21,7 @@ product
               </div>
               <div class="carrousel-img">
               @foreach ($product->images as $image)
-              <div class="">
+              <div class="imagenesChiquiten">
                 <img class="imagen-producto-peque" onclick="changeImage()" src="/storage/{{$image->path}}" alt="">
               </div>
               @endforeach
@@ -103,10 +103,16 @@ product
       </section>
       </div>
       <script type="text/javascript">
+      var fotosChicas = document.querySelectorAll("imagen-producto-peque");
+      for (foto of fotosChicas) {
+        console.log(foto);
+        foto.setAttribute("border","1px solid red");
+      }
         function changeImage() {
-          fotoGrande = document.getElementById("imagenGran");
-          fotoGrande.src = fotoGrande.getAttribute("lado-b");
+          this.color='red';
         }
+          // var fotoGrande = document.getElementById("imagenGran");
+          // fotoGrande.src = fotoGrande.getAttribute("lado-b");
       </script>
 @endsection
 {{-- @php

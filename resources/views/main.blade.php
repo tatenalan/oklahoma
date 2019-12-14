@@ -70,21 +70,6 @@ home
           </div>
         </section>
       </div>
-      {{-- <script type="text/javascript">
-      imagenes = document.querySelectorAll(".img-productos");
-      console.log(imagenes);
-        function newImage(){
-          for (imagen of imagenes) {
-            imagen.src = imagen.getAttribute("foto-b");
-          }
-        }
-        function oldImage(){
-          imagenes = document.querySelectorAll(".img-productos");
-          for (imagen of imagenes) {
-            imagen.src = imagen.getAttribute("foto-a");
-          }
-        }
-      </script> --}}
 
 @endsection('main')
 

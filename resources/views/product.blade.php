@@ -102,18 +102,16 @@ product
       </section>
       </div>
       <script type="text/javascript">
-      var fotosChicas = document.querySelectorAll("imagen-producto-peque");
-      for (foto of fotosChicas) {
-        console.log(foto);
-        foto.setAttribute("border","1px solid red");
-      }
-        function changeImage() {
-          this.color='red';
+        function changeImage(){
+          var imagenGrande = document.querySelector('.imagen-producto');
+          var fotosChicas = document.querySelectorAll(".imagen-producto-peque");
+          //imagenGrande.src = this.src;
+          for (img of fotosChicas) {
+            addEventListener('click',e=>(imagenGrande.src = e.target.src));
+          }
+          console.log(imagenGrande.src);
+          var imgs = fotosChicas;
+
         }
-          // var fotoGrande = document.getElementById("imagenGran");
-          // fotoGrande.src = fotoGrande.getAttribute("lado-b");
       </script>
 @endsection
-{{-- @php
-  dd($_GET);
-@endphp --}}

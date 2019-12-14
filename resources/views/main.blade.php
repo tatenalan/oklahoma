@@ -49,7 +49,7 @@ home
           @foreach ($products as $product)
             <div class="padding  col-6 col-md-4 col-lg-3">
               <div class="producto">
-                <a href="product/{{$product->id}}"><img class="img-productos" onmouseover="newImage()" onmouseout="oldImage()" foto-a="/storage/{{$product->images[0]->path}}" foto-b="/storage/{{$product->images[1]->path}}"  src="/storage/{{$product->images[0]->path}}" alt="{{$product->category->name}}"></a>
+                <a href="product/{{$product->id}}"><img style="" class="img-productos" onmouseover="this.src='/storage/{{$product->images[1]->path}}',this.style='transform: scale(1.2)';" onmouseout="this.src='/storage/{{$product->images[0]->path}}',this.style='transform: scale(1)';" src="/storage/{{$product->images[0]->path}}" alt="{{$product->category->name}}"></a>
                 <h3>{{$product->category->name}}</h3>
                 <p class="descripcion">{{$product->name}}</p>
                 @if($product->onSale==true && isset($product->discount))
@@ -70,9 +70,10 @@ home
           </div>
         </section>
       </div>
-      <script type="text/javascript">
+      {{-- <script type="text/javascript">
+      imagenes = document.querySelectorAll(".img-productos");
+      console.log(imagenes);
         function newImage(){
-          imagenes = document.querySelectorAll(".img-productos");
           for (imagen of imagenes) {
             imagen.src = imagen.getAttribute("foto-b");
           }
@@ -83,6 +84,8 @@ home
             imagen.src = imagen.getAttribute("foto-a");
           }
         }
-      </script>
+      </script> --}}
 
 @endsection('main')
+
+<?php // cambios en los hover de las c ?>

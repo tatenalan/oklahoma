@@ -34,7 +34,6 @@ product
               </div>
               <div class="filaDos">
                 <h3 class="tipo"> {{$product->category->name}} </h3>
-                <!-- <h4>$<?= $product->price ?></h4> -->
                 @if ($product->onSale==true && isset($product->discount))
                   @php
                     $onSalePrice = $product->price - $product->price/100*$product->discount; // precio * descuento / 100
@@ -50,7 +49,7 @@ product
                 <form action="/addToCart" class="ordenar" method="post">
                   @csrf
                   <label for="">Talle:</label>
-                  <select class="talles" name="talles">
+                  <select class="talles" name="size">
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>

@@ -8,8 +8,12 @@ class Cart extends Model
 {
   public $guarded = [];
 
-  public function users(){
-    return $this->hasMany("App\User", "cart_id");
+  public function user(){
+    return $this->belongsTo("App\User", "user_id");
   }
-  
+
+  public function product(){
+    return $this->belongsTo("App\User", "product_id");
+  }
+
 }

@@ -41,4 +41,8 @@ class User extends Authenticatable
       return $this->belongsTo("App\Cart", "cart_id");
     }
 
+    public function products(){
+      return $this->belongsToMany("App\Product", "Carts", "user_id", "product_id");
+    }
+
 }

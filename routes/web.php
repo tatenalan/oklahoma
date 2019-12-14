@@ -73,9 +73,9 @@ Route::put('/product/{id}', 'ProductController@update');
 
 Route::get('/product/{id}', 'ProductController@show');
 
-Route::get('/cart', 'CartController@show');
+Route::get('/cart', 'CartController@show')->middleware('auth');
 
-Route::post('/addToCart', 'CartController@addProduct');
+Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
 
 Auth::routes();

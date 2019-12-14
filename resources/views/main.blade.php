@@ -62,7 +62,7 @@ home
                 @else
                     <p class="precio">${{$product->price}}</p>
                 @endif
-                <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
+                <a class="ordenar" href="product/{{$product->id}}">Ordenar!  <ion-icon name="cart"></ion-icon></a>
               </div>
             </div>
 

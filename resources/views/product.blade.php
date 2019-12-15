@@ -22,7 +22,7 @@ product
               <div class="carrousel-img">
               @foreach ($product->images as $image)
               <div class="imagenesChiquiten">
-                <img class="imagen-producto-peque" onclick="changeImage(), this.style.border = '3px solid #18BC9C'"src="/storage/{{$image->path}}" alt="">
+                <img class="imagen-producto-peque" onclick="changeImage(), this.style.border = '3px solid #18BC9C' , this.style.opacity=0.7"src="/storage/{{$image->path}}" alt="">
               </div>
               @endforeach
               </div>
@@ -111,6 +111,7 @@ product
           }
           for (fotos of fotosChicas) {
             fotos.style.border = 'none';
+            fotos.style.opacity = 1;
           }
           console.log(imagenGrande.src);
           var imgs = fotosChicas;

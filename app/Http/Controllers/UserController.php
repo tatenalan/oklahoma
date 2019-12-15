@@ -43,23 +43,31 @@ class UserController extends Controller
 
     // Validamos
     $this->validate($request, $reglas,$mensajes);
-    // busco el usuario
-    $user = User::find(Auth::user()->id);
 
-    if ($request->file("poster")) {
+      // busco el usuario
+      $user = User::find(Auth::user()->id);
+      $user->first_name = $request['first_name']; // alternativa $movie->first_name = $request->first_name;
+      $user->last_name = $request['last_name'];
+      $user->email = $request['email'];
+
+      if ($request->file("avatar")) { // si cambian una foto         ALTERNATIVA: if ($request->file('poster'))
+        // obtenemos la ruta de la foto anterior
         $image_path = storage_path('app/public/') . $user->avatar;
+        // verificamos si existe en la base de datos y en storage
         if ($user->avatar && file_exists($image_path)) {
+        // elimina la foto del storage
           unlink($image_path);
         }
-        $ruta = $request->file("poster")->store("public");
-        $nombreDelArchivo = basename($ruta);
-        $user->avatar = $nombreDelArchivo;
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
-        $user->save();
-        $user->email = $request['email'];
-        return redirect('profile/');
-     }
+
+      $ruta = $request->file("avatar")->store("public"); // Esta ruta guarda al archivo con la ruta entera.
+      $nombreDelArchivo = basename($ruta); // basename recorta la ruta y nos deja solo el nombre del archivo.
+      $user->avatar = $nombreDelArchivo; // le asigna la nueva ruta a la base de datos
+      }
+
+      //guardo en la base de datos
+      $user->save();
+
+      return redirect('/profile');
 
 
     $user->first_name = $request['first_name'];
@@ -67,6 +75,12 @@ class UserController extends Controller
     $user->email = $request['email'];
     $user->save();
     return redirect('/profile');
+
+  }
+
+  public function delete(int $id) // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
+  {
+
 
   }
 

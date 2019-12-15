@@ -58,7 +58,7 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
           <div class="form-group">
             <label>Password: *</label>
-            <input name="password" value="" type="password" class="form-control" placeholder="Ingresa tu password">
+            <input name="password" value="" type="password" class="form-control" placeholder="Ingresa tu Password">
             <small class="form-text text-muted">Debe contener al menos 6 caracteres</small>
             @error('password')
               <p class="errorForm">{{ $message }}</p>
@@ -69,7 +69,7 @@ forms
       <div class="col-lg-4 col-md-6">
           <div class="form-group">
             <label>Confirm password: *</label>
-            <input name="password-confirm" value="" type="password" class="form-control" placeholder="Confirmar Password">
+            <input name="password_confirmation" value="" type="password" class="form-control" placeholder="Confirmar Password">
             @error('password-confirm')
               <p class="errorForm">{{ $message }}</p>
             @enderror

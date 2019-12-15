@@ -35,7 +35,7 @@ profile
       <br>
 
       <label for="">Avatar:</label>
-      <input type="file" name="poster" value="{{ old('avatar')}}">
+      <input type="file" name="avatar" value="{{ old('avatar')}}">
       @error('avatar')
         <div class="invalid-feedback">{{$message}}</div>
       @enderror

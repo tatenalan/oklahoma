@@ -22,7 +22,7 @@ product
               <div class="carrousel-img">
               @foreach ($product->images as $image)
               <div class="imagenesChiquiten">
-                <img class="imagen-producto-peque" onclick="changeImage()" src="/storage/{{$image->path}}" alt="">
+                <img class="imagen-producto-peque" onclick="changeImage(), this.style.border = '3px solid #18BC9C'"src="/storage/{{$image->path}}" alt="">
               </div>
               @endforeach
               </div>
@@ -105,9 +105,11 @@ product
         function changeImage(){
           var imagenGrande = document.querySelector('.imagen-producto');
           var fotosChicas = document.querySelectorAll(".imagen-producto-peque");
-          //imagenGrande.src = this.src;
           for (img of fotosChicas) {
             addEventListener('click',e=>(imagenGrande.src = e.target.src));
+          }
+          for (fotos of fotosChicas) {
+            fotos.style.border = 'none';
           }
           console.log(imagenGrande.src);
           var imgs = fotosChicas;

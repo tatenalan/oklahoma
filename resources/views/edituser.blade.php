@@ -54,6 +54,6 @@ profile
       <br>
       <input type="submit" name="" value="Edit">
     </form>
-    <a href="/edituser/{{Auth::user()->id}}'">Volver</a>
+    <a href="/profile">Volver</a>
   </div>
 @endsection('main')

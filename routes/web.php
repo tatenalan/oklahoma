@@ -47,6 +47,8 @@ Route::get('/login', function() {
   return view('login');
 });
 
+// products
+
 Route::get('/', 'ProductController@directory');
 
 Route::get('/remeras', 'ProductController@remeras');
@@ -75,9 +77,13 @@ Route::get('/product/{id}', 'ProductController@show');
 
 Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('auth');
 
+// carts
+
 Route::get('/cart', 'CartController@show')->middleware('auth');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
+
+// users
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
 

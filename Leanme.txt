@@ -30,17 +30,23 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 
 Necesario a terminar / errores a arreglar:
-- edit, destroy product
+- Arreglar delete del producto. hacer edit y update de producto, recordar incorporar los talles de pantalones en store, edit y update del producto. Lograr que el id del producto sea igual al id del stock
+- como saco el address required en register
+- como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
+- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post??
+- como hago para que el stock valide si no se escribe nada
+- No anda el no hay stock en product.blade
 - carrito funcional
 - colocarle middlewares a las rutas
 - Filtros para productos / buscador
-- cambio de imagenes en la vista product
+- arreglar cambio de imagenes en la vista product
 - al crear un pantalon que muestre sus talles (addproduct.blade)
 - mercadopago
 
 
 
 Herramientas a Incorporar / cosas extra por hacer 
+- hacer funcionar la tabla colores
 - pais y provincias con api
 - Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site
 - Un chat fixed abajo de todo a la derecha

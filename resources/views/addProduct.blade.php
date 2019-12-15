@@ -15,12 +15,12 @@ forms
 
           <div class="form-group">
             <label for="">Name: </label>
-            <input type="text" class="form-control" name="name" value="">
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
           </div>
 
           <div class="form-group">
             <label for="">Price: </label>
-            <input type="number" class="form-control" min="100" max="50000" step="100" name="price" value="0">
+            <input type="number" class="form-control" min="100" max="50000" step="100" name="price" @if ($_POST) value="{{ old('price') }}" @else value="0" @endif>
           </div>
 
           <div class="form-group">
@@ -33,7 +33,7 @@ forms
 
           <div class="form-group">
             <label for="">descuento: </label>
-            <input class="cantidad" type="number" class="form-control" name="discount" min="15" max="80" step="5" value="15">
+            <input class="cantidad" type="number" class="form-control" name="discount" max="80" step="5" value="0">
           </div>
 
           <div class="form-group">

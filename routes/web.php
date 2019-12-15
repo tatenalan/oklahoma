@@ -69,7 +69,7 @@ Route::get('/addproduct', 'ProductController@new');
 
 Route::post('/addproduct', 'ProductController@store');
 
-Route::get('/editproduct/{id}', 'ProductController@editShow');
+Route::get('/editproduct/{id}', 'ProductController@edit');
 
 Route::put('/editProduct/{id}', 'ProductController@edit');
 

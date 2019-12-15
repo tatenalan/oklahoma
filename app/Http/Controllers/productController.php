@@ -76,22 +76,35 @@ class productController extends Controller
       $stock->XS = $form->xs;
       $stock->S = $form->s;
       $stock->M = $form->m;
-      $stock->L = $form->l;
+      $stock->L = $form->l;           // los campos que escribimos aca deben estar presentes en el form de creacion!
       $stock->XL = $form->xl;
+      // $stock->T26 = $form->t26;
+      // $stock->T28 = $form->t28;
+      // $stock->T30 = $form->t30;
+      // $stock->T32 = $form->t32;
+      // $stock->T34 = $form->t34;
+      // $stock->T36 = $form->t36;
+      // $stock->T38 = $form->t38;
+      // $stock->T40 = $form->t40;
+      // $stock->T42 = $form->t42;
+      // $stock->T44 = $form->t44;
+      // $stock->T46 = $form->t46;
+      // $stock->T48 = $form->t48;
+      // $stock->T50 = $form->t50;
 
       // guardo en la base de datos
       $stock->save();
+
+
       // Instancio un producto
       $product = new Product();
-
-
       $product->name = $form['name']; // alternativa $producto->name = $request->name;
       $product->price = $form['price'];
       $product->onSale = $form['onSale'];
       $product->discount = $form['discount'];
       $product->genre_id = $form['genre_id'];
       $product->category_id = $form['category_id'];
-      $product->stock_id = $stock->id;
+      $product->id = $stock->id;  // modifique, antes era asi : $product->stock_id = $stock->id; Por ende no necesitamos la columna FK stock_id
 
       // guardo en la base de datos
       $product->save();
@@ -111,11 +124,14 @@ class productController extends Controller
           $file = $image->store('public');
           // obtengo sus nombres
           $path = basename($file);
+
+
           // por cada imagen instancio un objeto de la clase imagen
           $image = new Image;
-          // asigno las rutas correspondientes
+          // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
           $image->product_id = $productId;
           $image->path = $path;
+
           // guardo el objeto imagen instanciado en la base de datos
           $image->save();
         }
@@ -137,7 +153,7 @@ class productController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
+    public function show($id) // se muestran los datos del producto elegido
     {
       $product = Product::find($id);
       $image = Image::where('product_id', '=', $id)->get();
@@ -147,7 +163,8 @@ class productController extends Controller
       // dd($image);
       return view('product',$vac);
     }
-    public function editShow($id) // se muestran los datos del producto elegido
+
+    public function edit($id) // se muestran los datos del producto elegido listo para editar
     {
       $product = Product::find($id);
       $genres = Genre::all();
@@ -156,98 +173,6 @@ class productController extends Controller
       $stock = Stock::find($id);
 
       return view('/editProduct', compact('product', 'genres', 'categories','images' , 'stock'));
-    }
-
-    public function edit(Request $request, Int $id){
-
-      $reglas = [
-        'name' => 'required|string|min:1|max:50',
-        'price' => 'required|integer|min:50|max:15000',
-        'discount' => 'required|integer|min:0|max:80',
-        'genre_id' => 'required',
-        'category_id' => 'required',
-      ];
-
-
-      $mensajes = [
-        "required" => "El campo :attribute no puede estar vacio",
-        'string' => "El campo :attribute debe ser un texto",
-        "min" => "El campo :attribute tiene un minimo de :min caracteres",
-        "max" => "El campo :attribute tiene un maximo de :max caracteres",
-      ];
-
-
-      // Validamos
-      $this->validate($request,$reglas,$mensajes);
-
-      $product = Product::find($id);
-      // Instancio un stock
-      // Hay un problema al editar el stock, column not found error 1054 
-      if ($product->stock_id) {
-        $stock = Stock::find($product->stock_id);
-        $stock->S = $request->s;
-        $stock->XS = $request->xs;
-        $stock->M = $request->m;
-        $stock->L = $request->l;
-        $stock->XL = $request->xl;
-      }
-      else {
-        // Instancio un stock
-        $stock = new Stock;
-        $stock->XS = $request->xs;
-        $stock->S = $request->s;
-        $stock->M = $request->m;
-        $stock->L = $request->l;
-        $stock->XL = $request->xl;
-
-      }
-
-      // guardo en la base de datos
-      $stock->save();
-
-
-      $product->name = $request['name']; // alternativa $producto->name = $request->name;
-      $product->price = $request['price'];
-      $product->onSale = $request['onSale'];
-      $product->discount = $request['discount'];
-      $product->genre_id = $request['genre_id'];
-      $product->category_id = $request['category_id'];
-      $product->stock_id = $stock->id;
-
-      // guardo en la base de datos
-      $product->save();
-
-
-      // traigo el producto recien creado para obtener su ID
-      $lastProduct = Product::all()->last();
-      $productId = $lastProduct->id;
-
-      // if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
-      //   // obtengo el array de imagenes
-      //   $images = $form->file('images');
-      //   // traigo las imagenes y recorro el array
-      //   // $images = Image::all();
-      //   foreach ($images as $image) {
-      //     // guardo cada imagen en storage/public (no en la base de datos)
-      //     $file = $image->store('public');
-      //     // obtengo sus nombres
-      //     $path = basename($file);
-      //     // por cada imagen instancio un objeto de la clase imagen
-      //     $image = new Image;
-      //     // asigno las rutas correspondientes
-      //     $image->product_id = $productId;
-      //     $image->path = $path;
-      //     // guardo el objeto imagen instanciado en la base de datos
-      //     $image->save();
-      //   }
-      // }
-
-      // dd($form->all());
-
-      // Redirijo
-      return redirect('/')
-      ->with('status', 'Producto creado exitosamente!!!')
-      ->with('operation', 'success');
     }
 
     /**
@@ -270,11 +195,11 @@ class productController extends Controller
       'discount' => 'numeric|min:15|max:80',
       'genre_id' => 'required',
       'category_id' => 'required',
-      'xs' => 'numeric|min:0|max:1000',
-      's' => 'numeric|min:0|max:1000',
-      'm' => 'numeric|min:0|max:1000',
-      'l' => 'numeric|min:0|max:1000',
-      'xl' => 'numeric|min:0|max:1000',
+      'xs' => 'required|numeric|min:0|max:1000',
+      's' => 'required|numeric|min:0|max:1000',
+      'm' => 'required|numeric|min:0|max:1000',
+      'l' => 'required|numeric|min:0|max:1000',
+      'xl' => 'required|numeric|min:0|max:1000',
     ];
 
     $mensajes = [
@@ -335,12 +260,6 @@ class productController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-
-
-    public function destroy(Product $product)
-    {
-        //
-    }
 
     public function remeras(Product $product)
     {
@@ -405,16 +324,16 @@ class productController extends Controller
       $arrayImages = Image::where('product_id', '=', $id);
 
       for ($i=0; $i < count($arrayImages) ; $i++) {
-      // por cada imagen seleccionamos su path y la deslinkeamos
+      // por cada imagen seleccionamos su path y si existe la borramos de storage
       $image_path = storage_path('app/public/') . $arrayImages[$i]->path;
       // verificamos si existe en la base de datos y en storage
-      if ($product->images && file_exists($image_path)) {
-        // deslinkeo las imagenes
-        unlink($image_path);
+        if ($product->images && file_exists($image_path)) {
+          // elimina las imagenes de storage
+          unlink($image_path);
+        }
       }
-    }
-      $product->delete();
-      $images->delete();
+      $product->delete(); // borramos el producto
+      $images->delete(); // borramos las imagenes utilizando la relacion del modelo
       return redirect("/");
     }
 }

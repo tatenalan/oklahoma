@@ -85,7 +85,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      // Instancio un stock
+      // Instancio un carrito
       $cart = new Cart;
       $cart->quantity = 0;
 

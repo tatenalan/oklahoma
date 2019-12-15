@@ -54,32 +54,32 @@ product
                 <form action="/addToCart" class="ordenar" method="post">
                   @csrf
                   <label for="">Talle:</label>
-                  @if ($product->category_id==3)
+                  @if ($product->category_id==3) {{-- Si el producto es id = jeans, entonces muestro talles numericos --}}
                   <select class="talles" name="size">
-                    <option value="26">26</option></option>
-                    <option value="28">28</option></option>
-                    <option value="30">30</option></option>
-                    <option value="32">32</option></option>
-                    <option value="34">34</option></option>
-                    <option value="36">36</option></option>
-                    <option value="38">38</option></option>
-                    <option value="40">40</option></option>
-                    <option value="42">42</option></option>
-                    <option value="44">44</option></option>
-                    <option value="46">46</option></option>
-                    <option value="48">48</option></option>
-                    <option value="50">50</option></option>
+                    <option value="26">26 @if ($product->stock->T26==0)No hay stock!@endif</option>
+                    <option value="28">28 @if ($product->stock->T28==0)No hay stock!@endif</option>
+                    <option value="30">30 @if ($product->stock->T30==0)No hay stock!@endif</option>
+                    <option value="32">32 @if ($product->stock->T32==0)No hay stock!@endif</option>
+                    <option value="34">34 @if ($product->stock->T34==0)No hay stock!@endif</option>
+                    <option value="36">36 @if ($product->stock->T36==0)No hay stock!@endif</option>
+                    <option value="38">38 @if ($product->stock->T38==0)No hay stock!@endif</option>
+                    <option value="40">40 @if ($product->stock->T40==0)No hay stock!@endif</option>
+                    <option value="42">42 @if ($product->stock->T42==0)No hay stock!@endif</option>
+                    <option value="44">44 @if ($product->stock->T44==0)No hay stock!@endif</option>
+                    <option value="46">46 @if ($product->stock->T46==0)No hay stock!@endif</option>
+                    <option value="48">48 @if ($product->stock->T48==0)No hay stock!@endif</option>
+                    <option value="50">50 @if ($product->stock->T50==0)No hay stock!@endif</option>
                   </select>
                   @else
-                    @if ($product->stock) {{-- si el stock no es null --}}
+                    @if ($product->stock) {{-- si el stock en la BD no es null --}}
                       <select class="talles" name="size">
-                        <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option>
-                        <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option></option>
-                        <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option></option>
-                        <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option></option>
-                        <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option></option>
+                        <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option> {{-- Si el stock es 0 --}}
+                        <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option>
+                        <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option>
+                        <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option>
+                        <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option>
                       </select>
-                      @else
+                    @else {{-- si el stock es mayor a 0 --}}
                         <select class="talles" name="size">
                           <option value="XS">XS</option>
                           <option value="S">S</option></option>

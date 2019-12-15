@@ -16,24 +16,24 @@ class CreateStockTable extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->integer("XS")->nullable();
-            $table->integer("S")->nullable();
-            $table->integer("M")->nullable();
-            $table->integer("L")->nullable();
-            $table->integer("XL")->nullable();
-            $table->integer("26")->nullable();
-            $table->integer("28")->nullable();
-            $table->integer("30")->nullable();
-            $table->integer("32")->nullable();
-            $table->integer("34")->nullable();
-            $table->integer("36")->nullable();
-            $table->integer("38")->nullable();
-            $table->integer("40")->nullable();
-            $table->integer("42")->nullable();
-            $table->integer("44")->nullable();
-            $table->integer("46")->nullable();
-            $table->integer("48")->nullable();
-            $table->integer("50")->nullable();
+            $table->integer("XS")->default(0);
+            $table->integer("S")->default(0);
+            $table->integer("M")->default(0);
+            $table->integer("L")->default(0);
+            $table->integer("XL")->default(0);
+            $table->integer("T26")->default(0);
+            $table->integer("T28")->default(0);
+            $table->integer("T30")->default(0);
+            $table->integer("T32")->default(0);
+            $table->integer("T34")->default(0);
+            $table->integer("T36")->default(0);
+            $table->integer("T38")->default(0);
+            $table->integer("T40")->default(0);
+            $table->integer("T42")->default(0);
+            $table->integer("T44")->default(0);
+            $table->integer("T46")->default(0);
+            $table->integer("T48")->default(0);
+            $table->integer("T50")->default(0);
         });
     }
 

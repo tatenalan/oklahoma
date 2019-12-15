@@ -52,15 +52,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'birthDate' => ['required', 'date'],
+            'birth_date' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'avatar' => 'image|mimes:jpg,jpeg,png',
-            'address' => ['required', 'string', 'max:255',],
-            'terms' => ['required'],
+            'password' => ['required','between:6,255'.'confirmed'],
+            'avatar' => ['image'],
+            'home_address' => ['required', 'string', 'max:255'],
+            'terminos' => ['required'],
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -75,7 +74,6 @@ class RegisterController extends Controller
       $cart->quantity = 0;
 
       $cart->save();
-
       $path = null;
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');
@@ -85,13 +83,13 @@ class RegisterController extends Controller
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'birthDate' => $data['birthDate'],
+            'birthDate' => $data['birth_date'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'avatar' => $path,
-            'address' => $data['address'],
+            'address' => $data['home_address'],
             'cart_id' => $cart->id,
-            'isAdmin' => false,
+            'isAdmin' => 0,
         ]);
     }
 }

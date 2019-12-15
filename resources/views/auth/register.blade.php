@@ -12,10 +12,9 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
           @csrf
-
           <div class="form-group">
             <label>First Name: *</label>
-            <input name="nombre" value="{{ old('first_name') }}" type="text" class="form-control" placeholder="Ingresa tu Nombre">
+            <input name="first_name" value="{{ old('first_name') }}" type="text" class="form-control" placeholder="Ingresa tu Nombre">
             <small class="form-text text-muted">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
             @error('first_name')
               <p class="errorForm">{{ $message }}</p>
@@ -59,7 +58,7 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
           <div class="form-group">
             <label>Password: *</label>
-            <input name="password" value="{{ old('password') }}" type="password" class="form-control" placeholder="Ingresa tu password">
+            <input name="password" value="" type="password" class="form-control" placeholder="Ingresa tu password">
             <small class="form-text text-muted">Debe contener al menos 6 caracteres</small>
             @error('password')
               <p class="errorForm">{{ $message }}</p>
@@ -70,7 +69,7 @@ forms
       <div class="col-lg-4 col-md-6">
           <div class="form-group">
             <label>Confirm password: *</label>
-            <input name="password-confirm" value="{{ old('password-confirm') }}" type="password" class="form-control" placeholder="Confirmar Password">
+            <input name="password-confirm" value="" type="password" class="form-control" placeholder="Confirmar Password">
             @error('password-confirm')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -79,10 +78,10 @@ forms
 
       <div class="col-lg-4 offset-lg-2 col-md-6">
           <div class="form-group">
-            <label>Home adress: </label>
-            <input name="home_adress" value="{{ old('home_adress') }}" type="text" class="form-control" placeholder="Ingresa tu Direccion">
+            <label>Home address: </label>
+            <input name="home_address" value="{{ old('home_address') }}" type="text" class="form-control" placeholder="Ingresa tu Direccion">
             <small class="form-text text-muted">Formato: email@dominio.com</small>
-            @error('home_adress')
+            @error('home_address')
               <p class="errorForm">{{ $message }}</p>
             @enderror
           </div>

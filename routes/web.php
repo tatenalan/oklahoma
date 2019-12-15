@@ -89,6 +89,8 @@ Route::get('/profile', 'UserController@show')->middleware('auth');
 
 Route::get('/edituser', 'UserController@edit')->middleware('auth');
 
+Route::post('/deleteUser', 'UserController@delete')->middleware('auth');
+
 Route::put('/profile', 'UserController@update')->middleware('auth');
 
 Auth::routes();

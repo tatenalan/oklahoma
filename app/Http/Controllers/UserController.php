@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth; // Necesario para obtener los valores del Auth!!!!
+use Illuminate\Support\Facades\Hash; // Necesario para hashear la password!!!!
 
 class UserController extends Controller
 {
@@ -26,6 +27,7 @@ class UserController extends Controller
       'first_name' =>'required|string|min:2|max:40|',
       'last_name' =>'required|string|min:2|max:40|',
       'email' => ['required', 'string', 'email', 'max:255'], // le sacamos 'unique:users'
+      'password' => ['string', 'min:6'],
       'avatar' => 'image|mimes:jpg,jpeg,png'
     ];
 
@@ -49,6 +51,7 @@ class UserController extends Controller
       $user->first_name = $request['first_name']; // alternativa $movie->first_name = $request->first_name;
       $user->last_name = $request['last_name'];
       $user->email = $request['email'];
+      $user->password = Hash::make($request->password);
 
       if ($request->file("avatar")) { // si cambian una foto         ALTERNATIVA: if ($request->file('poster'))
         // obtenemos la ruta de la foto anterior
@@ -78,10 +81,21 @@ class UserController extends Controller
 
   }
 
-  public function delete(int $id) // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
+  public function delete() // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
   {
+    $user = User::find(Auth::user()->id);
+    // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo
+    $avatar = $user->avatar;
 
+    $image_path = storage_path('app/public/') . $avatar;
+    // verificamos si existe en la base de datos y en storage
+    if ($user->avatar && file_exists($image_path)) {
+      // deslinkeo las imagenes
+      unlink($image_path);
+    }
 
+    $user->delete();
+    return redirect("/");
   }
 
 

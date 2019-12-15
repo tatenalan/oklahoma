@@ -3,11 +3,11 @@
 Edit Product
 @endsection
 @section('css')
-contact
+forms
 @endsection
 @section('main')
   <div class="container">
-    <h5 class="centrado titulo">Agregar Producto</h5>
+    <h5 class="centrado titulo">Editar Producto</h5>
     <div class="row">
       <div class="col-lg-4 offset-lg-2 col-md-6">
 
@@ -61,27 +61,27 @@ contact
 
           <div class="form-group">
             <label for="">XS: </label>
-            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="">
+            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="{{$stock->XS}}">
           </div>
 
           <div class="form-group">
             <label for="">S: </label>
-            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="">
+            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="{{$stock->S}}">
           </div>
 
           <div class="form-group">
             <label for="">M: </label>
-            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="">
+            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="{{$stock->M}}">
           </div>
 
           <div class="form-group">
             <label for="">L: </label>
-            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="">
+            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="{{$stock->L}}">
           </div>
 
           <div class="form-group">
             <label for="">XL: </label>
-            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="">
+            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="{{$stock->XL}}">
           </div>
 
           <div class="form-group">
@@ -89,16 +89,16 @@ contact
             <br>
             {{-- para poder agregar varios archivos hay que colocar los [] en el name del file y el atributo multiple --}}
             <input type="file" name="images[]" value="" multiple>
-            @php
+            {{-- @php
               $image_path = storage_path('app/public/') . $product->$images->path; // traemos la variable con la ruta de la imagen
-            @endphp
+            @endphp --}}
 
             {{-- Si las imagenes existen tanto en la bd como en storage, las muestro --}}
-            @if ($images->product_id && file_exists($image_path))
               @foreach ($images as $image)
+                @if ($image->product_id && file_exists($image_path))
                 <img class="product-img" src="/storage/{{$image->path}}" alt="">
+                @endif
               @endforeach
-            @endif
           </div>
 
           <div class="form-group">

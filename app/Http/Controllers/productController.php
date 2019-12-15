@@ -160,11 +160,11 @@ class productController extends Controller
     {
       $product = Product::find($id);
       $genres = Genre::all();
+      $images = Image::where('product_id', '=', $id);
       $categories = Category::all();
-      $images = Image::all();
       $stock = Stock::find($id);
 
-      return view('/editProduct', compact('product', 'genres', 'categories', 'images'));
+      return view('/editProduct', compact('product', 'genres', 'categories','images' , 'stock'));
     }
 
     /**
@@ -319,10 +319,8 @@ class productController extends Controller
       // llamamos al producto a eliminar mediante su id
       $product = Product::find($id);
       // llamamos a las imagenes que tienen el id del producto a eliminar
-      $images = Image::where('product_id', '=', $id);
-      // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo
-      $arrayImages = $product->images;
-      // recorremos cada imagen
+      $arrayImages = Image::where('product_id', '=', $id);
+
       for ($i=0; $i < count($arrayImages) ; $i++) {
       // por cada imagen seleccionamos su path y la deslinkeamos
       $image_path = storage_path('app/public/') . $arrayImages[$i]->path;

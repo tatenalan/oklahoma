@@ -33,6 +33,13 @@ profile
       @enderror
 
       <br>
+      <label for="">Password:</label>
+      <input type="password" name="password" value="">
+      @error('password')
+        <div class="invalid-feedback">{{$message}}</div>
+      @enderror
+
+      <br>
 
       <label for="">Avatar:</label>
       <input type="file" name="avatar" value="{{ old('avatar')}}">
@@ -53,6 +60,10 @@ profile
 
       <br>
       <input type="submit" name="" value="Edit">
+    </form>
+    <form class="" action="/deleteUser" method="post">
+      @csrf
+      <input type="submit" name="" value="Borrar">
     </form>
     <a href="/profile">Volver</a>
   </div>

@@ -71,13 +71,23 @@ product
                     <option value="50">50</option></option>
                   </select>
                   @else
-                  <select class="talles" name="size">
-                    <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option>
-                    <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option></option>
-                    <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option></option>
-                    <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option></option>
-                    <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option></option>
-                  </select>
+                    @if ($product->stock)
+                      <select class="talles" name="size">
+                        <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option>
+                        <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option></option>
+                        <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option></option>
+                        <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option></option>
+                        <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option></option>
+                      </select>
+                      @else
+                        <select class="talles" name="size">
+                          <option value="XS">XS</option>
+                          <option value="S">S</option></option>
+                          <option value="M">M</option></option>
+                          <option value="L">L</option></option>
+                          <option value="XL">XL</option></option>
+                        </select>
+                    @endif
                 @endif
                     <p>Cantidad:</p>
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">

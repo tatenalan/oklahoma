@@ -57,7 +57,7 @@ class RegisterController extends Controller
         'password' => ['required','between:6,255','confirmed'],
         'avatar' => 'image|mimes:jpg,jpeg,png|max:2048',
         'home_address' => ['string', 'max:255'],
-        'terminos' => ['required'],
+        'terms' => ['required'],
       ],
       [
         "required" => "El campo :attribute no puede estar vacio",

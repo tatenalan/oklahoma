@@ -88,16 +88,14 @@ forms
             <label for="">Imagen del Producto: </label>
             <br>
             {{-- para poder agregar varios archivos hay que colocar los [] en el name del file y el atributo multiple --}}
-            <input type="file" name="images[]" value="" multiple>
+            <input type="file" name="images" value="" multiple>
             {{-- @php
               $image_path = storage_path('app/public/') . $product->$images->path; // traemos la variable con la ruta de la imagen
             @endphp --}}
 
             {{-- Si las imagenes existen tanto en la bd como en storage, las muestro --}}
-              @foreach ($images as $image)
-                @if ($image->product_id && file_exists($image_path))
-                <img class="product-img" src="/storage/{{$image->path}}" alt="">
-                @endif
+              @foreach ($product->images as $image)
+                <img class="product-img" style="margin-bottom:10px;margin-top:10px;" src="/storage/{{$image->path}}" alt="">
               @endforeach
           </div>
 

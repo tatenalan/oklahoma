@@ -147,20 +147,11 @@ class productController extends Controller
       // dd($image);
       return view('product',$vac);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-
-
     public function edit($id) // se muestran los datos del producto elegido
     {
       $product = Product::find($id);
       $genres = Genre::all();
-      $images = Image::where('product_id', '=', $id);
+      $image = Image::where('product_id', '=', $id)->get();
       $categories = Category::all();
       $stock = Stock::find($id);
 

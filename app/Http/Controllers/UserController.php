@@ -26,9 +26,7 @@ class UserController extends Controller
       'first_name' =>'required|string|min:2|max:40|',
       'last_name' =>'required|string|min:2|max:40|',
       'email' => ['required', 'string', 'email', 'max:255'], // le sacamos 'unique:users'
-      'password' => ['required', 'string', 'min:6', 'confirmed'],
-      'avatar' => 'image|mimes:jpg,jpeg,png',
-
+      'avatar' => 'image|mimes:jpg,jpeg,png'
     ];
 
     $mensajes = [
@@ -40,17 +38,34 @@ class UserController extends Controller
     "integer" => "El campo debe ser un numero entero",
     "numeric" => "El campo debe ser un numero",
     "image" => "Debe ser una imagen",
-    "mimes" => "Debe ser una imagen",
+    "mimes" => "Debe ser una imagen"
     ];
 
     // Validamos
-    $this->validate($request, $reglas);
-
+    $this->validate($request, $reglas,$mensajes);
     // busco el usuario
     $user = User::find(Auth::user()->id);
-    dd($user);
 
-    // Redirijo
+    if ($request->file("poster")) {
+        $image_path = storage_path('app/public/') . $user->avatar;
+        if ($user->avatar && file_exists($image_path)) {
+          unlink($image_path);
+        }
+        $ruta = $request->file("poster")->store("public");
+        $nombreDelArchivo = basename($ruta);
+        $user->avatar = $nombreDelArchivo;
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->save();
+        $user->email = $request['email'];
+        return redirect('profile/');
+     }
+
+
+    $user->first_name = $request['first_name'];
+    $user->last_name = $request['last_name'];
+    $user->email = $request['email'];
+    $user->save();
     return redirect('/profile');
 
   }

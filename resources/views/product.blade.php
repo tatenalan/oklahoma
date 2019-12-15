@@ -6,6 +6,11 @@ Product
 product
 @endsection
 @section('main')
+  @php
+  //dd($product->stock->XL);
+  // problema puntual, al acceder a los valores de talle numericos aparece un error
+  // $product->stock->28
+  @endphp
   <div class="container">
         <section class="producto">
           <div class="row">
@@ -49,13 +54,31 @@ product
                 <form action="/addToCart" class="ordenar" method="post">
                   @csrf
                   <label for="">Talle:</label>
+                  @if ($product->category_id==3)
                   <select class="talles" name="size">
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
+                    <option value="26">26</option></option>
+                    <option value="28">28</option></option>
+                    <option value="30">30</option></option>
+                    <option value="32">32</option></option>
+                    <option value="34">34</option></option>
+                    <option value="36">36</option></option>
+                    <option value="38">38</option></option>
+                    <option value="40">40</option></option>
+                    <option value="42">42</option></option>
+                    <option value="44">44</option></option>
+                    <option value="46">46</option></option>
+                    <option value="48">48</option></option>
+                    <option value="50">50</option></option>
                   </select>
+                  @else
+                  <select class="talles" name="size">
+                    <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option>
+                    <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option></option>
+                    <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option></option>
+                    <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option></option>
+                    <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option></option>
+                  </select>
+                @endif
                     <p>Cantidad:</p>
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">
                   <input type="number" hidden name="id" value="{{$product->id}}">

@@ -10,34 +10,34 @@ profile
     <form class="" action='/profile' method="post" enctype="multipart/form-data">
       @csrf
       @method('put')
-      <label for="">First Name: *</label>
+      <label for="">First Name:</label>
       <input type="text" name="first_name" value="{{ Auth::user()->first_name }} ">
       @error('first_name')
-        <div class="">{{$message}}</div>
+        <div class="invalid-feedback">{{$message}}</div>
       @enderror
 
       <br>
 
-      <label for="">Last Name: *</label>
+      <label for="">Last Name:</label>
       <input type="text" name="last_name" value="{{ Auth::user()->last_name }}">
       @error('last_name')
-        <div class="">{{$message}}</div>
+        <div class="invalid-feedback">{{$message}}</div>
       @enderror
 
       <br>
 
-      <label for="">Email: *</label>
+      <label for="">Email:</label>
       <input type="text" name="email" value="{{ Auth::user()->email }}">
       @error('email')
-        <div class="">{{$message}}</div>
+        <div class="invalid-feedback">{{$message}}</div>
       @enderror
 
       <br>
 
       <label for="">Avatar:</label>
-      <input type="file" name="avatar" value="{{ old('avatar')}}">
+      <input type="file" name="poster" value="{{ old('avatar')}}">
       @error('avatar')
-        <div class="">{{$message}}</div>
+        <div class="invalid-feedback">{{$message}}</div>
       @enderror
 
       <br>

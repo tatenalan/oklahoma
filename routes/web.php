@@ -67,7 +67,7 @@ Route::get('/addProduct', 'ProductController@new');
 
 Route::post('/addProduct', 'ProductController@store');
 
-Route::get('/editProduct/{id}', 'ProductController@edit');
+Route::get('/editproduct/{id}', 'ProductController@edit');
 
 Route::put('/product/{id}', 'ProductController@update');
 
@@ -76,6 +76,12 @@ Route::get('/product/{id}', 'ProductController@show');
 Route::get('/cart', 'CartController@show')->middleware('auth');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
+
+Route::get('/profile', 'UserController@show')->middleware('auth');
+
+Route::get('/edituser/{id}', 'UserController@edit');
+
+Route::put('/profile', 'UserController@update')->middleware('auth');
 
 
 Auth::routes();

@@ -60,23 +60,24 @@ product
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">
                   <input type="number" hidden name="id" value="{{$product->id}}">
                   <div class="filaSiete">
-                    <button type="submit"><h2>Ordenar!</h2></button>
+                    <button type="submit" class="ordenar btn btn-success">Ordenar</button>
                   </div>
                 </form>
               </div>
               <div class="filaCinco">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcou fugiat nulla pariatur. Excepteur sint</p>
               </div>
-              <div class="filaSeis">
-                <p>detalles del producto: </p>
-                <li>Agregar a favoritos LOGO</li>
-              </div>
               <div class="filaCuatro">
                 <ul class="compartirEnRedes">
                   <li><ion-icon class="rounded-circle border" name="logo-facebook"></li>
-                  <li><ion-icon class="rounded-circle border" name="logo-twitter"></li>
-                  <li><ion-icon class="rounded-circle border" name="logo-instagram"></a></li>
-                </ul>
+                    <li><ion-icon class="rounded-circle border" name="logo-twitter"></li>
+                      <li><ion-icon class="rounded-circle border" name="logo-instagram"></a></li>
+                      </ul>
+                    </div>
+              <div class="filaSeis">
+                <ul>
+                  <h6 class="centrado">Agregar a favoritos <i class="far fa-heart"></i></h6>
+              </ul>
               </div>
             </div>
           </div>
@@ -113,7 +114,6 @@ product
           }
           console.log(imagenGrande.src);
           var imgs = fotosChicas;
-
         }
       </script>
 @endsection

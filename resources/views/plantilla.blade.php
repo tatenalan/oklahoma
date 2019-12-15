@@ -22,7 +22,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/main"><img class="logo" src="/img/Logo2.png" alt = "Logo"></a>
+        <a class="navbar-brand" href="/"><img class="logo" src="/img/Logo2.png" alt = "Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,7 +58,7 @@
             @if (Auth::user())
             <li class="nav-item">
               @if (Auth::user()->isAdmin == true)
-              <a class="nav-link" href="/addProduct"><i class="fas fa-plus-circle"></i> Add Product</a>
+              <a class="nav-link" href="/addproduct"><i class="fas fa-plus-circle"></i> Add Product</a>
               @endif
             </li>
             <li>

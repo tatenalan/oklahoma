@@ -21,7 +21,7 @@ class productController extends Controller
        $categories = Category::all();
        $images = Image::all();
        $vac = compact('products','categories','images');
-       return view('main',$vac);
+       return view('/main',$vac);
      }
 
     /**
@@ -35,7 +35,7 @@ class productController extends Controller
        $categories = Category::all();
        $genres = Genre::all();
        $vac = compact('products','categories', 'genres');
-       return view('addProduct',$vac);
+       return view('addproduct',$vac);
      }
 
     /**
@@ -124,7 +124,7 @@ class productController extends Controller
       // dd($form->all());
 
       // Redirijo
-      return redirect('/main')
+      return redirect('/')
       ->with('status', 'Producto creado exitosamente!!!')
       ->with('operation', 'success');
     }

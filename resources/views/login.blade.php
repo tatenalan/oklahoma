@@ -27,5 +27,5 @@ login
 			</form>
       <h6>No tienes una cuenta? <a href="/register">Crear cuenta</a></h6>
       <h6>Olvidaste tu password? <a href="/home">Recuperar password</a></h6>
-	  </section>
+	</section>
 @endsection

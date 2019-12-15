@@ -3,7 +3,7 @@
 Add Product
 @endsection
 @section('css')
-contact
+forms
 @endsection
 @section('main')
   <div class="container">

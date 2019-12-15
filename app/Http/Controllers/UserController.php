@@ -44,9 +44,11 @@ class UserController extends Controller
     ];
 
     // Validamos
+    $this->validate($request, $reglas);
 
-
-    $this->validate($request, $reglas, $mensajes);
+    // busco el usuario
+    $user = User::find(Auth::user()->id);
+    dd($user);
 
     // Redirijo
     return redirect('/profile');

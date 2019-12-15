@@ -3,14 +3,14 @@
 Contact us
 @endsection
 @section('css')
-contact
+forms
 @endsection
 @section('main')
   <div class="container">
       <h5 class="centrado titulo">Formulario de contacto</h5>
       <div class="row">
         <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-          <form>
+          <form method="POST" action="/">
             <div class="form-group">
               <label for="exampleFormControlInput1">Nombre *</label>
               <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre" required>

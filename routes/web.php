@@ -23,9 +23,9 @@ Auth::routes();
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+// Route::get('/', function () {
+//   return view('welcome');
+// });
 
 Route::get('/nosotros', function() {
   return view('nosotros');
@@ -47,7 +47,7 @@ Route::get('/login', function() {
   return view('login');
 });
 
-Route::get('/main', 'ProductController@directory');
+Route::get('/', 'ProductController@directory');
 
 Route::get('/remeras', 'ProductController@remeras');
 
@@ -63,9 +63,9 @@ Route::get('/accesorios', 'ProductController@accesorios');
 
 Route::get('/ofertas', 'ProductController@ofertas');
 
-Route::get('/addProduct', 'ProductController@new');
+Route::get('/addproduct', 'ProductController@new');
 
-Route::post('/addProduct', 'ProductController@store');
+Route::post('/addproduct', 'ProductController@store');
 
 Route::get('/editproduct/{id}', 'ProductController@edit');
 
@@ -79,7 +79,7 @@ Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
 
-Route::get('/edituser', 'UserController@edit');
+Route::get('/edituser', 'UserController@edit')->middleware('auth');
 
 Route::put('/profile', 'UserController@update')->middleware('auth');
 

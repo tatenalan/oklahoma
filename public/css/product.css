@@ -7,7 +7,7 @@ section.producto {
 }
 
 .imagen-producto {
-  width: 100%;
+  width: 80%;
 }
 
 .carrousel-img {
@@ -32,6 +32,7 @@ section.producto {
 .ordenar {
   display: flex;
   justify-content: left;
+
 }
 
 .filaUno {
@@ -106,8 +107,8 @@ div .row div {
 .descuento {
   padding-top: 10px;
   position: absolute;
-  right: -16px;
-  top: -20px;
+  right: 11%;
+  top: 1px;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -125,6 +126,21 @@ div .row div {
   color: red;
   padding-right: 6px;
   font-size: 18px;
+}
+
+section.productos {
+  padding: 20px;
+}
+
+button.ordenar {
+  position: relative;
+  bottom: 12px;
+  left: 30px;
+}
+
+.btn-success {
+  background-color: #18BC9C;
+  border: none;
 }
 
 /* para persistir las flechitas del input number sin necesidad de hacerle hover */

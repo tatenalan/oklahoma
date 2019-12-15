@@ -65,7 +65,7 @@
               <a class="nav-link" href="/profile"><i class="fas fa-user"></i> {{auth::user()->first_name}} </a>
             </li>
             <li>
-                <form class="" action="logout" method="post">
+                <form class="" action="/logout" method="post">
                   @csrf
                   <p><button class="nav-link" type="submit" name="button"><i class="fas fa-sign-out-alt"></i><span> Cerrar Sesion</span></button></p>
                 </form>

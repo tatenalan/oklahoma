@@ -79,7 +79,7 @@ Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
 
-Route::get('/edituser/{id}', 'UserController@edit');
+Route::get('/edituser', 'UserController@edit');
 
 Route::put('/profile', 'UserController@update')->middleware('auth');
 

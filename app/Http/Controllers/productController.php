@@ -316,15 +316,24 @@ class productController extends Controller
     }
 
     public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes
+      // llamamos al producto a eliminar mediante su id
       $product = Product::find($id);
+      // llamamos a las imagenes que tienen el id del producto a eliminar
+      $images = Image::where('product_id', '=', $id);
+      // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo
       $arrayImages = $product->images;
+      // recorremos cada imagen
       for ($i=0; $i < count($arrayImages) ; $i++) {
+      // por cada imagen seleccionamos su path y la deslinkeamos
       $image_path = storage_path('app/public/') . $arrayImages[$i]->path;
+      // verificamos si existe en la base de datos y en storage
       if ($product->images && file_exists($image_path)) {
+        // deslinkeo las imagenes
         unlink($image_path);
       }
     }
       $product->delete();
+      $images->delete();
       return redirect("/");
     }
 }

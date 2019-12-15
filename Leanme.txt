@@ -31,10 +31,11 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 Necesario a terminar / errores a arreglar:
 - edit, destroy product
-- Filtros para productos / buscador
 - carrito funcional
-- cambio de imagenes en la vista product
 - colocarle middlewares a las rutas
+- Filtros para productos / buscador
+- cambio de imagenes en la vista product
+- al crear un pantalon que muestre sus talles (addproduct.blade)
 - mercadopago
 
 

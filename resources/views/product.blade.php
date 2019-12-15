@@ -71,7 +71,7 @@ product
                     <option value="50">50</option></option>
                   </select>
                   @else
-                    @if ($product->stock)
+                    @if ($product->stock) {{-- si el stock no es null --}}
                       <select class="talles" name="size">
                         <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option>
                         <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option></option>

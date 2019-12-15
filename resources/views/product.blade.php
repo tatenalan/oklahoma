@@ -96,6 +96,12 @@ product
                     <button type="submit" class="ordenar btn btn-success">Ordenar</button>
                   </div>
                 </form>
+                <div class="filaSiete">
+                  <form class="" action="/delete/product/{{$product->id}}" method="post">
+                    @csrf
+                    <button type="submit" class="ordenar btn btn-success eliminar">Eliminar producto</button>
+                  </form>
+                </div>
               </div>
               <div class="filaCinco">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcou fugiat nulla pariatur. Excepteur sint</p>

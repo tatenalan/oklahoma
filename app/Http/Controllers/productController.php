@@ -314,4 +314,17 @@ class productController extends Controller
       $vac = compact('products','category');
       return view('jeans',$vac);
     }
+
+    public function delete(int $id){
+      $product = Product::find($id);
+      $arrayImages = $product->images;
+      for ($i=0; $i < count($arrayImages) ; $i++) {
+      $image_path = storage_path('app/public/') . $arrayImages[$i]->path;
+      if ($product->images && file_exists($image_path)) {
+        unlink($image_path);
+      }
+    }
+      $product->delete();
+      return redirect("/");
+    }
 }

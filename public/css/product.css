@@ -147,3 +147,6 @@ button.ordenar {
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1
 }
+.eliminar{
+  margin-left: 5px;
+}

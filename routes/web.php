@@ -83,6 +83,7 @@ Route::get('/edituser', 'UserController@edit')->middleware('auth');
 
 Route::put('/profile', 'UserController@update')->middleware('auth');
 
+Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('auth');
 
 Auth::routes();
 

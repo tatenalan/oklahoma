@@ -315,7 +315,7 @@ class productController extends Controller
       return view('jeans',$vac);
     }
 
-    public function delete(int $id){
+    public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes
       $product = Product::find($id);
       $arrayImages = $product->images;
       for ($i=0; $i < count($arrayImages) ; $i++) {

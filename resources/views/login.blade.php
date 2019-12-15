@@ -11,7 +11,7 @@ login
 			<form class="access-form" action="" method="post">
 				<div class="field-group">
 					<label for="email">Email</label>
-					<input type="email" id="email" name="email" placeholder="correo@dominio.com" value="<?php if($_POST){ echo $_POST['email'];}?>">
+					<input type="email" id="email" name="email" placeholder="correo@dominio.com" value="{{old('email')}}">
 				</div>
 				<div class="field-group">
 					<label for="password">Contraseña</label>

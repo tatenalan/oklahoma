@@ -49,16 +49,32 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'birth_date' => ['required', 'date'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required','between:6,255'.'confirmed'],
-            'avatar' => ['image'],
-            'home_address' => ['required', 'string', 'max:255'],
-            'terminos' => ['required'],
-        ]);
+      return Validator::make($data, [
+        'first_name' => ['required', 'string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
+        'birth_date' => ['required', 'date'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required','between:6,255','confirmed'],
+        'avatar' => 'image|mimes:jpg,jpeg,png|max:2048',
+        'home_address' => ['string', 'max:255'],
+        'terminos' => ['required'],
+      ],
+      [
+        "required" => "El campo :attribute no puede estar vacio",
+        "password.confirmed" => "Las contraseñas no coinciden",
+        'string' => "El campo :attribute debe ser un texto",
+        "date" => "El campo debe ser una fecha",
+        "password.between" => "Tu contraseña debe tener como mínimo 6 caracteres",
+        "unique" => "El email que ingresaste ya esta en uso",
+        "email" => "Por favor ingrese un email",
+        "avatar"=> "Por favor ingrese una imagen",
+        "min" => "El campo :attribute tiene un minimo de :min caracteres",
+        "max" => "El campo :attribute tiene un maximo de :max caracteres",
+        "image" => "Por favor suba una imagen",
+        "avatar.mimes" => 'Formato de imagen invalido',
+        "terms.required" => 'Debes aceptar los terminos y condiciones',
+        "avatar.max" => 'La imagen es muy pesada'
+      ]);
     }
     /**
      * Create a new user instance after a valid registration.

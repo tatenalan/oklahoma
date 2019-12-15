@@ -91,7 +91,7 @@ forms
           <div class="form-group">
           <label for="">Sube tu avatar: (opcional)</label><br>
           <input class="sin-archivo" type="file" name="avatar" value=""><br>
-          <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png.</small>
+          <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png. Peso maximo 2mb</small>
             @error('avatar')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -100,9 +100,11 @@ forms
 
           <div class="col-lg-4 offset-lg-2 col-md-6">
             <div class="form-group form-check">
-              <input value="TerminosAceptados" name="terminos" type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input value="TerminosAceptados" name="terms" type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Acepto los terminos y condiciones *</label>
-              <p class="errorForm">
+              @error('terms')
+                <p class="errorForm">{{ $message }}</p>
+              @enderror
             </div>
             <div class="form-group form-check">
               <input value="Newsletter" name="Newsletter" type="checkbox" class="form-check-input" id="exampleCheck2">

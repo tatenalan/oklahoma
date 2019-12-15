@@ -147,7 +147,7 @@ class productController extends Controller
       // dd($image);
       return view('product',$vac);
     }
-    public function edit($id) // se muestran los datos del producto elegido
+    public function editShow($id) // se muestran los datos del producto elegido
     {
       $product = Product::find($id);
       $genres = Genre::all();
@@ -156,6 +156,98 @@ class productController extends Controller
       $stock = Stock::find($id);
 
       return view('/editProduct', compact('product', 'genres', 'categories','images' , 'stock'));
+    }
+
+    public function edit(Request $request, Int $id){
+
+      $reglas = [
+        'name' => 'required|string|min:1|max:50',
+        'price' => 'required|integer|min:50|max:15000',
+        'discount' => 'required|integer|min:0|max:80',
+        'genre_id' => 'required',
+        'category_id' => 'required',
+      ];
+
+
+      $mensajes = [
+        "required" => "El campo :attribute no puede estar vacio",
+        'string' => "El campo :attribute debe ser un texto",
+        "min" => "El campo :attribute tiene un minimo de :min caracteres",
+        "max" => "El campo :attribute tiene un maximo de :max caracteres",
+      ];
+
+
+      // Validamos
+      $this->validate($request,$reglas,$mensajes);
+
+      $product = Product::find($id);
+      // Instancio un stock
+      // Hay un problema al editar el stock, column not found error 1054 
+      if ($product->stock_id) {
+        $stock = Stock::find($product->stock_id);
+        $stock->S = $request->s;
+        $stock->XS = $request->xs;
+        $stock->M = $request->m;
+        $stock->L = $request->l;
+        $stock->XL = $request->xl;
+      }
+      else {
+        // Instancio un stock
+        $stock = new Stock;
+        $stock->XS = $request->xs;
+        $stock->S = $request->s;
+        $stock->M = $request->m;
+        $stock->L = $request->l;
+        $stock->XL = $request->xl;
+
+      }
+
+      // guardo en la base de datos
+      $stock->save();
+
+
+      $product->name = $request['name']; // alternativa $producto->name = $request->name;
+      $product->price = $request['price'];
+      $product->onSale = $request['onSale'];
+      $product->discount = $request['discount'];
+      $product->genre_id = $request['genre_id'];
+      $product->category_id = $request['category_id'];
+      $product->stock_id = $stock->id;
+
+      // guardo en la base de datos
+      $product->save();
+
+
+      // traigo el producto recien creado para obtener su ID
+      $lastProduct = Product::all()->last();
+      $productId = $lastProduct->id;
+
+      // if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
+      //   // obtengo el array de imagenes
+      //   $images = $form->file('images');
+      //   // traigo las imagenes y recorro el array
+      //   // $images = Image::all();
+      //   foreach ($images as $image) {
+      //     // guardo cada imagen en storage/public (no en la base de datos)
+      //     $file = $image->store('public');
+      //     // obtengo sus nombres
+      //     $path = basename($file);
+      //     // por cada imagen instancio un objeto de la clase imagen
+      //     $image = new Image;
+      //     // asigno las rutas correspondientes
+      //     $image->product_id = $productId;
+      //     $image->path = $path;
+      //     // guardo el objeto imagen instanciado en la base de datos
+      //     $image->save();
+      //   }
+      // }
+
+      // dd($form->all());
+
+      // Redirijo
+      return redirect('/')
+      ->with('status', 'Producto creado exitosamente!!!')
+      ->with('operation', 'success');
     }
 
     /**

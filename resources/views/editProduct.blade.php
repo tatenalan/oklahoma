@@ -12,7 +12,7 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
 
         <!-- Vista de edicion del Producto-->
-        <form class="form-signup" action='/product/{{$product['id']}}' method="post" enctype="multipart/form-data">
+        <form class="form-signup" action='/editProduct/{{$product['id']}}' method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           <input type="hidden" name="_method" value="PUT">  {{--<!-- alternativa @method('put') --}}
 
@@ -36,7 +36,7 @@ forms
 
           <div class="form-group">
             <label for="">descuento: </label>
-            <input class="cantidad" type="number" class="form-control" name="discount" min="15" max="80" step="5" value="{{ old('discount',$product->discount)}}">
+            <input class="cantidad" type="number" class="form-control" name="discount" min="0" max="80" step="5" value="{{ old('discount',$product->discount)}}">
           </div>
 
           <div class="form-group">
@@ -58,31 +58,57 @@ forms
               @endforeach
             </select>
           </div>
+          @if ($product->stock_id)
 
           <div class="form-group">
             <label for="">XS: </label>
-            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="{{$stock->XS}}">
+            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="{{$product->stock->XS}}">
           </div>
-
           <div class="form-group">
             <label for="">S: </label>
-            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="{{$stock->S}}">
+            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="{{$product->stock->S}}">
           </div>
 
           <div class="form-group">
             <label for="">M: </label>
-            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="{{$stock->M}}">
+            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="{{$product->stock->M}}">
           </div>
 
           <div class="form-group">
             <label for="">L: </label>
-            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="{{$stock->L}}">
+            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="{{$product->stock->L}}">
           </div>
 
           <div class="form-group">
             <label for="">XL: </label>
-            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="{{$stock->XL}}">
+            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="{{$product->stock->XL}}">
           </div>
+        @else
+          <div class="form-group">
+            <label for="">XS: </label>
+            <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="">S: </label>
+            <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="">M: </label>
+            <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="">L: </label>
+            <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="">XL: </label>
+            <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="0">
+          </div>
+        @endif
 
           <div class="form-group">
             <label for="">Imagen del Producto: </label>

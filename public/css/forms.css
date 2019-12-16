@@ -85,6 +85,15 @@
   width: 200px;
 }
 
+.talles {
+	display: flex;
+	justify-content: space-between;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+
 
 @media (min-width: 768px) {
 

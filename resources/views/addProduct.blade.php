@@ -9,7 +9,7 @@ forms
   <div class="container">
     <h5 class="centrado titulo">Agregar Producto</h5>
     <div class="row">
-      <div class="col-lg-4 offset-lg-2 col-md-6">
+      <div class="col-lg-6 offset-lg-2 col-md-6">
         <form class="form-signup" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
 
@@ -71,6 +71,9 @@ forms
             @enderror
           </div>
 
+          <div class="talles">
+
+
           <div class="form-group">
             <label for="">XS: </label>
             <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
@@ -109,6 +112,8 @@ forms
             @error('xl')
               <p class="errorForm">{{ $message }}</p>
             @enderror
+          </div>
+
           </div>
 
           <div class="form-group">

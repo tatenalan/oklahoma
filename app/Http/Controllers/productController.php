@@ -173,7 +173,7 @@ class productController extends Controller
     {
       $product = Product::find($id);
       $genres = Genre::all();
-      $image = Image::where('product_id', '=', $id)->get();
+      $images = Image::where('product_id', '=', $id)->get();
       $categories = Category::all();
       $stock = Stock::find($id);
 
@@ -197,7 +197,7 @@ class productController extends Controller
       'name' =>'required|string|min:3|max:40|',
       'price' =>'required|numeric|min:0|max:100000|',
       'onSale' => 'required',
-      'discount' => 'numeric|min:15|max:80',
+      'discount' => 'numeric|min:0|max:80',
       'genre_id' => 'required',
       'category_id' => 'required',
       'xs' => 'required|numeric|min:0|max:1000',
@@ -224,16 +224,15 @@ class productController extends Controller
     $product = Product::find($id);
 
     // busco el stock del producto a editar
-    $stock = Stock::where('id', '=', $product->stock_id);
 
-    $stock->XS = $form->xs;
-    $stock->S = $form->s;
-    $stock->M = $form->m;
-    $stock->L = $form->l;
-    $stock->XL = $form->xl;
+    $product->stock->XS = $form->xs;
+    $product->stock->S = $form->s;
+    $product->stock->M = $form->m;
+    $product->stock->L = $form->l;
+    $product->stock->XL = $form->xl;
 
     // guardo en la base de datos
-    $stock->save();
+    $product->stock->save();
 
     $product->name = $form['name']; // alternativa $producto->name = $request->name;
     $product->price = $form['price'];
@@ -241,7 +240,6 @@ class productController extends Controller
     $product->discount = $form['discount'];
     $product->genre_id = $form['genre_id'];
     $product->category_id = $form['category_id'];
-    $product->stock_id = $stock->id;
 
     // guardo en la base de datos
     $product->save();
@@ -254,7 +252,7 @@ class productController extends Controller
 
 
     // Redirijo
-    return redirect('/product/{id}')
+    return redirect('/product/'.$product->id)
     ->with('status', 'Producto editado exitosamente!!!')
     ->with('operation', 'success');
   }

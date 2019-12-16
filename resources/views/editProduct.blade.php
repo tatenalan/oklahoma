@@ -18,12 +18,12 @@ forms
 
           <div class="form-group">
             <label for="">Name: </label>
-            <input type="text" class="form-control" name="name" value="{{ old('name',$product->name)}}">
+            <input type="text" class="form-control" name="name" value="{{ old('name',$product->name)}}"> <?php // Se le pone el old(name, product name) No solo para que agarre los datos del nombre sino para que tambien persistan los cambios ante un error ?>
           </div>
 
           <div class="form-group">
             <label for="">Price: </label>
-            <input type="number" class="form-control" name="price" value="{{ old('price',$product->price)}}">
+            <input type="number" class="form-control" min="300" max="15000" step="100" name="price" value="{{ old('price',$product->price)}}">
           </div>
 
           <div class="form-group">

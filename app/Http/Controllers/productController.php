@@ -57,6 +57,11 @@ class productController extends Controller
         'discount' => 'required|integer|min:0|max:80',
         'genre_id' => 'required',
         'category_id' => 'required',
+        'xs' => 'required',
+        's' => 'required',
+        'm' => 'required',
+        'l' => 'required',
+        'xl' => 'required',
       ];
 
 
@@ -104,7 +109,7 @@ class productController extends Controller
       $product->discount = $form['discount'];
       $product->genre_id = $form['genre_id'];
       $product->category_id = $form['category_id'];
-      $product->id = $stock->id;  // modifique, antes era asi : $product->stock_id = $stock->id; Por ende no necesitamos la columna FK stock_id
+      $product->stock_id = $stock->id ;  // modifique, antes era asi : $product->stock_id = $stock->id; Por ende no necesitamos la columna FK stock_id
 
       // guardo en la base de datos
       $product->save();

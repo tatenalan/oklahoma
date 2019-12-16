@@ -6,8 +6,11 @@ use App\Product;
 use Faker\Generator as Faker;
 use App\Genre;
 use App\Category;
+use App\Stock;
 
 $factory->define(Product::class, function (Faker $faker) {
+    $stock = new Stock();
+    $stock->save();
     $genres = Genre::all();
     $random = $faker->randomDigit();
     $categories = Category::all();
@@ -32,5 +35,6 @@ $factory->define(Product::class, function (Faker $faker) {
       'discount' => $discount,
       'genre_id' => $genres->random(),
       'category_id' => $categories->random(),
+      'stock_id' => $stock->id,
     ];
 });

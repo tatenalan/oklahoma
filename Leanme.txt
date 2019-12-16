@@ -4,7 +4,7 @@ https://www.befunky.com/es/crear/cambiar-tamanos-de-imagenes/
 Esta web sirve para modificar el tamaño de las imagenes que vayamos a usar
 
 https://www.guidacode.com/2018/php/como-validar-una-fecha-en-php/
-para validar fecha de nacimiento mayor a 18 
+para validar fecha de nacimiento mayor a 18
 
 https://es.slideshare.net/MariaCabezn/juego-tab-adultos
 Pagina POO (Programacion orientada a objetos)
@@ -43,7 +43,8 @@ Necesario a terminar / errores a arreglar:
 
 
 
-Herramientas a Incorporar / cosas extra por hacer 
+Herramientas a Incorporar / cosas extra por hacer
+- hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
 - como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post??
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
 - como saco el address required en register

@@ -64,6 +64,7 @@ section.producto {
 
 .filaSiete{
   text-align: left;
+  display: flex;
 }
 
 .compartirEnRedes {

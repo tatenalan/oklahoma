@@ -123,18 +123,20 @@ forms
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-success" value="Edit Product">Editar producto</button>
+            <button type="submit" hidden id="botongeneral" class="btn btn-success" value="Edit Product">Editar producto</button>
           </div>
         </form>
+
         <form class="" action="/agregarimagen" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <label for="">Agregar una imagen</label>
-            <input type="file" multiple name="images[]" value=""> 
+            <input type="file" multiple name="images[]" value="">
             <input type="hidden" name="productid" value="{{$product->id}}">
             <button type="submit" class="btn btn-success" value="">Agregar imagen</button>
           </div>
         </form>
+
         @foreach ($product->images as $image)
           <form class="" action="/eliminarimagen" method="post">
             @csrf
@@ -143,6 +145,8 @@ forms
             <button type="submit" name="">Eliminar Imagen</button>
           </form>
         @endforeach
+
+        <label class="boton-label" for="botongeneral">Editar producto</label>
 
       <ul style="color:red" class="errores">
         @foreach ($errors->all() as $error)

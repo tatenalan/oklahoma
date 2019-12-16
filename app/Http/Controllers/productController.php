@@ -46,7 +46,7 @@ class productController extends Controller
      */
 
 
-    public function store(Request $form) // agrega un producto y te redirige a la lista de productos
+    public function store(Request $request) // agrega un producto y te redirige a la lista de productos
     {
 
       // Declaro las variables de validacion
@@ -74,28 +74,28 @@ class productController extends Controller
 
 
       // Validamos
-      $this->validate($form,$reglas,$mensajes);
+      $this->validate($request,$reglas,$mensajes);
 
       // Instancio un stock
       $stock = new Stock;
-      $stock->XS = $form->xs;
-      $stock->S = $form->s;
-      $stock->M = $form->m;
-      $stock->L = $form->l;           // los campos que escribimos aca deben estar presentes en el form de creacion!
-      $stock->XL = $form->xl;
-      // $stock->T26 = $form->t26;
-      // $stock->T28 = $form->t28;
-      // $stock->T30 = $form->t30;
-      // $stock->T32 = $form->t32;
-      // $stock->T34 = $form->t34;
-      // $stock->T36 = $form->t36;
-      // $stock->T38 = $form->t38;
-      // $stock->T40 = $form->t40;
-      // $stock->T42 = $form->t42;
-      // $stock->T44 = $form->t44;
-      // $stock->T46 = $form->t46;
-      // $stock->T48 = $form->t48;
-      // $stock->T50 = $form->t50;
+      $stock->XS = $request->xs;
+      $stock->S = $request->s;
+      $stock->M = $request->m;
+      $stock->L = $request->l;           // los campos que escribimos aca deben estar presentes en el form de creacion!
+      $stock->XL = $request->xl;
+      // $stock->T26 = $request->t26;
+      // $stock->T28 = $request->t28;
+      // $stock->T30 = $request->t30;
+      // $stock->T32 = $request->t32;
+      // $stock->T34 = $request->t34;
+      // $stock->T36 = $request->t36;
+      // $stock->T38 = $request->t38;
+      // $stock->T40 = $request->t40;
+      // $stock->T42 = $request->t42;
+      // $stock->T44 = $request->t44;
+      // $stock->T46 = $request->t46;
+      // $stock->T48 = $request->t48;
+      // $stock->T50 = $request->t50;
 
       // guardo en la base de datos
       $stock->save();
@@ -103,12 +103,12 @@ class productController extends Controller
 
       // Instancio un producto
       $product = new Product();
-      $product->name = $form['name']; // alternativa $producto->name = $request->name;
-      $product->price = $form['price'];
-      $product->onSale = $form['onSale'];
-      $product->discount = $form['discount'];
-      $product->genre_id = $form['genre_id'];
-      $product->category_id = $form['category_id'];
+      $product->name = $request['name']; // alternativa $producto->name = $request->name;
+      $product->price = $request['price'];
+      $product->onSale = $request['onSale'];
+      $product->discount = $request['discount'];
+      $product->genre_id = $request['genre_id'];
+      $product->category_id = $request['category_id'];
       $product->stock_id = $stock->id ;  // modifique, antes era asi : $product->stock_id = $stock->id; Por ende no necesitamos la columna FK stock_id
 
       // guardo en la base de datos
@@ -119,9 +119,9 @@ class productController extends Controller
       $lastProduct = Product::all()->last();
       $productId = $lastProduct->id;
 
-      if (!empty($form['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
+      if (!empty($request['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
         // obtengo el array de imagenes
-        $images = $form->file('images');
+        $images = $request->file('images');
         // traigo las imagenes y recorro el array
         // $images = Image::all();
         foreach ($images as $image) {
@@ -142,7 +142,7 @@ class productController extends Controller
         }
       }
 
-      // dd($form->all());
+      // dd($request->all());
 
       // Redirijo
       return redirect('/')
@@ -189,7 +189,7 @@ class productController extends Controller
      */
 
 
-    public function update(Request $form, int $id) // se muestra el producto con los campos completos listo para editar. A diferencia de guardar, update lleva tambien la variable $id
+    public function update(Request $request, int $id) // se muestra el producto con los campos completos listo para editar. A diferencia de guardar, update lleva tambien la variable $id
     {
         // Declaro las variables de validacion
 
@@ -197,14 +197,14 @@ class productController extends Controller
       'name' =>'required|string|min:3|max:40|',
       'price' =>'required|numeric|min:0|max:100000|',
       'onSale' => 'required',
-      'discount' => 'numeric|min:0|max:80',
+      'discount' => 'integer|min:0|max:80',
       'genre_id' => 'required',
       'category_id' => 'required',
-      'xs' => 'required|numeric|min:0|max:1000',
-      's' => 'required|numeric|min:0|max:1000',
-      'm' => 'required|numeric|min:0|max:1000',
-      'l' => 'required|numeric|min:0|max:1000',
-      'xl' => 'required|numeric|min:0|max:1000',
+      'xs' => 'required|integer|min:0|max:1000',
+      's' => 'required|integer|min:0|max:1000',
+      'm' => 'required|integer|min:0|max:1000',
+      'l' => 'required|integer|min:0|max:1000',
+      'xl' => 'required|integer|min:0|max:1000',
     ];
 
     $mensajes = [
@@ -218,31 +218,62 @@ class productController extends Controller
     ];
 
     // Validamos
-    $this->validate($form, $reglas, $mensajes);
-
+    $this->validate($request, $reglas, $mensajes);
     // llamo al producto a editar
-    $product = Product::find($id);
+    // $imagenes = $request->file('images');
+    //
 
+    $product = Product::find($id);
     // busco el stock del producto a editar
 
-    $product->stock->XS = $form->xs;
-    $product->stock->S = $form->s;
-    $product->stock->M = $form->m;
-    $product->stock->L = $form->l;
-    $product->stock->XL = $form->xl;
+    $product->stock->XS = $request->xs;
+    $product->stock->S = $request->s;
+    $product->stock->M = $request->m;
+    $product->stock->L = $request->l;
+    $product->stock->XL = $request->xl;
 
     // guardo en la base de datos
     $product->stock->save();
 
-    $product->name = $form['name']; // alternativa $producto->name = $request->name;
-    $product->price = $form['price'];
-    $product->onSale = $form['onSale'];
-    $product->discount = $form['discount'];
-    $product->genre_id = $form['genre_id'];
-    $product->category_id = $form['category_id'];
-
-    // guardo en la base de datos
+    $product->name = $request['name']; // alternativa $producto->name = $request->name;
+    $product->price = $request['price'];
+    $product->onSale = $request['onSale'];
+    $product->discount = $request['discount'];
+    $product->genre_id = $request['genre_id'];
+    $product->category_id = $request['category_id'];
     $product->save();
+
+    $images = $product->images;
+    // guardo en la base de datos
+    // Si cambian una foto, se eliminan todas las anteriores
+    if ($request->file('images')) {
+      //recorro cada imagen y la deslinkeo
+      foreach ($images as $image) {
+        $image_path = storage_path('app/public/').$image->path;
+        // se elimina la foto del storage
+        unlink($image_path);
+        // se elimina la foto de la base de datos
+        $image->delete();
+      }
+
+      // creo la variable que contiene todas las imagenes del input
+      $imagenes = $request->file('images');
+
+      // por cada imagen
+      foreach ($imagenes as $imagen) {
+        //guarda cada imagen en storage/public (No en la DB)
+        $file = $image->store('public');
+        //Obtengo sus nombres
+        $path = basename($file);
+        // Por cada imagen instancio un objeto de la clase imagen
+        $image = new Image;
+        // asigno las rutas correspondientes y el id de la imagen
+        $image->product_id = $product->id;
+        $image->path = $path;
+        // guardo el objeto imagen instanciado en la base de datos
+        $image->save();
+      }
+    }
 
 
     // si cambian la foto
@@ -340,5 +371,31 @@ class productController extends Controller
       $stock->delete();
       $product->delete(); // borramos el producto
       return redirect("/");
+    }
+
+    public function agregarimagen(Request $request){
+        $images = $request->file('images');
+        // traigo las imagenes y recorro el array
+        // $images = Image::all();
+        foreach ($images as $image) {
+          // guardo cada imagen en storage/public (no en la base de datos)
+          $file = $image->store('public');
+          // obtengo sus nombres
+          $path = basename($file);
+          $image = new Image;
+          // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
+          $image->product_id = $request->productid;
+          $image->path = $path;
+
+          // guardo el objeto imagen instanciado en la base de datos
+          $image->save();
+        }
+        return back();
+      }
+    public function eliminarImagen(Request $request){
+      $image = Image::find($request->imagenid);
+      unlink(storage_path('app/public/').$image->path);
+      $image->delete();
+      return back();
     }
 }

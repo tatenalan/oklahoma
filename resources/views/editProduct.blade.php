@@ -12,7 +12,7 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
 
         <!-- Vista de edicion del Producto-->
-        <form class="form-signup" action='/editproduct/{{$product['id']}}' method="post" enctype="multipart/form-data">
+        <form class="form-signup" action='/product/{{$product['id']}}' method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           <input type="hidden" name="_method" value="PUT">  {{--<!-- alternativa @method('put') --}}
 
@@ -120,16 +120,29 @@ forms
             @endphp --}}
 
             {{-- Si las imagenes existen tanto en la bd como en storage, las muestro --}}
-              @foreach ($product->images as $image)
-                <img class="product-img" style="margin-bottom:10px;margin-top:10px;" src="/storage/{{$image->path}}" alt="">
-              @endforeach
           </div>
 
           <div class="form-group">
             <button type="submit" class="btn btn-success" value="Edit Product">Editar producto</button>
           </div>
         </form>
-
+        <form class="" action="/agregarimagen" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+            <label for="">Agregar una imagen</label>
+            <input type="file" multiple name="images[]" value=""> 
+            <input type="hidden" name="productid" value="{{$product->id}}">
+            <button type="submit" class="btn btn-success" value="">Agregar imagen</button>
+          </div>
+        </form>
+        @foreach ($product->images as $image)
+          <form class="" action="/eliminarimagen" method="post">
+            @csrf
+            <img class="product-img" style="margin-bottom:10px;margin-top:10px;" src="/storage/{{$image->path}}" alt="">
+            <input type="hidden" name="imagenid" value="{{$image->id}}">
+            <button type="submit" name="">Eliminar Imagen</button>
+          </form>
+        @endforeach
 
       <ul style="color:red" class="errores">
         @foreach ($errors->all() as $error)

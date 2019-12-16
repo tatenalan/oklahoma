@@ -98,7 +98,7 @@ product
                   </div>
                 </form>
                 <div class="filaSiete">
-                  <form class="" action="/delete/product/{{$product->id}}" method="post">
+                  <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
                     @csrf
                     <button type="submit" class="ordenar btn btn-success eliminar">Eliminar producto</button>
                   </form>
@@ -158,6 +158,12 @@ product
           }
           console.log(imagenGrande.src);
           var imgs = fotosChicas;
+        }
+        function confirmar(){
+          var acepta = confirm('Esta seguro?');
+          if (!acepta){
+
+          }
         }
       </script>
 @endsection

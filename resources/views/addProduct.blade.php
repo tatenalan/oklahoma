@@ -16,11 +16,17 @@ forms
           <div class="form-group">
             <label for="">Name: </label>
             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+            @error('name')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">Price: </label>
             <input type="number" class="form-control" min="100" max="50000" step="100" name="price" @if ($_POST) value="{{ old('price') }}" @else value="0" @endif>
+              @error('price')
+                <p class="errorForm">{{ $message }}</p>
+              @enderror
           </div>
 
           <div class="form-group">
@@ -34,6 +40,9 @@ forms
           <div class="form-group">
             <label for="">descuento: </label>
             <input class="cantidad" type="number" class="form-control" name="discount" max="80" step="5" value="0">
+            @error('discount')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
@@ -41,9 +50,12 @@ forms
             <select class="" name="genre_id">
               <option value="">Seleccione un genero</option>
               @foreach ($genres as $genre)
-                <option value="{{$genre->id}}">{{$genre->name}}</option>
+                <option value="{{$genre->id}}" {{($genre->id == old('genre'))?'selected': '' }}>{{$genre->name}}</option>
               @endforeach
             </select>
+            @error('genre_id')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
@@ -51,34 +63,52 @@ forms
             <select class="" name="category_id">
               <option value="">Seleccione una categoria</option>
               @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option value="{{$category->id}}" {{($category->id == old('category_id'))?'selected': ''}}>{{$category->name}}</option>
               @endforeach
             </select>
+            @error('category_id')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">XS: </label>
             <input class="cantidad" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
+            @error('xs')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">S: </label>
             <input class="cantidad" type="number" class="form-control" name="s" min="0" max="100" step="1" value="0">
+            @error('s')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">M: </label>
             <input class="cantidad" type="number" class="form-control" name="m" min="0" max="100" step="1" value="0">
+            @error('m')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">L: </label>
             <input class="cantidad" type="number" class="form-control" name="l" min="0" max="100" step="1" value="0">
+            @error('l')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="">XL: </label>
             <input class="cantidad" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="0">
+            @error('xl')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="form-group">
@@ -93,13 +123,5 @@ forms
           </div>
         </form>
 
-
-      <ul style="color:red" class="errores">
-        @foreach ($errors->all() as $error)
-          <li>
-            {{$error}}
-          </li>
-        @endforeach
-      </ul>
   </div>
 @endsection

@@ -69,13 +69,14 @@ Route::get('/addproduct', 'ProductController@new');
 
 Route::post('/addproduct', 'ProductController@store');
 
+Route::get('/product/{id}', 'ProductController@show');
+
 Route::get('/editproduct/{id}', 'ProductController@edit');
 
 Route::put('/editproduct/{id}', 'ProductController@update');
 
 Route::put('/product/{id}', 'ProductController@update');
 
-Route::get('/product/{id}', 'ProductController@show');
 
 Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('auth');
 

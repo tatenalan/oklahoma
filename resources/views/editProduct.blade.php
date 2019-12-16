@@ -12,7 +12,7 @@ forms
       <div class="col-lg-4 offset-lg-2 col-md-6">
 
         <!-- Vista de edicion del Producto-->
-        <form class="form-signup" action='/editProduct/{{$product['id']}}' method="post" enctype="multipart/form-data">
+        <form class="form-signup" action='/editproduct/{{$product['id']}}' method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           <input type="hidden" name="_method" value="PUT">  {{--<!-- alternativa @method('put') --}}
 

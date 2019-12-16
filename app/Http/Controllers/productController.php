@@ -177,7 +177,7 @@ class productController extends Controller
       $categories = Category::all();
       $stock = Stock::find($id);
 
-      return view('/editProduct', compact('product', 'genres', 'categories','images' , 'stock'));
+      return view('/editproduct', compact('product', 'genres', 'categories','images' , 'stock'));
     }
 
     /**

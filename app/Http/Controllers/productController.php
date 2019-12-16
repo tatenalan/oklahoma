@@ -320,10 +320,12 @@ class productController extends Controller
       return view('jeans',$vac);
     }
 
-    public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes
+    public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes y su stock
       // llamamos al producto a eliminar mediante su id
       $product = Product::find($id);
       $images = $product->images;
+      $stock = $product->stock;
+
       foreach ($images as $image) {
       // por cada imagen seleccionamos su path y si existe la borramos de storage
       $image_path = storage_path('app/public/') . $image->path;
@@ -334,6 +336,8 @@ class productController extends Controller
           $image->delete(); // borramos las imagenes utilizando la relacion del modelo
         }
       }
+
+      $stock->delete();
       $product->delete(); // borramos el producto
       return redirect("/");
     }

@@ -43,9 +43,8 @@ Herramientas a Incorporar / cosas extra por hacer
 - arreglar cambio de imagenes en la vista product (al clickear otra imagen cualquiera se buguea y aparece esa)
 - crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
 - hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
-- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post??
+- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post?? (ejemplo precio)
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
-- como saco el address required en register
 - incorporar los talles de pantalones en store, edit y update del producto.
 - hacer funcionar la tabla colores
 - pais y provincias con api
@@ -55,8 +54,9 @@ Herramientas a Incorporar / cosas extra por hacer
 - Imagen con Paralax
 - Compartir publicaciones de ciertos productos en redes sociales
 - socialbar oculta
+- nav bar que se oculte cuando escrolleamos
 - Copiar Boton de perfil logueado del playground de digital
 - Darle el estilo del menu hamburguesa de la web Yagmour
 - validate strenght passwords como el form de monark.com.pk y agregar un captcha
-- Crear un dropdown form usando bootstrap o usando un modal como la web de pcs de nuestros compas
+- Crear un dropdown form usando bootstrap o usando un modal
 - limitar la edad a 18 anos

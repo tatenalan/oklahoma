@@ -86,8 +86,8 @@ class RegisterController extends Controller
     {
 
       // Instancio un carrito
-      $cart = new Cart;
-      $cart->quantity = 0;
+      // $cart = new Cart;
+      // $cart->quantity = 0;
 
       $cart->save();
       $path = null;
@@ -104,7 +104,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'avatar' => $path,
             'address' => $data['home_address'],
-            'cart_id' => $cart->id,
+            // 'cart_id' => $cart->id,
             'isAdmin' => 0,
         ]);
     }

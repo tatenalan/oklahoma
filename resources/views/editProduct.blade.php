@@ -142,8 +142,9 @@ forms
             @csrf
             <img class="product-img" style="margin-bottom:10px;margin-top:10px;" src="/storage/{{$image->path}}" alt="">
             <input type="hidden" name="imagenid" value="{{$image->id}}">
-            <button type="submit" name="">Eliminar Imagen</button>
+            <button type="submit" class="btn btn-success" name="">Eliminar Imagen</button>
           </form>
+          <br>
         @endforeach
 
         <label class="boton-label" for="botongeneral">Editar producto</label>

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Cart;
 class Product extends Model
 {
   public $guarded = [];
@@ -23,6 +23,4 @@ class Product extends Model
   public function stock(){
     return $this->belongsTo("App\Stock", "stock_id");
   }
-
-
 }

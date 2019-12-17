@@ -12,20 +12,20 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-      $cart = new cart;
-      $cart->save();
+      // $cart = new cart;
+      // $cart->save();
 
       DB::table('users')->insert(
         [
           "first_name" => 'Admin',
-          "last_name" => 'admin',
+          "last_name" => 'Admin',
           "email" => 'admin@admin.com',
           "password" => Hash::make('123456'),
           "isAdmin" => true,
           "birthDate" => '1990-10-1',
           "address" => 'zapiola 850',
           "avatar" => 'admin.png',
-          "cart_id" => $cart->id,
+          // "cart_id" => $cart->id,
         ]
       );
     }

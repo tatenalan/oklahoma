@@ -75,7 +75,7 @@ Route::get('/editproduct/{id}', 'ProductController@edit');
 
 Route::put('/product/{id}', 'ProductController@update');
 
-Route::post('/eliminarImagen', 'ProductController@eliminarImagen');
+Route::post('/eliminarimagen', 'ProductController@eliminarImagen');
 
 Route::post('/agregarimagen', 'ProductController@agregarimagen');
 
@@ -84,6 +84,8 @@ Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('aut
 // carts
 
 Route::get('/cart', 'CartController@show')->middleware('auth');
+
+Route::post('/deleteCart', 'CarTController@deleteFromCart');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Cart;
 use Illuminate\Support\Facades\Auth; // Necesario para obtener los valores del Auth!!!!
 use Illuminate\Support\Facades\Hash; // Necesario para hashear la password!!!!
 
@@ -84,8 +83,7 @@ class UserController extends Controller
 
   public function delete() // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
   {
-    
-    $cart = Cart::find(Auth::user()->cart_id);
+
     $user = User::find(Auth::user()->id);
     // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo
     $avatar = $user->avatar;
@@ -96,8 +94,6 @@ class UserController extends Controller
       // elimina la foto del storage
       unlink($image_path);
     }
-
-    $cart->delete(); // borramos el carrito
     $user->delete(); // borramos el usuario
     return redirect("/");
   }

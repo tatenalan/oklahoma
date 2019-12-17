@@ -65,21 +65,21 @@ Route::get('/accesorios', 'ProductController@accesorios');
 
 Route::get('/ofertas', 'ProductController@ofertas');
 
-Route::get('/addproduct', 'ProductController@new');
+Route::get('/addproduct', 'ProductController@new')->middleware('admin');
 
-Route::post('/addproduct', 'ProductController@store');
+Route::post('/addproduct', 'ProductController@store')->middleware('admin');
 
 Route::get('/product/{id}', 'ProductController@show');
 
-Route::get('/editproduct/{id}', 'ProductController@edit');
+Route::get('/editproduct/{id}', 'ProductController@edit')->middleware('admin');
 
-Route::put('/product/{id}', 'ProductController@update');
+Route::put('/product/{id}', 'ProductController@update')->middleware('admin');
 
-Route::post('/eliminarImagen', 'ProductController@eliminarImagen');
+Route::post('/eliminarimagen', 'ProductController@eliminarimagen')->middleware('admin');
 
-Route::post('/agregarimagen', 'ProductController@agregarimagen');
+Route::post('/agregarimagen', 'ProductController@agregarimagen')->middleware('admin');
 
-Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('auth');
+Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('admin');
 
 // carts
 

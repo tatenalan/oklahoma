@@ -3,7 +3,7 @@
 Profile
 @endsection('titulo')
 @section('css')
-profile
+forms
 @endsection('css')
 @section('main')
   <div class="container">

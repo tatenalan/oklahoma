@@ -57,6 +57,7 @@ class productController extends Controller
         'discount' => 'required|integer|min:0|max:80',
         'genre_id' => 'required',
         'category_id' => 'required',
+        'images' => 'required|image|mimes:jpg,jpeg,png',
         'xs' => 'required',
         's' => 'required',
         'm' => 'required',
@@ -70,6 +71,8 @@ class productController extends Controller
         'string' => "El campo :attribute debe ser un texto",
         "min" => "El campo :attribute tiene un minimo de :min caracteres",
         "max" => "El campo :attribute tiene un maximo de :max caracteres",
+        "image" => "Debe ser una imagen",
+        "mimes" => "Debe ser una imagen"
       ];
 
 
@@ -123,7 +126,6 @@ class productController extends Controller
         // obtengo el array de imagenes
         $images = $request->file('images');
         // traigo las imagenes y recorro el array
-        // $images = Image::all();
         foreach ($images as $image) {
           // guardo cada imagen en storage/public (no en la base de datos)
           $file = $image->store('public');
@@ -165,7 +167,6 @@ class productController extends Controller
       // $category = Category::find($id); si no lo llamo de esta manera utilizo la relacion del modelo. Ver Product.blade.php {{$product->category->name}}
       $stock = Stock::where('id', '=', $product->stock_id)->get();
       $vac = compact('product', 'image', 'stock');
-      // dd($image);
       return view('product',$vac);
     }
 
@@ -200,6 +201,7 @@ class productController extends Controller
       'discount' => 'integer|min:0|max:80',
       'genre_id' => 'required',
       'category_id' => 'required',
+      'images' => 'required|image|mimes:jpg,jpeg,png',
       'xs' => 'required|integer|min:0|max:1000',
       's' => 'required|integer|min:0|max:1000',
       'm' => 'required|integer|min:0|max:1000',
@@ -214,7 +216,9 @@ class productController extends Controller
       "max" => "El maximo es de :max caracteres",
       "date" => "El campo :date debe ser una fecha",
       "integer" => "El campo debe ser un numero entero",
-      "numeric" => "El campo debe ser un numero"
+      "numeric" => "El campo debe ser un numero",
+      "image" => "Debe ser una imagen",
+      "mimes" => "Debe ser una imagen",
     ];
 
     // Validamos
@@ -364,7 +368,8 @@ class productController extends Controller
         if ($images && file_exists($image_path)) {
           // elimina las imagenes de storage
           unlink($image_path);
-          $image->delete(); // borramos las imagenes utilizando la relacion del modelo
+          // borramos las imagenes de la bd utilizando la relacion del modelo
+          $image->delete();
         }
       }
 
@@ -374,28 +379,52 @@ class productController extends Controller
     }
 
     public function agregarimagen(Request $request){
-        $images = $request->file('images');
-        // traigo las imagenes y recorro el array
-        // $images = Image::all();
-        foreach ($images as $image) {
-          // guardo cada imagen en storage/public (no en la base de datos)
-          $file = $image->store('public');
-          // obtengo sus nombres
-          $path = basename($file);
-          $image = new Image;
-          // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
-          $image->product_id = $request->productid;
-          $image->path = $path;
 
-          // guardo el objeto imagen instanciado en la base de datos
-          $image->save();
+      $reglas = [
+        'images' => 'required|image|mimes:jpg,jpeg,png',
+      ];
+
+
+      $mensajes = [
+        "required" => "El campo :attribute no puede estar vacio",
+        "image" => "Debe ser una imagen",
+        "mimes" => "Debe ser una imagen"
+      ];
+
+      // Validamos
+      $this->validate($request, $reglas, $mensajes);
+
+
+        // traigo las imagenes a agregar y recorro el array
+        $images = $request->file('images');
+        // Si cambian una foto, se eliminan todas las anteriores
+        if ($request->file('images')) {
+          foreach ($images as $image) {
+            // guardo cada imagen en storage/public (no en la base de datos)
+            $file = $image->store('public');
+            // obtengo sus nombres
+            $path = basename($file);
+            $image = new Image;
+            // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
+            $image->product_id = $request->productid;
+            $image->path = $path;
+
+            // guardo el objeto imagen instanciado en la base de datos
+            $image->save();
+            // nos retorna a la ruta anterior
+            return back();
+          }
         }
-        return back();
       }
-    public function eliminarImagen(Request $request){
+
+    public function eliminarimagen(Request $request){
+      // traigo la imagen del request imagenid (name del file)
       $image = Image::find($request->imagenid);
+      // elimina las imagenes de storage
       unlink(storage_path('app/public/').$image->path);
+      // borramos las imagenes de la bd
       $image->delete();
+      // nos retorna a la ruta anterior
       return back();
     }
 }

@@ -28,8 +28,8 @@ class UserController extends Controller
       'first_name' =>'required|string|min:2|max:40|',
       'last_name' =>'required|string|min:2|max:40|',
       'email' => ['required', 'string', 'email', 'max:255'], // le sacamos 'unique:users'
-      'password' => ['string', 'min:6'],
-      'avatar' => 'image|mimes:jpg,jpeg,png'
+      'password' => ['nullable', 'min:6'],
+      'avatar' => 'image|mimes:jpg,jpeg,png',
     ];
 
     $mensajes = [
@@ -41,7 +41,7 @@ class UserController extends Controller
     "integer" => "El campo debe ser un numero entero",
     "numeric" => "El campo debe ser un numero",
     "image" => "Debe ser una imagen",
-    "mimes" => "Debe ser una imagen"
+    "mimes" => "Formato de imagen invalido"
     ];
 
     // Validamos
@@ -84,7 +84,7 @@ class UserController extends Controller
 
   public function delete() // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
   {
-    
+
     $cart = Cart::find(Auth::user()->cart_id);
     $user = User::find(Auth::user()->id);
     // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo

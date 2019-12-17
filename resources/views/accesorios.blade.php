@@ -33,3 +33,4 @@ home
           </section>
         </div>
 @endsection
+@extends('socialbar')

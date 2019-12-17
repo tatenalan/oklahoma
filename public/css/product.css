@@ -89,9 +89,16 @@ div .row div {
 }
 
 .disponibilidad {
-  line-height: 50px;
   font-size: 10px;
   width: 50px;
+}
+
+div.enstock {
+  padding: 0;
+  height: 13px;
+  margin: 0;
+  color: white;
+  background-color: #18BC9C;
 }
 
 .tipo {
@@ -143,6 +150,7 @@ button.ordenar {
   background-color: #18BC9C;
   border: none;
 }
+
 
 /* para persistir las flechitas del input number sin necesidad de hacerle hover */
 input[type=number]::-webkit-inner-spin-button {

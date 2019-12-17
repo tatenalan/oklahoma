@@ -36,7 +36,9 @@ product
             <div class="col-sm">
               <div class="filaUno">
                 <h3 class=""> {{$product->name}} </h3>
-                <h6 class="disponibilidad">EN STOCK</h6>
+                <div class="enstock">
+                  <h6 class="disponibilidad">EN STOCK</h6>
+                </div>
               </div>
               <div class="filaDos">
                 <h3 class="tipo"> {{$product->category->name}} </h3>

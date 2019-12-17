@@ -31,16 +31,16 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 Necesario a terminar / errores a arreglar:
 - carrito funcional
-- colocarle middlewares a las rutas
 - Filtros para productos / buscador
-- arreglar cambio de imagenes en la vista product
-- al crear un pantalon que muestre sus talles (addproduct.blade)
+- al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
 - solucionar el crash que se genera en el main cuando el producto tiene 1 imagen
+- colocarle middlewares a las rutas
 - mercadopago
 
 
 
 Herramientas a Incorporar / cosas extra por hacer 
+- arreglar cambio de imagenes en la vista product (al clickear otra imagen cualquiera se buguea y aparece esa)
 - crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
 - hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
 - como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post??

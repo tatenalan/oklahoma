@@ -89,9 +89,16 @@ div .row div {
 }
 
 .disponibilidad {
-  line-height: 50px;
   font-size: 10px;
   width: 50px;
+}
+
+div.enstock {
+  padding: 0;
+  height: 13px;
+  margin: 0;
+  color: white;
+  background-color: #18BC9C;
 }
 
 .tipo {
@@ -139,15 +146,23 @@ button.ordenar {
   left: 30px;
 }
 
+button.eliminar{
+  margin-left: 5px;
+}
+
 .btn-success {
   background-color: #18BC9C;
   border: none;
 }
 
+.btn-success:hover {
+    color: #fff;
+    background-color: #18BC9C;
+    opacity: 0.75;
+}
+
+
 /* para persistir las flechitas del input number sin necesidad de hacerle hover */
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1
-}
-.eliminar{
-  margin-left: 5px;
 }

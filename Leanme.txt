@@ -4,7 +4,7 @@ https://www.befunky.com/es/crear/cambiar-tamanos-de-imagenes/
 Esta web sirve para modificar el tamaño de las imagenes que vayamos a usar
 
 https://www.guidacode.com/2018/php/como-validar-una-fecha-en-php/
-para validar fecha de nacimiento mayor a 18
+para validar fecha de nacimiento mayor a 18 
 
 https://es.slideshare.net/MariaCabezn/juego-tab-adultos
 Pagina POO (Programacion orientada a objetos)
@@ -30,24 +30,21 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 
 Necesario a terminar / errores a arreglar:
-- Arreglar delete del producto. hacer edit y update de producto
-- como hago para que el stock valide si no se escribe nada
-- No anda el no hay stock en product.blade
 - carrito funcional
-- colocarle middlewares a las rutas
 - Filtros para productos / buscador
-- arreglar cambio de imagenes en la vista product
-- al crear un pantalon que muestre sus talles (addproduct.blade)
-- mejorar vistas de add y edit
+- al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
+- solucionar el crash que se genera en el main cuando el producto tiene 1 imagen
+- colocarle middlewares a las rutas
 - mercadopago
 
 
 
-Herramientas a Incorporar / cosas extra por hacer
+Herramientas a Incorporar / cosas extra por hacer 
+- arreglar cambio de imagenes en la vista product (al clickear otra imagen cualquiera se buguea y aparece esa)
+- crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
 - hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
-- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post??
+- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post?? (ejemplo precio)
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
-- como saco el address required en register
 - incorporar los talles de pantalones en store, edit y update del producto.
 - hacer funcionar la tabla colores
 - pais y provincias con api
@@ -57,8 +54,9 @@ Herramientas a Incorporar / cosas extra por hacer
 - Imagen con Paralax
 - Compartir publicaciones de ciertos productos en redes sociales
 - socialbar oculta
+- nav bar que se oculte cuando escrolleamos
 - Copiar Boton de perfil logueado del playground de digital
 - Darle el estilo del menu hamburguesa de la web Yagmour
 - validate strenght passwords como el form de monark.com.pk y agregar un captcha
-- Crear un dropdown form usando bootstrap o usando un modal como la web de pcs de nuestros compas
+- Crear un dropdown form usando bootstrap o usando un modal
 - limitar la edad a 18 anos

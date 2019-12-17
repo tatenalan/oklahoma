@@ -58,6 +58,10 @@ ul.usuario {
   background-color: #ffffff36;
 }
 
+.cerrar-sesion-responsive {
+    text-align: -webkit-center;
+}
+
 button.nav-link {
 	overflow: visible;
 	width: auto;

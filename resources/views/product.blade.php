@@ -36,7 +36,9 @@ product
             <div class="col-sm">
               <div class="filaUno">
                 <h3 class=""> {{$product->name}} </h3>
-                <h6 class="disponibilidad">EN STOCK</h6>
+                <div class="enstock">
+                  <h6 class="disponibilidad">EN STOCK</h6>
+                </div>
               </div>
               <div class="filaDos">
                 <h3 class="tipo"> {{$product->category->name}} </h3>
@@ -100,11 +102,11 @@ product
                 <div class="filaSiete">
                   <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
                     @csrf
-                    <button type="submit" class="ordenar btn btn-success eliminar">Eliminar producto</button>
+                    <button type="submit" class="ordenar btn btn-danger eliminar">Eliminar producto</button>
                   </form>
                   <form class="" action="/editproduct/{{$product->id}}" method="get">
                     @csrf
-                    <button type="submit" class="ordenar btn btn-success eliminar">Editar producto</button>
+                    <button type="submit" class="ordenar btn btn-info eliminar">Editar producto</button>
                   </form>
                 </div>
               </div>

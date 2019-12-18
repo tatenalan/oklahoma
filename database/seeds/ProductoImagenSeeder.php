@@ -13,8 +13,8 @@ class ProductoImagenSeeder extends Seeder
     {
       $imagenes= [
         [
-          'campera1a.jpg',
-          'campera2b.jpg'
+         'campera1a.jpg',
+         'campera1b.jpg'
         ],
         [
         'camisa2a.jpg',
@@ -38,7 +38,7 @@ class ProductoImagenSeeder extends Seeder
       ],
         [
         'remera3a.jpg',
-        'remerab.jpg',
+        'remera3b.jpg',
       ],
         [
         'remera2a.jpg',

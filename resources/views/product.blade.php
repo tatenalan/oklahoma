@@ -102,7 +102,6 @@ product
                           <option value="XL">XL</option></option>
                         </select>
                     @endif
-                @endif
                     <p>Cantidad:</p>
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">
                   <input type="number" hidden name="id" value="{{$product->id}}">
@@ -110,6 +109,9 @@ product
                     <button type="submit" class="ordenar btn btn-success">Ordenar</button>
                   </div>
                 </form>
+
+            @if (Auth::user() && Auth::user()->isAdmin == true)
+
                 <div class="filaSiete">
                   <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
                     @csrf
@@ -120,6 +122,7 @@ product
                     <button type="submit" class="ordenar btn btn-info eliminar">Editar producto</button>
                   </form>
                 </div>
+            @endif
               </div>
               <div class="filaCinco">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcou fugiat nulla pariatur. Excepteur sint</p>

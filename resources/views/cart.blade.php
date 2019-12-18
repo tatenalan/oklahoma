@@ -11,6 +11,7 @@ forms
   @php
     $i = 0;
     $noHayStock=[];
+    $valore= 0;  
   @endphp
   @forelse ($carts as $cart)
     <div class="producto">

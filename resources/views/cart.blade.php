@@ -31,12 +31,10 @@ forms
       </form>
     </div>
   @empty
-    <div class="contenedorCarrito">
-      <h2>Tu Carrito está vacío</h2>
-      <div class="imgCarrito">
-        <i class="fas fa-shopping-basket"></i>
-      </div>
-    </div>
+
+      <h2 class="centrado">Tu Carrito está vacío</h2>
+      <i class="centrado fas fa-shopping-basket"></i>
+
   @endforelse
   @if ($carts->count())
     @php
@@ -55,4 +53,4 @@ forms
       </form>
     </div>
   @endif
-{{-- @endsection --}}
+@endsection

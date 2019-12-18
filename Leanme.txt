@@ -35,6 +35,7 @@ Necesario a terminar / errores a arreglar:
 - al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
 - solucionar el crash que se genera en el main cuando el producto tiene 1 imagen
 - colocarle middlewares a las rutas
+- Persistencias en edit y add product
 - mercadopago
 
 

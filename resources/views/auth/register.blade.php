@@ -90,7 +90,11 @@ forms
       <div class="col-lg-4 col-md-6">
           <div class="form-group">
           <label for="">Sube tu avatar: (opcional)</label><br>
-          <input class="sin-archivo" type="file" name="avatar" value=""><br>
+          <label for="file-upload" class="subir">
+          <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+          </label>
+          <input type="file" id="file-upload" onchange='change()' style='display: none;' class="sin-archivo" name="avatar" value="" multiple>
+          <div id="info"></div>
           <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png. Peso maximo 2mb</small>
             @error('avatar')
               <p class="errorForm">{{ $message }}</p>
@@ -115,4 +119,11 @@ forms
         </form>
     </div>
   </div>
+
+  {{-- Lo que hace este script es tomar el nombre del archivo que queremos subir y ponerlo dentro el elemento con la clase info para que podamos verlo. --}}
+    <script>function change(){
+      var pdrs = document.getElementById('file-upload').files[0].name;
+      document.getElementById('info').innerHTML = pdrs;
+    }</script>
+
 @endsection

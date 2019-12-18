@@ -13,44 +13,44 @@ class ProductoImagenSeeder extends Seeder
     {
       $imagenes= [
         [
-          'accesorio2a.jpg',
-          'accesorio2b.jpg'
+          'campera1a.jpg',
+          'campera2b.jpg'
         ],
         [
-        'accesorio3a.jpg',
-        'accesorio3b.jpg',
-      ],
-        [
-        'accesorio4a.jpg',
-        'accesorio4b.jpg',
-      ],
-        [
-        'accesorio5a.jpg',
-        'accesorio5b.jpg',
-      ],
-        [
-        'accesorio6a.jpg',
-        'accesorio6b.jpg',
-      ],
-        [
-        'accesorio7a.jpg',
-        'accesorio7b.jpg',
+        'camisa2a.jpg',
+        'camisa2b.jpg',
       ],
         [
         'accesorio8a.jpg',
         'accesorio8b.jpg',
       ],
         [
-        'buzo2a.jpg',
-        'buzo2b.jpg',
+        'accesorio5a.jpg',
+        'accesorio5b.jpg',
       ],
         [
-        'buzo3a.jpg',
-        'buzo3b.jpg',
+        'jean10a.jpg',
+        'jean10b.jpg',
       ],
         [
-        'buzo4a.jpg',
-        'buzo4b.jpg',
+        'jean8a.jpg',
+        'jean8b.jpg',
+      ],
+        [
+        'remera3a.jpg',
+        'remerab.jpg',
+      ],
+        [
+        'remera2a.jpg',
+        'remera2b.jpg',
+      ],
+        [
+        'buzo5a.jpg',
+        'buzo5b.jpg',
+      ],
+        [
+        'buzo9a.jpg',
+        'buzo9b.jpg',
       ]];
       $i=1;
       foreach ($imagenes as $key => $image) {

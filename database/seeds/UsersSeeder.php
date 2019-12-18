@@ -12,8 +12,8 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-      $cart = new cart;
-      $cart->save();
+      // $cart = new cart;
+      // $cart->save();
 
       DB::table('users')->insert(
         [
@@ -25,7 +25,7 @@ class UsersSeeder extends Seeder
           "birthDate" => '1990-10-1',
           "address" => 'zapiola 850',
           "avatar" => 'admin.png',
-          "cart_id" => $cart->id,
+          // "cart_id" => $cart->id,
         ]
       );
     }

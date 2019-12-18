@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -85,11 +85,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      // Instancio un carrito
-      $cart = new Cart;
-      $cart->quantity = 0;
-
-      $cart->save();
+      // // Instancio un carrito
+      // $cart = new Cart;
+      // $cart->quantity = 0;
+      //
+      // $cart->save();
       $path = null;
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');
@@ -104,7 +104,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'avatar' => $path,
             'address' => $data['home_address'],
-            'cart_id' => $cart->id,
+            // 'cart_id' => $cart->id,
             'isAdmin' => 0,
         ]);
     }

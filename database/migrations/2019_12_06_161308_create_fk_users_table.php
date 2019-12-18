@@ -13,10 +13,10 @@ class CreateFkUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-          $table->unsignedBigInteger('cart_id')->nullable();
-          $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //   $table->unsignedBigInteger('cart_id')->nullable();
+        //   $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+        // });
     }
 
     /**
@@ -26,10 +26,10 @@ class CreateFkUsersTable extends Migration
      */
     public function down()
     {
-      Schema::table('users', function (Blueprint $table) {
-        $table->dropForeign(['cart_id']);
-        $table->dropColumn('cart_id');
-
-      });
+      // Schema::table('users', function (Blueprint $table) {
+      //   $table->dropForeign(['cart_id']);
+      //   $table->dropColumn('cart_id');
+      //
+      // });
     }
 }

@@ -25,7 +25,7 @@ forms
 
             <div class="col-4 col-lg-4 col-md-6 form-group">
               <label for="">Precio: *</label>
-              <input type="number" class="form-control" min="300" max="15000" step="100" name="price" value="{{ old('price',$product->price)}}">
+              <input type="number" class="form-control" min="100" max="15000" step="100" name="price" value="{{ old('price',$product->price)}}">
               @error('price')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
@@ -182,12 +182,15 @@ forms
             <div class="col-lg-4 offset-lg-2 col-md-6 form-group">
               <label for="">Agregar imagenes al producto</label><br>
               <label for="file-upload" class="subir"><i class="fas fa-cloud-upload-alt"></i> Subir archivo</label>
-              <input type="file" id="file-upload" onchange='change()' style='display: none;' name="images[]" value="" multiple required>
+              <input type="file" id="file-upload" onchange='change()' style='display: none;' name="images[]" value="" multiple >
               <div id="info"></div>
               @error('images')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
-              <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png.</small><br>
+              @error('images.*')
+                <p class="errorForm">{{ $message }}</p>
+              @enderror
+              <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png. Peso maximo 2mb</small>
               <input type="hidden" name="productid" value="{{$product->id}}"><br>
               <button type="submit" class="btn btn-success" value="">Agregar imagen</button>
             </div>

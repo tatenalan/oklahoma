@@ -47,6 +47,26 @@ class CartController extends Controller
     return redirect('/cart');
   }
 
+  public function buyProduct(Request $request){
+    // El foreach recorre el array de ids
+    foreach ($request->id as $id) {
+      // traemos cada carrito con sus valores
+      $cart = Cart::find($id);
+      // Obtengo el valor del talle y lo guardo en una variable (Elejido por la persona M S L XL)
+      $size = $cart->size;
+      // Obtengo su objeto de tipo stock y lo guardo en una variable
+      $stock = $cart->products->stock;
+      // Le restamos al stock de la talla elejida, la cantidad de objetos comprados
+      $stock->$size = $stock->$size - $cart->quantity;
+      // guardamos los cambios realizados en el stock
+      $stock->save();
+      // Por cada id, trae un carrito y lo elimina
+      $cart = Cart::find($id);
+      $cart->delete();
+    }
+    return redirect('/cart');
+  }
+
 
 
 

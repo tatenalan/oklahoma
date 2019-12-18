@@ -91,6 +91,8 @@ Route::post('/deleteCart', 'CarTController@deleteFromCart');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
+Route::post('/buy', 'CartController@buyProduct')->middleware('auth');
+
 // users
 
 Route::get('/profile', 'UserController@show')->middleware('auth');

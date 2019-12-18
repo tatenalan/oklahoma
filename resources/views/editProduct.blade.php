@@ -214,9 +214,18 @@ forms
           <label class="btn btn-info" for="botongeneral">Editar producto</label>
           <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
             @csrf
+<<<<<<< HEAD
+            <img class="product-img" style="margin-bottom:10px;margin-top:10px;" src="/storage/{{$image->path}}" alt="">
+            <input type="hidden" name="imagenid" value="{{$image->id}}">
+            <button type="submit" class="btn btn-success" name="">Eliminar Imagen</button>
+          </form>
+          <br>
+        @endforeach
+=======
             <button type="submit" class="btn btn-danger">Eliminar producto</button>
           </form>
         </div>
+>>>>>>> 9bcf2c24f8d61cf2df00cfd213f3fb1f44255b8b
 
   </div>
 

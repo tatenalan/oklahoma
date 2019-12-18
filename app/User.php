@@ -36,11 +36,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function cart(){
-      return $this->belongsTo("App\Cart", "cart_id");
-    }
-
+    
     public function products(){
       return $this->belongsToMany("App\Product", "Carts", "user_id", "product_id");
     }

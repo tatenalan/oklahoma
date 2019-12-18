@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Cart;
 use Illuminate\Support\Facades\Auth; // Necesario para obtener los valores del Auth!!!!
 use Illuminate\Support\Facades\Hash; // Necesario para hashear la password!!!!
 
@@ -96,8 +95,6 @@ class UserController extends Controller
       // elimina la foto del storage
       unlink($image_path);
     }
-
-    $cart->delete(); // borramos el carrito
     $user->delete(); // borramos el usuario
     return redirect("/");
   }

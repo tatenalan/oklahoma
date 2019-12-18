@@ -85,11 +85,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      // // Instancio un carrito
+      // Instancio un carrito
       // $cart = new Cart;
       // $cart->quantity = 0;
-      //
-      // $cart->save();
+
+      $cart->save();
       $path = null;
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');

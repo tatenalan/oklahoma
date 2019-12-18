@@ -10,6 +10,11 @@ use App\Stock;
 
 $factory->define(Product::class, function (Faker $faker) {
     $stock = new Stock();
+    $stock->XS = $faker->randomDigit();
+    $stock->S = $faker->randomDigit();
+    $stock->M = $faker->randomDigit();
+    $stock->L = $faker->randomDigit();
+    $stock->XL = $faker->randomDigit();
     $stock->save();
     $genres = Genre::all();
     $random = $faker->randomDigit();

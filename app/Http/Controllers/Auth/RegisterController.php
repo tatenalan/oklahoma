@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -88,8 +88,8 @@ class RegisterController extends Controller
       // Instancio un carrito
       // $cart = new Cart;
       // $cart->quantity = 0;
-
-      $cart->save();
+      // 
+      // $cart->save();
       $path = null;
       if (isset($data['avatar'])) {
         $file = $data['avatar']->store('public');

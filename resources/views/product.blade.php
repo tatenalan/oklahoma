@@ -76,11 +76,11 @@ product
                   @else
                     @if ($product->stock) {{-- si el stock en la BD no es null --}}
                       <select class="talles" name="size">
-                        <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@endif</option> {{-- Si el stock es 0 --}}
-                        <option value="S">S @if ($product->stock->S==0)No hay stock!@endif</option>
-                        <option value="M">M @if ($product->stock->M==0)No hay stock!@endif</option>
-                        <option value="L">L @if ($product->stock->L==0)No hay stock!@endif</option>
-                        <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@endif</option>
+                        <option value="XS">XS @if ($product->stock->XS==0)No hay stock! @elseif ($product->stock->XS<=3) Quedan pocos! @endif</option> {{-- Si el stock es 0 --}}
+                        <option value="S">S @if ($product->stock->S==0)No hay stock!@elseif ($product->stock->S<=3) Quedan pocos! @endif</option>
+                        <option value="M">M @if ($product->stock->M==0)No hay stock!@elseif ($product->stock->M<=3) Quedan pocos! @endif</option>
+                        <option value="L">L @if ($product->stock->L==0)No hay stock!@elseif ($product->stock->L<=3) Quedan pocos! @endif</option>
+                        <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@elseif ($product->stock->XL<=3) Quedan pocos! @endif</option>
                       </select>
                     @else {{-- si el stock es mayor a 0 --}}
                         <select class="talles" name="size">

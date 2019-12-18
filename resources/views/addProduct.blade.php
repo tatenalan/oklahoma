@@ -11,7 +11,7 @@ forms
 
         <!-- Vista de agregar Producto-->
         <form class="form-signup" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
+          @csrf
 
           <div class="row">
             <div class="col-8 col-lg-4 offset-lg-2 col-md-6 form-group">
@@ -24,7 +24,7 @@ forms
 
             <div class="col-4 col-lg-4 col-md-6 form-group">
               <label for="">Precio: *</label>
-              <input type="number" class="cantidad form-control" min="100" max="50000" step="100" name="price" @if ($_POST) value="{{ old('price') }}" @else value="0" @endif>
+              <input type="number" class="cantidad form-control" min="0" max="50000" step="100" name="price" value="0">
                 @error('price')
                   <p class="errorForm">{{ $message }}</p>
                 @enderror
@@ -56,7 +56,7 @@ forms
               <select class="form-control" name="genre_id">
                 <option value="">Seleccione un genero</option>
                 @foreach ($genres as $genre)
-                  <option value="{{$genre->id}}" {{($genre->id == old('genre'))?'selected': '' }}>{{$genre->name}}</option>
+                  <option value="{{$genre->id}}" {{($genre->id == old('genre_id'))?'selected': '' }}>{{$genre->name}}</option>
                 @endforeach
               </select>
               @error('genre_id')
@@ -126,18 +126,21 @@ forms
           <div class="row">
 
             <div class="col-lg-4 offset-lg-2 col-md-6 form-group">
-              <label for="">Agregue la/s imagenes del producto:</label>
+              <label for="">Agregue las imagenes del producto (2 minimo):</label>
               <label for="file-upload" class="subir">
               <i class="fas fa-cloud-upload-alt"></i> Subir archivo
               </label>
               <br>
               {{-- para poder agregar varios archivos hay que colocar los [] en el name del file y el atributo multiple --}}
-              <input type="file" id="file-upload" onchange='change()' style='display: none;' class="sin-archivo" name="images[]" value="" multiple required>
+              <input type="file" id="file-upload" onchange='change()' style='display: none;' class="sin-archivo"  name="images[]" value="" multiple >
               <div id="info"></div>
               @error('images')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
-              <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png.</small><br>
+              @error('images.*')
+                <p class="errorForm">{{ $message }}</p>
+              @enderror
+              <small id="emailHelp" class="form-text text-muted">Extensiones: jpg, jpeg, png. Peso maximo 2MB</small><br>
               <button type="submit" class="btn btn-success" value="Add Product">Agregar producto</button>
               <br><br><small id="emailHelp" class="form-text text-muted">Los valores con un * son obligatorios.</small>
             </div>

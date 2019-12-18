@@ -57,7 +57,8 @@ class productController extends Controller
         'discount' => 'required|integer|min:0|max:80',
         'genre_id' => 'required',
         'category_id' => 'required',
-        'images' => 'required|image|mimes:jpg,jpeg,png',
+        "images" => "required|array|min:2",
+        "images.*" => "image|mimes:jpeg,png|max:2000",
         'xs' => 'required',
         's' => 'required',
         'm' => 'required',
@@ -67,12 +68,15 @@ class productController extends Controller
 
 
       $mensajes = [
-        "required" => "El campo :attribute no puede estar vacio",
+        "required" => "El campo no puede estar vacio",
         'string' => "El campo :attribute debe ser un texto",
         "min" => "El campo :attribute tiene un minimo de :min caracteres",
         "max" => "El campo :attribute tiene un maximo de :max caracteres",
-        "image" => "Debe ser una imagen",
-        "mimes" => "Debe ser una imagen"
+        "images.*.image" => "Debe ser un formato de imagen",
+        "mimes" => "Formato de imagen invalido",
+        "images.*.max" => 'La imagen es muy pesada',
+        "images.min" => "Debes subir al menos 2 imagenes",
+        "images.required" => "Sube 2 imagenes"
       ];
 
 
@@ -103,7 +107,6 @@ class productController extends Controller
       // guardo en la base de datos
       $stock->save();
 
-
       // Instancio un producto
       $product = new Product();
       $product->name = $request['name']; // alternativa $producto->name = $request->name;
@@ -121,6 +124,7 @@ class productController extends Controller
       // traigo el producto recien creado para obtener su ID
       $lastProduct = Product::all()->last();
       $productId = $lastProduct->id;
+
 
       if (!empty($request['images'])) { // si suben una o mas fotos, entonces comenzamos el proceso de guardado ALTERNATIVA: if($request->images)
         // obtengo el array de imagenes
@@ -144,7 +148,6 @@ class productController extends Controller
         }
       }
 
-      // dd($request->all());
 
       // Redirijo
       return redirect('/')
@@ -201,7 +204,8 @@ class productController extends Controller
       'discount' => 'integer|min:0|max:80',
       'genre_id' => 'required',
       'category_id' => 'required',
-      'images' => 'required|image|mimes:jpg,jpeg,png',
+      "images" =>  "array",
+      "images.*" => "image|mimes:jpeg,png|max:2000",
       'xs' => 'required|integer|min:0|max:1000',
       's' => 'required|integer|min:0|max:1000',
       'm' => 'required|integer|min:0|max:1000',
@@ -217,8 +221,10 @@ class productController extends Controller
       "date" => "El campo :date debe ser una fecha",
       "integer" => "El campo debe ser un numero entero",
       "numeric" => "El campo debe ser un numero",
-      "image" => "Debe ser una imagen",
-      "mimes" => "Debe ser una imagen",
+      "images.*.image" => "Debe ser un formato de imagen",
+      "mimes" => "Formato de imagen invalido",
+      "images.*.max" => 'La imagen es muy pesada',
+
     ];
 
     // Validamos
@@ -381,40 +387,44 @@ class productController extends Controller
     public function agregarimagen(Request $request){
 
       $reglas = [
-        'images' => 'required|image|mimes:jpg,jpeg,png',
+        "images" => "required|array",
+        "images.*" => "image|mimes:jpeg,png|max:2000",
       ];
 
 
       $mensajes = [
-        "required" => "El campo :attribute no puede estar vacio",
-        "image" => "Debe ser una imagen",
-        "mimes" => "Debe ser una imagen"
+        "images.*.image" => "Debe ser un formato de imagen",
+        "mimes" => "Formato de imagen invalido",
+        "images.*.max" => 'La imagen es muy pesada',
+        "images.required" => "Debes subir una imagen"
+
       ];
 
       // Validamos
       $this->validate($request, $reglas, $mensajes);
 
-
-        // traigo las imagenes a agregar y recorro el array
+      // si suben una o mas fotos, entonces comenzamos el proceso de guardado
+      if ($request->file('images')) {
+        // traigo las imagenes a agregar
         $images = $request->file('images');
-        // Si cambian una foto, se eliminan todas las anteriores
-        if ($request->file('images')) {
-          foreach ($images as $image) {
-            // guardo cada imagen en storage/public (no en la base de datos)
-            $file = $image->store('public');
-            // obtengo sus nombres
-            $path = basename($file);
-            $image = new Image;
-            // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
-            $image->product_id = $request->productid;
-            $image->path = $path;
+        // recorro el array con un foreach
+        foreach ($images as $image) {
+          // guardo cada imagen en storage/public (no en la base de datos)
+          $file = $image->store('public');
+          // obtengo sus nombres
+          $path = basename($file);
+          // por cada imagen instancio un objeto de la clase imagen
+          $image = new Image;
+          // asigno las rutas correspondientes y asigno el id de la imagen que debe ser igual al id del ultimo producto creado
+          $image->product_id = $request->productid;
+          $image->path = $path;
 
-            // guardo el objeto imagen instanciado en la base de datos
-            $image->save();
-            // nos retorna a la ruta anterior
-            return back();
+          // guardo el objeto imagen instanciado en la base de datos
+          $image->save();
+          // nos retorna a la ruta anterior
           }
         }
+        return back();
       }
 
     public function eliminarimagen(Request $request){

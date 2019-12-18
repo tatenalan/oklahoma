@@ -83,7 +83,8 @@ class UserController extends Controller
 
   public function delete() // borrar el usuario y deslinkear cualquier relacion, en este caso, borra su carrito
   {
-    $cart = Cart::find(Auth::user()->cart_id);
+
+    // $cart = Cart::find(Auth::user()->cart_id);
     $user = User::find(Auth::user()->id);
     // traemos todas las imagenes relacionadas a ese producto utilizando la relacion del modelo
     $avatar = $user->avatar;

@@ -1,13 +1,14 @@
-{{-- @extends('plantilla')
+@extends('plantilla')
 @section('titulo')
-  Edit Product
+Cart
 @endsection
 @section('css')
-  forms
+forms
 @endsection
-@section('main') --}}
-<h1>Welcome to the cart</h1>
-@forelse ($carts as $cart)
+@section('main')
+<div class="container">
+  <h5 class="centrado titulo">Carrito de compras</h5>
+  @forelse ($carts as $cart)
     <div class="producto">
       <div class="">
         <img height="200px"src="/storage/{{$cart->products->images[0]->path}}" alt="">

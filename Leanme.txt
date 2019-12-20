@@ -38,7 +38,7 @@ Necesario a terminar / errores a arreglar:
 
 
 Herramientas a Incorporar / cosas extra por hacer 
-- que desaparezca el producto cuando no hay mas stock de ningun tipo
+- que aclare en el producto cuando no hay mas stock de ningun tipo
 - arreglar cambio de imagenes en la vista product (al clickear otra imagen cualquiera se buguea y aparece esa)
 - crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
 - hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
@@ -46,7 +46,8 @@ Herramientas a Incorporar / cosas extra por hacer
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
 - incorporar los talles de pantalones en store, edit y update del producto.
 - hacer funcionar la tabla colores
-- pais y provincias con api
+- pais y provincias con api con AJAX
+- newsletter funcional
 - Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site
 - Un chat fixed abajo de todo a la derecha
 - Seccion Sucursales con api de google maps

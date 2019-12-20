@@ -1,6 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('plantilla')
+@section('titulo')
+Reset Password
+@endsection
+@section('css')
+forms
+@endsection
+@section('main')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

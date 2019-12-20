@@ -75,7 +75,7 @@ Route::get('/editproduct/{id}', 'ProductController@edit')->middleware('admin');
 
 Route::put('/product/{id}', 'ProductController@update')->middleware('admin');
 
-// imagenes
+// images
 
 Route::post('/eliminarimagen', 'ProductController@eliminarimagen')->middleware('admin');
 

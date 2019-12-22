@@ -3,7 +3,7 @@
 Cart
 @endsection
 @section('css')
-forms
+cart
 @endsection
 
 
@@ -29,24 +29,30 @@ forms
 
 
     <div class="producto">
-      <div class="">
+      <div class="img">
         {{-- Como imagen del producto en el carrito utilizo la primera --}}
-        <img height="200px"src="/storage/{{$cart->product->images[0]->path}}" alt="">
+        <img src="/storage/{{$cart->product->images[0]->path}}" alt="">
       </div>
-      <p>Nombre: {{$cart->product->name}}</p>
-      <p>Categoria: {{$cart->product->category->name}}</p>
-      <p>Genero: {{$cart->product->genre->name}}</p>
-      <p>Talle: {{$cart->size}}</p>
-      <p>Cantidad: {{$cart->quantity}} </p>
-      {{-- Si en el carrito hay mas de un item voy a mostrar el precio y el total (total = precio por cantidad) --}}
-      @if ($cart->quantity>1)
-        <p>Precio: ${{$cart->product->price}}</p>
-        <p>Total: ${{$cart->product->price * $cart->quantity}}</p>
-      @else
-        {{-- Si solo hay 1 producto muestro solamente el total --}}
-        <p>Total: ${{$cart->product->price * $cart->quantity}}</p>
-      @endif
-
+      <div class="product-info">
+        {{-- <p class="label centrado">Nombre</p> --}}
+        <p class="centrado">{{$cart->product->name}}</p>
+        {{-- <p class="label centrado">Categoria: </p> --}}
+        <p class="centrado">{{$cart->product->category->name}}</p>
+        {{-- <p class="label centrado">Genero</p> --}}
+        <p class="centrado">{{$cart->product->genre->name}}</p>
+        {{-- <p class="label centrado">Talle</p> --}}
+        <p class="centrado">{{$cart->size}}</p>
+        {{-- <p class="label centrado">Cantidad</p> --}}
+        <p class="centrado">{{$cart->quantity}} </p>
+        {{-- Si en el carrito hay mas de un item voy a mostrar el precio y el total (total = precio por cantidad) --}}
+        @if ($cart->quantity>1)
+          <p class="centrado">Precio: ${{$cart->product->price}}</p>
+          <p class="centrado">Total: ${{$cart->product->price * $cart->quantity}}</p>
+        @else
+          {{-- Si solo hay 1 producto muestro solamente el total --}}
+          <p class="centrado">Total: ${{$cart->product->price * $cart->quantity}}</p>
+        @endif
+      </div>
 
       {{-- Si la cantidad elegida por el usuario del producto es mayor al stock del producto elegido en ese talle mostramos un mensaje de aviso de que no hay suficiente stock --}}
       @if ($cart->quantity > $cart->product->stock->$size)
@@ -65,7 +71,7 @@ forms
       <form class="" action="/deleteCart" method="post">
         @csrf
         <input class="producto_id" hidden type="text" name="cart_id" value="{{$cart->id}}">
-        <button class='eliminar' type="submit">Sacar del Carrito</button>
+        <button class='' type="submit">Sacar del Carrito</button>
       </form>
     </div> {{-- producto --}}
 
@@ -94,7 +100,11 @@ forms
       @endphp
     @endforeach
 
-    <div class="">
+    <div class="linea-separadora">
+
+    </div>
+
+    <div class="total">
       <p>Total de la compra: $ {{$total}}</p>
 
       {{-- Creamos un boton de compra que recolecta los id de los carritos del usuario --}}

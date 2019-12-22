@@ -21,7 +21,7 @@ class CartController extends Controller
       // Instanciamos sus valores
       $cart->size = $request->size;
       $cart->quantity = $request->quantity;
-      // Si el mismo usuario pide 2 veces el mismo producto
+      // Si el mismo usuario pide 2 veces el mismo producto (mismo id de producto y mismo talle)
       $repeat = Cart::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $product->id)->where('size' , '=',$cart->size)->get();
       if (isset($repeat[0])) {
         $repeat[0]->quantity = $repeat[0]->quantity + $cart->quantity;
@@ -33,14 +33,17 @@ class CartController extends Controller
       return redirect('/cart');
   }
 
-  public function show(){
-    $carts = Cart::where('user_id', '=', Auth::user()->id)->with('products')->get();
+
+  // Mostramos los carritos que pertenezcan al mismo usuario
+  public function show()
+  {
+    $carts = Cart::where('user_id', '=', Auth::user()->id)->with('product')->get();
     return view('/cart',compact('carts'));
   }
 
+  // Borramos el carrito elegido segun su id
   public function deleteFromCart(Request $request)
   {
-
     $cart = Cart::find($request->cart_id);
     $cart->delete();
 
@@ -55,13 +58,13 @@ class CartController extends Controller
       // Obtengo el valor del talle y lo guardo en una variable (Elejido por la persona M S L XL)
       $size = $cart->size;
       // Obtengo su objeto de tipo stock y lo guardo en una variable
-      $stock = $cart->products->stock;
+      $stock = $cart->product->stock;
       // Le restamos al stock de la talla elejida, la cantidad de objetos comprados
       $stock->$size = $stock->$size - $cart->quantity;
       // guardamos los cambios realizados en el stock
       $stock->save();
       // Por cada id, trae un carrito y lo elimina
-      $cart = Cart::find($id);
+      $cart = Cart::find($id); // Esta dos veces ????????????????????????????
       $cart->delete();
     }
     return redirect('/cart');

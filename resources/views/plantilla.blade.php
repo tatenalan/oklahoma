@@ -117,7 +117,7 @@
           </div>
           <div class="col-xs-12 col-md-4 col-lg-4">
             <h5>NUESTRO NEWSLETTER</h5>
-            <form class="" action="index.php" method="post" enctype="multipart/form-data">
+            <form class="" action="/" method="get" enctype="multipart/form-data">
               @csrf
               <input type="email" class="newsletter" placeholder="Dejanos tu email"></input>
               <button class="newsletter" type="submit" name="button"><i class="fas fa-at"></i></button>

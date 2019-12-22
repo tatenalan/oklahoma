@@ -15,7 +15,7 @@ class CreateFkProductsTable extends Migration
     {
       Schema::table('products', function (Blueprint $table) {
         $table->unsignedBigInteger('stock_id')->nullable();
-        $table->foreign('stock_id')->references('id')->on('stock')->onDelete('cascade');
+        $table->foreign('stock_id')->references('id')->on('stock')->onDelete('cascade')->onUpdate('cascade');
       });
     }
 

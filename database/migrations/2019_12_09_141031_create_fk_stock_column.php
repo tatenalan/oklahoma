@@ -15,7 +15,7 @@ class CreateFkStockColumn extends Migration
     {
       Schema::table('stock', function (Blueprint $table) {
         $table->unsignedBigInteger('color_id')->nullable();
-        $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
+        $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade')->onUpdate('cascade');
       });
     }
 

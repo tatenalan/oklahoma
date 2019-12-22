@@ -87,7 +87,7 @@ forms
           <div class="row">
             <div class="col-4 col-md-2 offset-md-1 form-group">
               <label for="">XS: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="{{$product->stock->XS}}">
+              <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
               @error('xs')
                 <p class="errorForm">{{ $message }}</p>
               @enderror

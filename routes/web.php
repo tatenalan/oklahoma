@@ -87,7 +87,7 @@ Route::post('/delete/product/{id}', 'ProductController@delete')->middleware('adm
 
 Route::get('/cart', 'CartController@show')->middleware('auth');
 
-Route::post('/deleteCart', 'CarTController@deleteFromCart')->middleware('auth');
+Route::post('/deleteCart', 'CartController@deleteFromCart')->middleware('auth');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 

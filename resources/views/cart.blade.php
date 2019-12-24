@@ -34,23 +34,23 @@ cart
         <img src="/storage/{{$cart->product->images[0]->path}}" alt="">
       </div>
       <div class="product-info">
-        {{-- <p class="label centrado">Nombre</p> --}}
-        <p class="centrado">{{$cart->product->name}}</p>
-        {{-- <p class="label centrado">Categoria: </p> --}}
-        <p class="centrado">{{$cart->product->category->name}}</p>
-        {{-- <p class="label centrado">Genero</p> --}}
-        <p class="centrado">{{$cart->product->genre->name}}</p>
-        {{-- <p class="label centrado">Talle</p> --}}
-        <p class="centrado">{{$cart->size}}</p>
-        {{-- <p class="label centrado">Cantidad</p> --}}
-        <p class="centrado">{{$cart->quantity}} </p>
-        {{-- Si en el carrito hay mas de un item voy a mostrar el precio y el total (total = precio por cantidad) --}}
-        @if ($cart->quantity>1)
-          <p class="centrado">Precio: ${{$cart->product->price}}</p>
-          <p class="centrado">Total: ${{$cart->product->price * $cart->quantity}}</p>
+        <p>{{$cart->product->name}}</p>
+        <p>{{$cart->product->category->name}}</p>
+        <p>{{$cart->product->genre->name}}</p>
+        <p>{{$cart->size}}</p>
+        <p>{{$cart->quantity}} uni. </p>
+        @if ($cart->product->onSale==true && isset($cart->product->discount))
+          @php
+            $onSalePrice = $cart->product->price - $cart->product->price/100*$cart->product->discount; // precio * descuento / 100
+          @endphp
+          <span class="descuento">{{$cart->product->discount}}% off</span> <!-- Pone un cartelito de descuento sobre la imagen del producto-->
+          <p class="centrado">Precio:</span>
+          <span class="precioAnterior">${{$cart->product->price}}</span> <!-- Muestra precio anterior tachado -->
+          <span class="">${{$onSalePrice}}</span><p></p> <!-- Muestra el precio con el descuento incluido -->
+          <p class="">Total: ${{$onSalePrice * $cart->quantity}}</p>
         @else
-          {{-- Si solo hay 1 producto muestro solamente el total --}}
-          <p class="centrado">Total: ${{$cart->product->price * $cart->quantity}}</p>
+          <p class="">Precio: ${{$cart->product->price}}</p>
+          <p class="">Total: ${{$cart->product->price * $cart->quantity}}</p>
         @endif
       </div>
 
@@ -60,12 +60,8 @@ cart
           $noHayStock[]=true;
         @endphp
         <p>Precio: $ {{$cart->product->price}}</p>
-        <p>No hay suficientes unidades disponibles</p>
+        <p class="sinStock">No hay stock </p>
       @endif
-
-      @php
-        $totalFinal[] = $cart->product->price * $cart->quantity
-      @endphp
 
       {{-- Para cada producto agregado al carrito tenemos un boton eliminar que busca su id y lo elimina por post --}}
       <form class="" action="/deleteCart" method="post">
@@ -95,9 +91,17 @@ cart
 
     {{-- Calculamos el total de la compra sumando el precio total de cada producto (precio por cantidad) --}}
     @foreach ($carts as $cart)
-      @php
+      {{-- Si el producto tiene descuento multiplico el precio en descuento por la cantidad --}}
+      @if ($cart->product->onSale==true && isset($cart->product->discount))
+        @php
+        $total = $total + $onSalePrice * $cart->quantity;
+        @endphp
+      {{-- Si no tiene descuento multiplico el precio regular por la cantidad --}}
+      @else
+        @php
         $total = $total + $cart->product->price * $cart->quantity;
-      @endphp
+        @endphp
+      @endif
     @endforeach
 
     <div class="linea-separadora">
@@ -131,7 +135,7 @@ cart
 
         {{-- Si no hay stock muestro el siguiente texto y hago un boton inutil --}}
         @if ($valor)
-          <p style="color:red;">No se puede realizar la compra</p>
+          <p style="color:red;">No se puede realizar la compra por falta de stock</p>
         @else
           <button type="submit">Comprar</button>
         @endif

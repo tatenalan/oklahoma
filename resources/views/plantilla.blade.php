@@ -19,6 +19,9 @@
     <!-- Icono del logo en pestana --><link rel="icon" type="image/png" href="/img/Logo3.png" />
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="/css/@yield('css').css">
+    <script type="text/javascript" src="/js/funciones.js">
+
+    </script>
   </head>
   <body>
     <header>

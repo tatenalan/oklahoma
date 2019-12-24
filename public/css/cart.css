@@ -31,6 +31,7 @@ div.product-info {
   border-radius: 6px;
   margin: 15px;
   text-align: center;
+  position: relative;
 }
 
 p {
@@ -51,5 +52,37 @@ div.total {
   flex-direction: column;
   text-align: center;
   margin: 40px;
+  font-weight: bold;
+}
+
+.precio {
+  font-weight: 600;
+}
+
+.descuento {
+  padding-top: 10px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  display: table;
+  color: white;
+  line-height: 15px;
+  background-color: red;
+  border-radius: 50px;
+}
+
+.precioAnterior {
+  font-weight: 600;
+  text-decoration: line-through;
+  color: red;
+  padding-right: 6px;
+}
+
+.sinStock {
+  color:red;
   font-weight: bold;
 }

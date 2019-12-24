@@ -150,10 +150,4 @@ forms
 
   </div>
 
-{{-- Lo que hace este script es tomar el nombre del archivo que queremos subir y ponerlo dentro el elemento con la clase info para que podamos verlo. --}}
-  <script>function change(){
-    var pdrs = document.getElementById('file-upload').files[0].name;
-    document.getElementById('info').innerHTML = pdrs;
-  }</script>
-
 @endsection

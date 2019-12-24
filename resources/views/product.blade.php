@@ -105,23 +105,27 @@ product
                     <p>Cantidad:</p>
                   <input class="cantidad" type="number" name="quantity" min="1" max="100" step="1" value="1">
                   <input type="number" hidden name="id" value="{{$product->id}}">
-                  <div class="filaSiete">
-                    <button type="submit" class="ordenar btn btn-success">Ordenar</button>
-                  </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="filaSiete">
+                <button type="submit" class="ordenar btn btn-success">Ordenar</button>
+              </div>
+            </div>
                 </form>
 
             @if (Auth::user() && Auth::user()->isAdmin == true)
 
-                <div class="filaSiete">
-                  <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
-                    @csrf
-                    <button type="submit" class="ordenar btn btn-danger eliminar">Eliminar producto</button>
-                  </form>
-                  <form class="" action="/editproduct/{{$product->id}}" method="get">
-                    @csrf
-                    <button type="submit" class="ordenar btn btn-info eliminar">Editar producto</button>
-                  </form>
-                </div>
+              <div class="filaSiete">
+                <form class="" onclick="confirmar()" action="/delete/product/{{$product->id}}" method="post">
+                  @csrf
+                  <button type="submit" class="ordenar btn btn-danger eliminar">Eliminar producto</button>
+                </form>
+                <form class="" action="/editproduct/{{$product->id}}" method="get">
+                  @csrf
+                  <button type="submit" class="ordenar btn btn-info eliminar">Editar producto</button>
+                </form>
+              </div>
             @endif
               </div>
               <div class="filaCinco">
@@ -141,6 +145,7 @@ product
               </div>
             </div>
           </div>
+
         </section>
       </div>
       <div class="container">

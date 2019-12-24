@@ -52,22 +52,25 @@ cart
           <p class="">Precio: ${{$cart->product->price}}</p>
           <p class="">Total: ${{$cart->product->price * $cart->quantity}}</p>
         @endif
-      </div>
+
 
       {{-- Si la cantidad elegida por el usuario del producto es mayor al stock del producto elegido en ese talle mostramos un mensaje de aviso de que no hay suficiente stock --}}
       @if ($cart->quantity > $cart->product->stock->$size)
         @php
           $noHayStock[]=true;
         @endphp
-        <p>Precio: $ {{$cart->product->price}}</p>
         <p class="sinStock">No hay stock </p>
       @endif
+        </div>
 
       {{-- Para cada producto agregado al carrito tenemos un boton eliminar que busca su id y lo elimina por post --}}
       <form class="" action="/deleteCart" method="post">
         @csrf
+        <label for="file-upload" class="sacar-carrito">
+          <i class="far fa-trash-alt"></i>
+        </label>
         <input class="producto_id" hidden type="text" name="cart_id" value="{{$cart->id}}">
-        <button class='' type="submit">Sacar del Carrito</button>
+        <button class='' id="file-upload" style='display: none;' type="submit">Sacar del Carrito</button>
       </form>
     </div> {{-- producto --}}
 

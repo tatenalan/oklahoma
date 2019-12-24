@@ -141,7 +141,6 @@ section.productos {
 }
 
 button.ordenar {
-  position: relative;
   bottom: 12px;
   left: 30px;
 }

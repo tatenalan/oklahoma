@@ -86,3 +86,20 @@ div.total {
   color:red;
   font-weight: bold;
 }
+
+.sacar-carrito{
+  padding: 5px 10px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: 1.25rem;
+}
+
+.sacar-carrito:hover{
+    color:black;
+		/* background-color: #cdcecf; */
+		opacity: 0.75;
+}

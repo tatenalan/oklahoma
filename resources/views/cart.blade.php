@@ -34,19 +34,20 @@ cart
         <img src="/storage/{{$cart->product->images[0]->path}}" alt="">
       </div>
       <div class="product-info">
-        <p>{{$cart->product->name}}</p>
-        <p>{{$cart->product->category->name}}</p>
-        <p>{{$cart->product->genre->name}}</p>
-        <p>{{$cart->size}}</p>
-        <p>{{$cart->quantity}} uni. </p>
+        <div class="name">
+          <p>{{$cart->product->name}}</p>
+        </div>
+        <div class="cat-gen-size-quan">
+          <p>{{$cart->product->category->name}} {{$cart->product->genre->name}} {{$cart->size}} {{$cart->quantity}} uni. </p>
+        </div>
         @if ($cart->product->onSale==true && isset($cart->product->discount))
           @php
             $onSalePrice = $cart->product->price - $cart->product->price/100*$cart->product->discount; // precio * descuento / 100
           @endphp
           <span class="descuento">{{$cart->product->discount}}% off</span> <!-- Pone un cartelito de descuento sobre la imagen del producto-->
-          <p class="centrado">Precio:</span>
+          <p class="">Precio:</span>
           <span class="precioAnterior">${{$cart->product->price}}</span> <!-- Muestra precio anterior tachado -->
-          <span class="">${{$onSalePrice}}</span><p></p> <!-- Muestra el precio con el descuento incluido -->
+          <span class="">${{$onSalePrice}}</span> <!-- Muestra el precio con el descuento incluido -->
           <p class="">Total: ${{$onSalePrice * $cart->quantity}}</p>
         @else
           <p class="">Precio: ${{$cart->product->price}}</p>

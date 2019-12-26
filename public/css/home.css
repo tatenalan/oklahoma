@@ -106,7 +106,7 @@ a.ordenar:hover {
 }
 
 /* Media queries */
-
+/* Cuando la resolucion sea mayor o igual a 768 va a pasar lo siguiente */
 @media (min-width: 768px) {
 
 
@@ -139,7 +139,7 @@ main {
   }
 
 }
-
+/* Cuando la resolucion sea mayor o igual a 1024 va a pasar lo siguiente */
 @media (min-width: 1024px) {
 
 /* Main */

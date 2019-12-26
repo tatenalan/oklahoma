@@ -36,9 +36,9 @@ div.product-info {
 
 .producto {
   display: flex;
+  flex-direction: column;
   padding: 20px;
   border-top: 1px solid grey;
-  margin: 15px;
   text-align: left;
   position: relative;
 }
@@ -117,7 +117,28 @@ div.total {
 }
 
 .sacar-carrito:hover{
-    color:black;
-		/* background-color: #cdcecf; */
-		opacity: 0.75;
+  color:black;
+	/* background-color: #cdcecf; */
+	opacity: 0.75;
+}
+
+.btn-success {
+  background-color: #18BC9C;
+  border: none;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #18BC9C;
+  opacity: 0.75;
+}
+
+/* Media queries */
+/* Cuando la resolucion sea menor o igual a 425 va a pasar lo siguiente */
+@media (min-width: 600px) {
+
+  .producto{
+    flex-direction: row;
+  }
+
 }

@@ -38,7 +38,7 @@ cart
           <p>{{$cart->product->name}}</p>
         </div>
         <div class="cat-gen-size-quan">
-          <p>{{$cart->product->category->name}} {{$cart->product->genre->name}} {{$cart->size}} {{$cart->quantity}} uni. </p>
+          <p>{{$cart->product->category->name}}, {{$cart->product->genre->name}}, talle: {{$cart->size}} cantidad: {{$cart->quantity}}</p>
         </div>
         @if ($cart->product->onSale==true && isset($cart->product->discount))
           @php
@@ -141,7 +141,7 @@ cart
         @if ($valor)
           <p style="color:red;">No se puede realizar la compra por falta de stock</p>
         @else
-          <button type="submit">Comprar</button>
+          <button class="btn btn-success" type="submit">Comprar!</button>
         @endif
 
       </form>

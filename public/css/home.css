@@ -4,6 +4,84 @@ main {
   margin-top: 45px;
 }
 
+/* Section prueba */
+
+body, html{
+  height:100%;
+  margin:0;
+  font-size:16px;
+  font-family:"Lato", sans-serif;
+  font-weight:400;
+  line-height:1.8em;
+  color:#666;
+}
+
+.section {
+  text-align:center;
+  padding:50px 80px;
+}
+
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+}
+
+.pimg1, .pimg2, .pimg3{
+  position:relative;
+  opacity:0.70;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment:fixed;
+}
+
+.pimg1{
+  background-image: url('../img/clothes.jpeg');
+  min-height: 100vh;
+}
+
+.pimg2{
+  background-image: url('../img/clothes2.jpeg');
+  min-height: 400px;
+}
+
+.pimg3{
+  background-image: url('../img/specialdeal.jpeg');
+  min-height: 470px;
+  background-attachment:scroll;
+}
+
+.ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext .texto-parallax{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .texto-parallax.trans{
+  background-color:transparent;
+}
+
+.left {
+  position: absolute;
+  left: 15%;
+}
+
 /* Section banner-inicio */
 
 div.banner-inicio {

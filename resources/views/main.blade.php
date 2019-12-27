@@ -7,6 +7,40 @@ home
 @endsection
 @section('main')
   <!-- contenido especifico del body de la vista-->
+      <div class="pimg1">
+        <div class="ptext">
+          <span class="texto-parallax">Oklahoma</span>
+        </div>
+      </div>
+      <section class="section section-light">
+        <h2>Nuevo en tienda</h2>
+        <p>
+          Commodi, vitae. Minima soluta tempt optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis ore ex, omnis!
+        </p>
+      </section>
+      <div class="pimg2">
+        <div class="ptext">
+          <div class="">
+            <span class="texto-parallax">HOMBRE</span>
+            <span class="texto-parallax">MUJER</span>
+          </div>
+        </div>
+      </div>
+      <section class="section section-light">
+        <h2>Tendencias</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempor
+      </section>
+      <div class="pimg3">
+        <div class="ptext">
+          <span class="texto-parallax left">Ofertas</span>
+        </div>
+      </div>
+      <section class="section section-light">
+        <h2>En liquidacion</h2>
+        <p>
+          Lorem ipsum dolor sit amet, co provident dolorem modi cumque illo enim quuisquam quasi cum
+      </section>
       <section class="banner">
         <div class="banner-inicio">
           <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">

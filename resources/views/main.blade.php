@@ -20,9 +20,9 @@ home
       </section>
       <div class="pimg2">
         <div class="ptext">
-          <div class="">
-            <span class="texto-parallax">HOMBRE</span>
-            <span class="texto-parallax">MUJER</span>
+          <div class="twoLabels">
+            <span class="texto-parallax wide">HOMBRE</span>
+            <span class="texto-parallax wide">MUJER</span>
           </div>
         </div>
       </div>
@@ -32,8 +32,8 @@ home
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempor
       </section>
       <div class="pimg3">
-        <div class="ptext">
-          <span class="texto-parallax left">Ofertas</span>
+        <div class="ptext2">
+          <span class="texto-parallax">Ofertas</span>
         </div>
       </div>
       <section class="section section-light">

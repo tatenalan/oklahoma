@@ -6,7 +6,7 @@
 home
 @endsection
 @section('main')
-  <!-- contenido especifico del body de la vista-->
+  
       <div class="pimg1">
         <div class="ptext">
           <span class="texto-parallax">Oklahoma</span>

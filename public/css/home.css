@@ -216,6 +216,10 @@ a.ordenar:hover {
     width: 100%;
   }
 
+  .padre {
+    display: none;
+  }
+
 }
 
 /* Cuando la resolucion sea mayor o igual a 768 va a pasar lo siguiente */
@@ -252,8 +256,6 @@ main {
 
   .pimg3{
     background-image: url('../img/specialdeal.jpeg');
-    min-height: 470px;
-    background-attachment:scroll;
   }
 
   .ptext2{
@@ -275,7 +277,7 @@ main {
 /* Main */
 
   main {
-    margin-top: 76px;
+    margin-top: 95px;
   }
 
 /* Section banner-inicio */
@@ -295,12 +297,6 @@ main {
   }
 
   img.img-bannerMobile {
-    display: none;
-  }
-
-/* Social */
-
-  .padre {
     display: none;
   }
 

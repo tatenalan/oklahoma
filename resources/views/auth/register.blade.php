@@ -81,7 +81,6 @@ forms
           <div class="form-group">
             <label>Home address: </label>
             <input name="home_address" value="{{ old('home_address') }}" type="text" class="form-control" placeholder="Ingresa tu Direccion">
-            <small class="form-text text-muted">Formato: email@dominio.com</small>
             @error('home_address')
               <p class="errorForm">{{ $message }}</p>
             @enderror

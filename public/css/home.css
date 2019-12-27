@@ -97,6 +97,10 @@ body, html{
   width: 60%;
 }
 
+span a {
+  color: #fff;
+}
+
 /* Section banner-inicio */
 
 div.banner-inicio {

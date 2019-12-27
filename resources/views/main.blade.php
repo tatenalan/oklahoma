@@ -6,7 +6,7 @@
 home
 @endsection
 @section('main')
-  
+
       <div class="pimg1">
         <div class="ptext">
           <span class="texto-parallax">Oklahoma</span>
@@ -33,7 +33,7 @@ home
       </section>
       <div class="pimg3">
         <div class="ptext2">
-          <span class="texto-parallax">Ofertas</span>
+          <span class="texto-parallax"><a href="/ofertas">Ofertas</a></span>
         </div>
       </div>
       <section class="section section-light">

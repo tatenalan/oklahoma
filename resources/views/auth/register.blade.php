@@ -15,7 +15,7 @@ forms
           <div class="form-group">
             <label>First Name: *</label>
             <input name="first_name" value="{{ old('first_name') }}" type="text" class="form-control" placeholder="Ingresa tu Nombre">
-            <small class="form-text text-muted">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
+            <small class="form-text text-muted nameText">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
             @error('first_name')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -26,7 +26,7 @@ forms
           <div class="form-group">
             <label>Last Name: *</label>
             <input name="last_name" value="{{ old('last_name') }}" type="text" class="form-control" placeholder="Ingresa tu Apellido">
-            <small class="form-text text-muted">Ejemplo: Rodriguez, Gonzalez Pires.</small>
+            <small class="form-text text-muted surnameText">Ejemplo: Rodriguez, Gonzalez Pires.</small>
             @error('last_name')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -48,7 +48,7 @@ forms
           <div class="form-group">
             <label>Email: *</label>
             <input name="email" value="{{ old('email') }}" type="text" class="form-control" placeholder="Ingresa tu Email">
-            <small class="form-text text-muted">Formato: email@dominio.com</small>
+            <small class="form-text text-muted emailText">Formato: email@dominio.com</small>
             @error('email')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -59,7 +59,7 @@ forms
           <div class="form-group">
             <label>Password: *</label>
             <input name="password" value="" type="password" class="form-control" placeholder="Ingresa tu Password">
-            <small class="form-text text-muted">Debe contener al menos 6 caracteres</small>
+            <small class="form-text text-muted passwordText">Debe contener al menos 6 caracteres</small>
             @error('password')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -70,6 +70,7 @@ forms
           <div class="form-group">
             <label>Confirm password: *</label>
             <input name="password_confirmation" value="" type="password" class="form-control" placeholder="Confirmar Password">
+            <small class="form-text text-muted confirmPasswordText">Debe contener al menos 6 caracteres</small>
             @error('password-confirm')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -125,5 +126,6 @@ forms
       var pdrs = document.getElementById('file-upload').files[0].name;
       document.getElementById('info').innerHTML = pdrs;
     }</script>
+    <script src="js/validaciones.js" charset="utf-8"></script>
 
 @endsection

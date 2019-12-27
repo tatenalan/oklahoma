@@ -15,7 +15,7 @@ forms
           <div class="form-group">
             <label>First Name: *</label>
             <input name="first_name" value="{{ old('first_name') }}" type="text" class="form-control" placeholder="Ingresa tu Nombre">
-            <small class="form-text text-muted nameText">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
+            <small class="nameText">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
             @error('first_name')
               <p class="errorForm">{{ $message }}</p>
             @enderror

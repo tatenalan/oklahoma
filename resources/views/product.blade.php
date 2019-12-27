@@ -28,7 +28,7 @@ product
               @foreach ($product->images as $image)
               <div class="imagenesChiquiten">
 
-                <img class="imagen-producto-peque" onclick="changeImage(), this.style.border = '3px solid #18BC9C' , this.style.opacity=0.7"src="/storage/{{$image->path}}" alt="">
+                <img class="imagen-producto-peque"src="/storage/{{$image->path}}" alt="">
               </div>
               @endforeach
               </div>
@@ -167,28 +167,5 @@ product
           </div>
       </section>
       </div>
-      <script type="text/javascript">
-        function changeImage(){
-          var imagenGrande = document.querySelector('.imagen-producto');
-          var fotosChicas = document.querySelectorAll(".imagen-producto-peque");
-          for (img of fotosChicas) {
-            addEventListener('click', function(event){
-                if(event.target.src != undefined)
-                  imagenGrande.src = event.target.src
-            });
-          }
-          for (fotos of fotosChicas) {
-            fotos.style.border = 'none';
-            fotos.style.opacity = 1;
-          }
-          console.log(imagenGrande.src);
-          var imgs = fotosChicas;
-        }
-        function confirmar(){
-          var acepta = confirm('Esta seguro?');
-          if (!acepta){
-
-          }
-        }
-      </script>
+      <script src="/js/productoDinamico.js" charset="utf-8"></script>
 @endsection

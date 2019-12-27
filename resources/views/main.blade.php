@@ -15,28 +15,28 @@ home
                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                  <li data-target="#myCarousel" data-slide-to="1"></li>
                  <li data-target="#myCarousel" data-slide-to="2"></li> -->
-             </ol>
-             <div class="carousel-inner">
-               <div class="carousel-item active">
-                 <img src="/img/banner.png" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                 <img src="/img/carrousel2prueba.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                 <img src="/img/carrousel3prueba.jpg" class="d-block w-100" alt="...">
-               </div>
-             </div>
-             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
-             </a>
-             <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
-             </a>
-           </div>
-           <a class="ordena-ahora" href="">ORDENA YA!</a>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/img/banner.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/carrousel2prueba.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/carrousel3prueba.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+            <a class="ordena-ahora" href="">ORDENA YA!</a>
         </div>
         <div class="banner-mobile">
           <img class="img-bannerMobile" src="/img/bannerMobile.png" alt="Banner">

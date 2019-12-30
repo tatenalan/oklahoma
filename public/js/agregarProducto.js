@@ -3,6 +3,11 @@ window.addEventListener('load',function(){
   var categoria = formulario[6]
 
 categoria.addEventListener('change',function(){
+  test = document.getElementById('test1');
+  if (test) {
+    var divTalles = document.getElementById('talles')
+    divTalles.innerHTML= '';
+  }
   if (categoria.value==1||categoria.value==2||categoria.value==4||categoria.value==5) {
     // listado de talles
     var talles1 = ['xs','s','m','l','xl']
@@ -22,6 +27,7 @@ categoria.addEventListener('change',function(){
     input.setAttribute('type','number')
     input.setAttribute('name',talles1[i])
     input.setAttribute('min','0')
+    input.setAttribute('id','test'+i)
     input.setAttribute('max','100')
     input.setAttribute('step','1')
     input.setAttribute('value','0')
@@ -33,9 +39,15 @@ categoria.addEventListener('change',function(){
   }
   }
   if (categoria.value==3) {
-    var talles2 = [30,32,34,36,38,40,42,44,46,48]
+    test = document.getElementById('test1')
+    if (test) {
+      var divTalles = document.getElementById('talles')
+      divTalles.innerHTML= '';
+    }
     // div padre
     var divTalles = document.getElementById('talles')
+
+    var talles2 = [30,32,34,36,38,40,42,44,46,48]
 
     for (var i = 0; i < talles2.length; i++) {
     // cada div hijo
@@ -51,6 +63,7 @@ categoria.addEventListener('change',function(){
     input.setAttribute('name',talles2[i])
     input.setAttribute('min','0')
     input.setAttribute('max','100')
+    input.setAttribute('id','test'+i)
     input.setAttribute('step','1')
     input.setAttribute('value','0')
 

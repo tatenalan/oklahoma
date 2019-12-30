@@ -1,6 +1,6 @@
 window.addEventListener('load',function(){
   var formulario = document.querySelector('.form-signup')
-  var categoria = formulario[6]
+  var categoria = formulario[5]
 
 categoria.addEventListener('change',function(){
   test = document.getElementById('test1');
@@ -72,6 +72,28 @@ categoria.addEventListener('change',function(){
     cadaValor.appendChild(input)
     divTalles.appendChild(cadaValor)
   }
+  }
+})
+var oferta = formulario[3]
+oferta.addEventListener('change', function(){
+  if (oferta.value == 1) {
+    var divPadre = document.getElementById('ofertaDescuento')
+    var divHijo = document.createElement('div')
+    divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')
+    var label = document.createElement('label')
+    label.innerHTML = "Descuento: "
+    var theInput = document.createElement('input')
+    theInput.setAttribute('class','cantidad form-control')
+    theInput.setAttribute('type','number')
+    theInput.setAttribute('name','discount')
+    theInput.setAttribute('max','80')
+    theInput.setAttribute('min','10')
+    theInput.setAttribute('step','5')
+    theInput.setAttribute('value','0')
+    divHijo.appendChild(label)
+    divHijo.appendChild(theInput)
+    divPadre.appendChild(divHijo)
+    console.log(divPadre);
   }
 })
 })

@@ -1,4 +1,4 @@
-@extends('layouts/plantilla')
+@extends('plantilla')
 @section('titulo')
 Login
 @endsection

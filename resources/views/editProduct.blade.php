@@ -1,4 +1,4 @@
-@extends('layouts/plantilla')
+@extends('plantilla')
 @section('titulo')
 Edit Product
 @endsection
@@ -87,14 +87,14 @@ forms
           <div class="row">
             <div class="col-4 col-md-2 offset-md-1 form-group">
               <label for="">XS: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
+              <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" @if (old('xs') !== null) value="{{ old('xs') }}" @else value="{{$product->stock->XS}}" @endif >
               @error('xs')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
             </div>
             <div class="col-4 col-md-2 form-group">
               <label for="">S: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="s" min="0" max="100" step="1" value="{{$product->stock->S}}">
+              <input class="cantidad form-control" type="number" class="form-control" name="s" min="0" max="100" step="1" @if (old('s') !== null) value="{{ old('s') }}" @else value="{{$product->stock->S}}" @endif >
               @error('s')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
@@ -102,7 +102,7 @@ forms
 
             <div class="col-4 col-md-2 form-group">
               <label for="">M: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="m" min="0" max="100" step="1" value="{{$product->stock->M}}">
+              <input class="cantidad form-control" type="number" class="form-control" name="m" min="0" max="100" step="1" @if (old('m') !== null) value="{{ old('m') }}" @else value="{{$product->stock->M}}" @endif >
               @error('m')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
@@ -110,7 +110,7 @@ forms
 
             <div class="col-4 col-md-2 form-group">
               <label for="">L: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="l" min="0" max="100" step="1" value="{{$product->stock->L}}">
+              <input class="cantidad form-control" type="number" class="form-control" name="l" min="0" max="100" step="1" @if (old('l') !== null) value="{{ old('l') }}" @else value="{{$product->stock->L}}" @endif >
               @error('l')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
@@ -118,7 +118,7 @@ forms
 
             <div class="col-4 col-md-2 form-group">
               <label for="">XL: </label>
-              <input class="cantidad form-control" type="number" class="form-control" name="xl" min="0" max="100" step="1" value="{{$product->stock->XL}}">
+              <input class="cantidad form-control" type="number" class="form-control" name="xl" min="0" max="100" step="1" @if (old('xl') !== null) value="{{ old('xl') }}" @else value="{{$product->stock->XL}}" @endif >
               @error('xl')
                 <p class="errorForm">{{ $message }}</p>
               @enderror

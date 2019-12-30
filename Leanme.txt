@@ -32,17 +32,15 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 Necesario a terminar / errores a arreglar:
 - Filtros para productos / buscador
 - al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
-- Persistencias en edit y add product
 - mercadopago
+- Si elegimos esta en oferta que se habilite el campo descuento
 
 
 
 Herramientas a Incorporar / cosas extra por hacer 
 - que aclare en el producto cuando no hay mas stock de ningun tipo
-- arreglar cambio de imagenes en la vista product (al clickear otra imagen cualquiera se buguea y aparece esa)
 - crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
-- hacerle un confirm al eliminar producto y al editar producto. Agregar el boton editar en la vista product.blade y el boton eliminar en editproduct.blade
-- como hacer que los valores de los campos del form de addproduct sean 0 salvo que hayan hecho un post?? (ejemplo precio)
+- hacerle un confirm al eliminar producto y al editar producto.
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
 - incorporar los talles de pantalones en store, edit y update del producto.
 - hacer funcionar la tabla colores
@@ -51,7 +49,6 @@ Herramientas a Incorporar / cosas extra por hacer
 - Carrousel para banners y carrousel para productos destacados/oferta/nuevos como newportbeach web site
 - Un chat fixed abajo de todo a la derecha
 - Seccion Sucursales con api de google maps
-- Imagen con Paralax
 - Compartir publicaciones de ciertos productos en redes sociales
 - socialbar oculta
 - nav bar que se oculte cuando escrolleamos

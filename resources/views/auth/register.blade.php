@@ -110,10 +110,12 @@ forms
                 <p class="errorForm">{{ $message }}</p>
               @enderror
             </div>
+
             <div class="form-group form-check">
               <input value="Newsletter" name="Newsletter" type="checkbox" class="form-check-input" id="exampleCheck2">
               <label class="form-check-label" for="exampleCheck1">Ofertas, enterarme de todo</label>
             </div>
+            
               <button type="submit" class="btn btn-success">Register</button>
               <br><br><small id="emailHelp" class="form-text text-muted">Los valores con un * son obligatorios.</small>
         </form>

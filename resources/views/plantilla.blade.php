@@ -17,11 +17,13 @@
     <!-- Mi css Header --><link rel="stylesheet" href="/css/header.css">
     <!-- Mi css Socialbar --><link rel="stylesheet" href="/css/socialbar.css">
     <!-- Icono del logo en pestana --><link rel="icon" type="image/png" href="/img/Logo3.png" />
+
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="/css/@yield('css').css">
-    <script type="text/javascript" src="/js/funciones.js">
 
-    </script>
+      {{-- Scripts --}}
+    <script type="text/javascript" src="/js/funciones.js"></script>
+
   </head>
   <body>
     <header>
@@ -38,12 +40,16 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item oferta" href="ofertas">Ofertas</a>
-              <a class="dropdown-item" href="remeras">Remeras</a>
-              <a class="dropdown-item" href="camisas">Camisas</a>
-              <a class="dropdown-item" href="jeans">Jeans</a>
-              <a class="dropdown-item" href="buzos">Buzos</a>
-              <a class="dropdown-item" href="camperas">Camperas</a>
-              <a class="dropdown-item" href="accesorios">Accesorios</a>
+              {{-- foreach para que se pongan las catergorias automaticamte (en proceso) --}}
+              {{-- @foreach ($categories as $category)
+                <a class="dropdown-item" href="/{{$category->name}}s">{{$category->name}}s</a>
+              @endforeach --}}
+              <a class="dropdown-item" href="/remeras">Remeras</a>
+              <a class="dropdown-item" href="/camisas">Camisas</a>
+              <a class="dropdown-item" href="/jeans">Jeans</a>
+              <a class="dropdown-item" href="/buzos">Buzos</a>
+              <a class="dropdown-item" href="/camperas">Camperas</a>
+              <a class="dropdown-item" href="/accesorios">Accesorios</a>
             </div>
           </div>
           <!--dropdown-->
@@ -145,7 +151,7 @@
 
         <div class="socialBar">
           <ul>
-            <li><a href="https://api.whatsapp.com/send?phone=5491158059198&text=Hola, estoy contactandolos desde el sitio web para recibir mas informacion" target="_blank" class="icon-whatsapp" data-toggle="tooltip" data-placement="right" data-original-title="Consulta por Whatsapp!"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=5491158291281&text=Hola, estoy contactandolos desde el sitio web para recibir mas informacion" target="_blank" class="icon-whatsapp" data-toggle="tooltip" data-placement="right" data-original-title="Consulta por Whatsapp!"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
             <li><a href="tel:+549-11-58291281" target="_blank"  class="icon-phone" data-toggle="tooltip" data-placement="right" data-original-title="Llamanos"><ion-icon name="call"></ion-icon></a></li>
             <li><a href="mailto:info@laresdecanning.com" class="icon-mail"><ion-icon name="mail"></ion-icon></a></li>
             <li><a href="http://www.facebook.com/laresdecanning" target="_blank" class="icon-facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>

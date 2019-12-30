@@ -70,6 +70,7 @@ class productController extends Controller
       $mensajes = [
         "required" => "El campo no puede estar vacio",
         'string' => "El campo :attribute debe ser un texto",
+        "price.min" => "El precio debe ser mayor a $50",
         "min" => "El campo :attribute tiene un minimo de :min caracteres",
         "max" => "El campo :attribute tiene un maximo de :max caracteres",
         "images.*.image" => "Debe ser un formato de imagen",

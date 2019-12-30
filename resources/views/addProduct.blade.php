@@ -81,7 +81,7 @@ forms
 
       </div>
 
-      <div class="row">
+      {{-- <div class="row">
 
         <div class="col-4 col-md-2 offset-md-1 form-group">
           <label for="">XS: </label>
@@ -123,6 +123,9 @@ forms
           @enderror
         </div>
 
+      </div> --}}
+      <div id="talles" class="row">
+         {{-- Aca se crean las opciones de talle --}}
       </div>
 
       <div class="row">
@@ -151,5 +154,5 @@ forms
     </form>
 
   </div>
-
+<script src="js/agregarProducto.js" charset="utf-8"></script>
 @endsection

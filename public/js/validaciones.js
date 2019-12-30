@@ -2,6 +2,7 @@ window.addEventListener('load',function(){
   var formulario = document.querySelector('form')
   var nombre = formulario[1]
   var apellido = formulario[2]
+  var fechaDeNacimiento = formulario[3]
   var email = formulario[4]
   var password = formulario[5]
   var confirmarPassword = formulario[6]
@@ -120,4 +121,21 @@ formulario.addEventListener('submit', function(event){
   }
 })
 
+// Intento de validar edad
+// fechaDeNacimiento.addEventListener('blur',function(){
+//   if (fechaDeNacimiento.value) {
+//     function calcularEdad(fechaDeNacimiento) {
+//       var hoy = new Date();
+//       var cumpleanos = new Date(fechaDeNacimiento);
+//       var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+//       var m = hoy.getMonth() - cumpleanos.getMonth();
+//
+//       if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+//         edad--;
+//       }
+//       return edad;
+//     }
+//     calcularEdad()
+//   }
+// })
 })

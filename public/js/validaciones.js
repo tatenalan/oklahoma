@@ -5,23 +5,22 @@ window.addEventListener('load',function(){
   var email = formulario[4]
   var password = formulario[5]
   var confirmarPassword = formulario[6]
-
+  var terminosYCondiciones = formulario[9]
+  var submitButton = formulario[11]
   // Validaciones de nombre
   nombre.addEventListener('blur',function(){
   if (this.value == ''){
-    var mensaje = document.querySelector('.nameText')
+    var mensaje = document.getElementById('nameText');
     mensaje.innerHTML = 'Por favor ingrese su nombre'
-    console.log(mensaje);
-    mensaje.style.color = 'red';
-    mensaje.removeAttribute('hidden')
+    mensaje.setAttribute('class','errorForm');
   } else {
-    var mensaje = document.querySelector('.nameText')
+    var mensaje = document.getElementById('nameText')
     mensaje.setAttribute('hidden', '')
   }
   if (this.value.length<3 && this.value != ''){
-    var mensaje = document.querySelector('.nameText')
+    var mensaje = document.getElementById('nameText')
     mensaje.innerHTML = 'El nombre debe tener al menos 3 letras'
-    mensaje.style.color = 'red';
+    mensaje.setAttribute('class','errorForm');
     mensaje.removeAttribute('hidden')
   }
 })
@@ -29,18 +28,18 @@ window.addEventListener('load',function(){
 // Validaciones de apellido
 apellido.addEventListener('blur',function(){
 if (this.value == ''){
-  var mensaje = document.querySelector('.surnameText')
+  var mensaje = document.getElementById('surnameText')
   mensaje.innerHTML = 'Por favor ingrese su apellido'
-  mensaje.style.color = 'red';
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 } else {
-  var mensaje = document.querySelector('.surnameText')
+  var mensaje = document.getElementById('surnameText')
   mensaje.setAttribute('hidden', '')
 }
 if (this.value.length<3 && this.value != ''){
-  var mensaje = document.querySelector('.surnameText')
+  var mensaje = document.getElementById('surnameText')
   mensaje.innerHTML = 'El apellido debe tener al menos 3 letras'
-  mensaje.style.color = 'red';
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 }
 })
@@ -49,64 +48,76 @@ if (this.value.length<3 && this.value != ''){
 // Validaciones de email
 email.addEventListener('blur',function(){
   if (this.value == ''){
-    var mensaje = document.querySelector('.emailText')
+    var mensaje = document.getElementById('emailText')
     mensaje.innerHTML = 'Por favor ingrese su email'
-    mensaje.style.color = 'red';
+    mensaje.setAttribute('class','errorForm');
     mensaje.removeAttribute('hidden')
   } else {
-    var mensaje = document.querySelector('.emailText')
+    var mensaje = document.getElementById('emailText')
     mensaje.setAttribute('hidden', '')
-  }
-  if (this.value.length<3 && this.value != ''){
-    var mensaje = document.querySelector('.emailText')
-    mensaje.innerHTML = 'El email debe tener al menos 3 letras'
-    mensaje.style.color = 'red';
-    mensaje.removeAttribute('hidden')
   }
   var expresionRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
   if (expresionRegular.test(this.value)==false&&this.value.length>2 && this.value != '') {
-    var mensaje = document.querySelector('.emailText')
+    var mensaje = document.getElementById('emailText')
     mensaje.innerHTML = 'Tu email debe tener un formato valido'
-    mensaje.style.color = 'red';
+    mensaje.setAttribute('class','errorForm');
     mensaje.removeAttribute('hidden')
   }
 })
  // Validaciones password
 password.addEventListener('blur',function(){
 if (this.value == ''){
-  var mensaje = document.querySelector('.passwordText')
+  var mensaje = document.getElementById('passwordText')
   mensaje.innerHTML = 'Por favor ingrese su password'
-  mensaje.style.color = 'red';
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 } else {
-  var mensaje = document.querySelector('.passwordText')
+  var mensaje = document.getElementById('passwordText')
   mensaje.setAttribute('hidden', '')
 }
-if (this.value.length<3 && this.value != ''){
-  var mensaje = document.querySelector('.passwordText')
+if (this.value.length<6 && this.value != ''){
+  var mensaje = document.getElementById('passwordText')
   mensaje.innerHTML = 'La contraseña debe tener al menos 6 caracteres'
-  mensaje.style.color = 'red';
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 }
 })
 
+// validaciones confirmar password
 confirmarPassword.addEventListener('blur',function(){
+  var mensaje = document.getElementById('confirmPasswordText')
 if (this.value == ''){
-  var mensaje = document.querySelector('.confirmPasswordText')
   mensaje.innerHTML = 'Por favor ingrese su confirmacion de password'
-  mensaje.style.color = 'red';
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 } else {
-  var mensaje = document.querySelector('.confirmPasswordText')
+  var mensaje = document.getElementById('confirmPasswordText')
   mensaje.setAttribute('hidden', '')
 }
-console.log(password.value);
-var mensaje = document.querySelector('.confirmPasswordText')
-if (password.value!=this.value && this.value != ''){
-  mensaje.innerHTML = 'Las contraseñas no coinciden'
-  mensaje.style.color = 'red';
+if (password.value == ''){
+  var mensaje = document.getElementById('confirmPasswordText')
+  mensaje.innerHTML = 'Por favor complete ambos campos'
+  mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 }
+var mensaje = document.getElementById('confirmPasswordText')
+if (password.value!=this.value && this.value != ''){
+  mensaje.innerHTML = 'Las contraseñas no coinciden'
+  mensaje.setAttribute('class','errorForm');
+  mensaje.removeAttribute('hidden')
+}
+})
+
+formulario.addEventListener('submit', function(event){
+  if (!terminosYCondiciones.checked) {
+    var mensaje = document.getElementById('terminosYCondiciones')
+    mensaje.setAttribute('class','errorForm');
+    mensaje.removeAttribute('hidden');
+    event.preventDefault();
+  }
+  else {
+    mensaje.setAttribute('hidden');
+  }
 })
 
 })

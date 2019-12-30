@@ -23,4 +23,16 @@ window.addEventListener('load',function(){
       this.style.opacity = 0.8;
     })
   }
+  talle = document.querySelector('.talles');
+  cantidad = document.querySelector('.cantidad')
+  ordenar = document.querySelector('.botonOrdenar')
+  talle.addEventListener('change', function(){
+    ordenar.type = 'button';
+    ordenar.style.backgroundColor = 'grey'
+  })
+  cantidad.addEventListener('change', function(){
+    console.log(cantidad.value);
+    console.log(talle.value);
+    console.log(ordenar);
+  })
 })

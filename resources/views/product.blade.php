@@ -109,7 +109,7 @@ product
           <div class="row">
             <div class="col-sm">
               <div class="filaSiete">
-                <button type="submit" class="ordenar btn btn-success">Ordenar</button>
+                <button type="submit" class="ordenar btn btn-success botonOrdenar">Ordenar</button>
               </div>
             </div>
                 </form>

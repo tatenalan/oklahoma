@@ -15,7 +15,7 @@ forms
           <div class="form-group">
             <label>First Name: *</label>
             <input name="first_name" value="{{ old('first_name') }}" type="text" class="form-control" placeholder="Ingresa tu Nombre">
-            <small class="nameText">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
+            <small id="nameText" class="form-text text-muted">Ejemplo: Pablo, Adrian, Juan Carlos.</small>
             @error('first_name')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -26,7 +26,7 @@ forms
           <div class="form-group">
             <label>Last Name: *</label>
             <input name="last_name" value="{{ old('last_name') }}" type="text" class="form-control" placeholder="Ingresa tu Apellido">
-            <small class="form-text text-muted surnameText">Ejemplo: Rodriguez, Gonzalez Pires.</small>
+            <small id="surnameText" class="form-text text-muted">Ejemplo: Rodriguez, Gonzalez Pires.</small>
             @error('last_name')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -48,7 +48,7 @@ forms
           <div class="form-group">
             <label>Email: *</label>
             <input name="email" value="{{ old('email') }}" type="text" class="form-control" placeholder="Ingresa tu Email">
-            <small class="form-text text-muted emailText">Formato: email@dominio.com</small>
+            <small id="emailText" class="form-text text-muted">Formato: email@dominio.com</small>
             @error('email')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -59,7 +59,7 @@ forms
           <div class="form-group">
             <label>Password: *</label>
             <input name="password" value="" type="password" class="form-control" placeholder="Ingresa tu Password">
-            <small class="form-text text-muted passwordText">Debe contener al menos 6 caracteres</small>
+            <small id="passwordText" class="form-text text-muted">Debe contener al menos 6 caracteres</small>
             @error('password')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -70,7 +70,7 @@ forms
           <div class="form-group">
             <label>Confirm password: *</label>
             <input name="password_confirmation" value="" type="password" class="form-control" placeholder="Confirmar Password">
-            <small class="form-text text-muted confirmPasswordText">Debe contener al menos 6 caracteres</small>
+            <small id="confirmPasswordText" class="">Debe contener al menos 6 caracteres</small>
             @error('password-confirm')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -107,6 +107,8 @@ forms
             <div class="form-group form-check">
               <input value="TerminosAceptados" name="terms" type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Acepto los terminos y condiciones *</label>
+              <br>
+              <small id="terminosYCondiciones" hidden class="form-text text-muted">Para continuar acepte los terminos y condiciones</small>
               @error('terms')
                 <p class="errorForm">{{ $message }}</p>
               @enderror

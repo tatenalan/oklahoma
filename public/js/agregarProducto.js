@@ -19,7 +19,12 @@ categoria.addEventListener('change',function(){
     var cadaValor = document.createElement('div')
     var label = document.createElement('label')
     label.innerHTML = talles1[i].toUpperCase() + ': '
-    cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')
+    if (i==0) {
+      cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')
+    }
+    else {
+      cadaValor.setAttribute('class','col-4 col-md-2 form-group')
+    }
     var input = document.createElement('input')
 
     // armamos el input
@@ -54,7 +59,12 @@ categoria.addEventListener('change',function(){
     var cadaValor = document.createElement('div')
     var label = document.createElement('label')
     label.innerHTML = talles2[i] + ': '
-    cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')
+    if (i==0||i==5) {
+      cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')
+    }
+    else {
+      cadaValor.setAttribute('class','col-4 col-md-2 form-group')
+    }
     var input = document.createElement('input')
 
     // armamos el input
@@ -76,10 +86,39 @@ categoria.addEventListener('change',function(){
 })
 var oferta = formulario[3]
 oferta.addEventListener('change', function(){
+  divHijo = document.getElementById('descuento')
+  if (document.getElementById('descuento')) {
+    if (oferta.value == 1) {
+      var divPadre = document.getElementById('ofertaDescuento')
+      divHijo = document.getElementById('descuento')
+      divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')
+      divHijo.setAttribute('id','descuento')
+      var label = document.createElement('label')
+      label.innerHTML = "Descuento: "
+      var theInput = document.createElement('input')
+      theInput.setAttribute('class','cantidad form-control')
+      theInput.setAttribute('type','number')
+      theInput.setAttribute('name','discount')
+      theInput.setAttribute('max','80')
+      theInput.setAttribute('min','10')
+      theInput.setAttribute('step','5')
+      theInput.setAttribute('value','0')
+      divHijo.appendChild(label)
+      divHijo.appendChild(theInput)
+      divPadre.appendChild(divHijo)
+      console.log(divPadre);
+    }
+    else {
+      var divHijo = document.getElementById('descuento')
+      divHijo.innerHTML = '';
+    }
+  }
+  else {
   if (oferta.value == 1) {
     var divPadre = document.getElementById('ofertaDescuento')
     var divHijo = document.createElement('div')
     divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')
+    divHijo.setAttribute('id','descuento')
     var label = document.createElement('label')
     label.innerHTML = "Descuento: "
     var theInput = document.createElement('input')
@@ -95,6 +134,11 @@ oferta.addEventListener('change', function(){
     divPadre.appendChild(divHijo)
     console.log(divPadre);
   }
+  else {
+    var divHijo = document.getElementById('descuento')
+    divHijo.innerHTML = '';
+  }
+}
 })
 })
 

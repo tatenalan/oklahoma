@@ -43,7 +43,7 @@ categoria.addEventListener('change',function(){
     divTalles.appendChild(cadaValor)
   }
   }
-  if (categoria.value==3) {
+  if (categoria.value==3) {         // deberiamos hacer que los talles de pantalones y remeras esten creados con atributo hidden en value 0 ya que al crear producto es necesario enviarle un valor a cada columna (salvo que pongamos que pueda ser null en las migraciones de stock)
     test = document.getElementById('test1')
     if (test) {
       var divTalles = document.getElementById('talles')

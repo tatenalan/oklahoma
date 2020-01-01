@@ -19,7 +19,7 @@ categoria.addEventListener('change',function(){
     var cadaValor = document.createElement('div')
     var label = document.createElement('label')
     label.innerHTML = talles1[i].toUpperCase() + ': '
-    cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')
+    cadaValor.setAttribute('class','col-4 col-md-2 offset-md-1 form-group')  // SOLO EL PRIMER DIV VA A TENER LA CLASS OFFSET-MD-1
     var input = document.createElement('input')
 
     // armamos el input
@@ -38,7 +38,7 @@ categoria.addEventListener('change',function(){
     divTalles.appendChild(cadaValor)
   }
   }
-  if (categoria.value==3) {
+  if (categoria.value==3) {         // deberiamos hacer que los talles de pantalones y remeras esten creados con atributo hidden en value 0 ya que al crear producto es necesario enviarle un valor a cada columna (salvo que pongamos que pueda ser null en las migraciones de stock)
     test = document.getElementById('test1')
     if (test) {
       var divTalles = document.getElementById('talles')
@@ -76,7 +76,7 @@ categoria.addEventListener('change',function(){
 })
 var oferta = formulario[3]
 oferta.addEventListener('change', function(){
-  if (oferta.value == 1) {
+  if (oferta.value == 1) {                     // SI PONGO QUE ESTA EN OFERTA VARIAS VECES APARECE EL LABEL VARIAS VECES Y NO SE BORRA EL ANTERIOR
     var divPadre = document.getElementById('ofertaDescuento')
     var divHijo = document.createElement('div')
     divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')

@@ -198,7 +198,7 @@ class productController extends Controller
     {
         // Declaro las variables de validacion
 
-        $reglas = [
+      $reglas = [
       'name' =>'required|string|min:3|max:40|',
       'price' =>'required|numeric|min:0|max:100000|',
       'onSale' => 'required',
@@ -212,9 +212,9 @@ class productController extends Controller
       'm' => 'required|integer|min:0|max:1000',
       'l' => 'required|integer|min:0|max:1000',
       'xl' => 'required|integer|min:0|max:1000',
-    ];
+      ];
 
-    $mensajes = [
+      $mensajes = [
       "required" => "El campo es obligatorio",
       "string" => "El campo debe ser un texto",
       "min" => "El minimo es de :min caracteres",
@@ -225,79 +225,78 @@ class productController extends Controller
       "images.*.image" => "Debe ser un formato de imagen",
       "mimes" => "Formato de imagen invalido",
       "images.*.max" => 'La imagen es muy pesada',
+      ];
 
-    ];
+      // Validamos
+      $this->validate($request, $reglas, $mensajes);
+      // llamo al producto a editar
+      // $imagenes = $request->file('images');
+      //
 
-    // Validamos
-    $this->validate($request, $reglas, $mensajes);
-    // llamo al producto a editar
-    // $imagenes = $request->file('images');
-    //
+      $product = Product::find($id);
+      // busco el stock del producto a editar
 
-    $product = Product::find($id);
-    // busco el stock del producto a editar
+      $product->stock->XS = $request->xs;
+      $product->stock->S = $request->s;
+      $product->stock->M = $request->m;
+      $product->stock->L = $request->l;
+      $product->stock->XL = $request->xl;
 
-    $product->stock->XS = $request->xs;
-    $product->stock->S = $request->s;
-    $product->stock->M = $request->m;
-    $product->stock->L = $request->l;
-    $product->stock->XL = $request->xl;
+      // guardo en la base de datos
+      $product->stock->save();
 
-    // guardo en la base de datos
-    $product->stock->save();
+      $product->name = $request['name']; // alternativa $producto->name = $request->name;
+      $product->price = $request['price'];
+      $product->onSale = $request['onSale'];
+      $product->discount = $request['discount'];
+      $product->genre_id = $request['genre_id'];
+      $product->category_id = $request['category_id'];
+      $product->save();
 
-    $product->name = $request['name']; // alternativa $producto->name = $request->name;
-    $product->price = $request['price'];
-    $product->onSale = $request['onSale'];
-    $product->discount = $request['discount'];
-    $product->genre_id = $request['genre_id'];
-    $product->category_id = $request['category_id'];
-    $product->save();
+      $images = $product->images;
+      // guardo en la base de datos
+      // Si cambian una foto, se eliminan todas las anteriores
+      if ($request->file('images')) {
+        //recorro cada imagen y la deslinkeo
+        foreach ($images as $image) {
+          $image_path = storage_path('app/public/').$image->path;
+          // se elimina la foto del storage
+          unlink($image_path);
+          // se elimina la foto de la base de datos
+          $image->delete();
+        }
 
-    $images = $product->images;
-    // guardo en la base de datos
-    // Si cambian una foto, se eliminan todas las anteriores
-    if ($request->file('images')) {
-      //recorro cada imagen y la deslinkeo
-      foreach ($images as $image) {
-        $image_path = storage_path('app/public/').$image->path;
-        // se elimina la foto del storage
-        unlink($image_path);
-        // se elimina la foto de la base de datos
-        $image->delete();
+        // creo la variable que contiene todas las imagenes del input
+        $imagenes = $request->file('images');
+
+        // por cada imagen
+        foreach ($imagenes as $imagen) {
+          //guarda cada imagen en storage/public (No en la DB)
+          $file = $image->store('public');
+          //Obtengo sus nombres
+          $path = basename($file);
+          // Por cada imagen instancio un objeto de la clase imagen
+          $image = new Image;
+          // asigno las rutas correspondientes y el id de la imagen
+          $image->product_id = $product->id;
+          $image->path = $path;
+          // guardo el objeto imagen instanciado en la base de datos
+          $image->save();
+        }
       }
 
-      // creo la variable que contiene todas las imagenes del input
-      $imagenes = $request->file('images');
 
-      // por cada imagen
-      foreach ($imagenes as $imagen) {
-        //guarda cada imagen en storage/public (No en la DB)
-        $file = $image->store('public');
-        //Obtengo sus nombres
-        $path = basename($file);
-        // Por cada imagen instancio un objeto de la clase imagen
-        $image = new Image;
-        // asigno las rutas correspondientes y el id de la imagen
-        $image->product_id = $product->id;
-        $image->path = $path;
-        // guardo el objeto imagen instanciado en la base de datos
-        $image->save();
-      }
+      // si cambian la foto
+      // obtenemos la ruta de la foto anterior
+      // verificamos si existe en la base de datos y en storage
+      // elimina la foto del storage
+
+
+      // Redirijo
+      return redirect('/product/'.$product->id)
+      ->with('status', 'Producto editado exitosamente!!!')
+      ->with('operation', 'success');
     }
-
-
-    // si cambian la foto
-    // obtenemos la ruta de la foto anterior
-    // verificamos si existe en la base de datos y en storage
-    // elimina la foto del storage
-
-
-    // Redirijo
-    return redirect('/product/'.$product->id)
-    ->with('status', 'Producto editado exitosamente!!!')
-    ->with('operation', 'success');
-  }
 
     /**
      * Remove the specified resource from storage.
@@ -305,6 +304,20 @@ class productController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
+
+    public function showCategory($categ)  // a prueba
+    {
+      $category = Category::where('name', '=', $categ)->get();
+      // me falta traer los productos correspondientes a la categoria elegida
+      // los traigo compactados o los traigo directamente desde la vista con la relacion
+      return view('/category', compact('category', 'products'));
+    }
+
+    public function plantilla()
+    {
+      $categories = Category::all();
+      return view('/plantilla', compact('categories'));
+    }
 
     public function remeras(Product $product)
     {

@@ -27,6 +27,8 @@ Auth::routes();
 //   return view('welcome');
 // });
 
+Route::get('/plantilla', 'ProductController@plantilla');
+
 Route::get('/nosotros', function() {
   return view('nosotros');
 });
@@ -50,6 +52,8 @@ Route::get('/login', function() {
 // products
 
 Route::get('/', 'ProductController@directory');
+
+Route::get('/{category}', 'ProductController@showCategory'); // a pureba
 
 Route::get('/remeras', 'ProductController@remeras');
 

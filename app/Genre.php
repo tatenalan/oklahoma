@@ -8,7 +8,7 @@ class Genre extends Model
 {
   public $guarded = [];
 
-  public function products(){
+  public function productsByGenre(){
     return $this->hasMany("App\Product", "genre_id"); // Recordar poner App con A mayuscula!!
   }
 

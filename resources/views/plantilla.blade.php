@@ -55,7 +55,7 @@ $categories = Category::all();
                 {{-- la funcion strtolower() sirve para pasar el category->name a minuscula
                 para que la ruta funcione--}}
                 <a class="dropdown-item" href="/{{strtolower($category['name'])}}s">{{$category['name'].'s'}}</a>
-                
+
               @endforeach
             </div>
           </div>

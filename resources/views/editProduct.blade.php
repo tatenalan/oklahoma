@@ -32,7 +32,7 @@ forms
           </div>
         </div>
 
-        <div class="row">
+        <div id="descuento" class="row">
           <div class="col-6 col-lg-4 offset-lg-2 col-md-6 form-group">
             <div class="form-group">
               <label for="">En descuento? : </label>
@@ -42,16 +42,27 @@ forms
               </select>
             </div>
           </div>
+      @if ($product->onSale == 1)
 
-          <div class="col-6 col-lg-4 col-md-6 form-group">
+          <div id="descuento1" class="col-6 col-lg-4 col-md-6 form-group">
             <label for="">Descuento: </label>
             <input class="cantidad form-control" type="number" name="discount" min="0" max="80" step="5" value="{{ old('discount',$product->discount)}}">
           </div>
           @error('discount')
             <p class="errorForm">{{ $message }}</p>
           @enderror
+          </div>
+      @else
+        <div hidden="true" id="descuento1" class="col-6 col-lg-4 col-md-6 form-group">
+          <label for="">Descuento: </label>
+          <input class="cantidad form-control" type="number" name="discount" min="0" max="80" step="5" value="{{ old('discount',$product->discount)}}">
+        </div>
+        @error('discount')
+          <p class="errorForm">{{ $message }}</p>
+        @enderror
         </div>
 
+      @endif
         <div class="row">
           <div class="col-6 col-lg-4 offset-lg-2 col-md-6 form-group">
             <label for="">Genero: *</label>
@@ -67,7 +78,7 @@ forms
           </div>
 
 
-          <div class="col-6 col-lg-4 col-md-6 form-group">
+          <div id="categoria" class="col-6 col-lg-4 col-md-6 form-group">
             <label for="">Categoria: *</label>
             <select class="form-control" name="category_id">
               <option value="">Seleccione una categoria</option>
@@ -84,7 +95,7 @@ forms
 
         @if ($product->stock_id)
 
-          <div class="row">
+          <div id="talles" class="row">
             <div class="col-4 col-md-2 offset-md-1 form-group">
               <label for="">XS: </label>
               <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" @if (old('xs') !== null) value="{{ old('xs') }}" @else value="{{$product->stock->XS}}" @endif >
@@ -126,7 +137,7 @@ forms
           </div>
           @else
 
-          <div class="row">
+          <div id="talles" class="row">
             <div class="col-4 col-md-2 offset-md-1 form-group">
               <label for="">XS: </label>
               <input class="cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" value="0">
@@ -219,7 +230,7 @@ forms
       </div>
 
   </div>
-
+    <script src="/js/editarProducto.js" charset="utf-8"></script>
   {{-- Lo que hace este script es tomar el nombre del archivo que queremos subir y ponerlo dentro el elemento con la clase info para que podamos verlo. --}}
     <script>function change(){
       var pdrs = document.getElementById('file-upload').files[0].name;

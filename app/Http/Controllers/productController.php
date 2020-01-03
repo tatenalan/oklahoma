@@ -359,7 +359,7 @@ class productController extends Controller
       $products = Product::where('onSale', '=', true)->orderBy('price')->get();
       $category = Category::all();
       $vac = compact('products','category');
-      return view('jeans',$vac);
+      return view('ofertas',$vac);
     }
 
     public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes y su stock

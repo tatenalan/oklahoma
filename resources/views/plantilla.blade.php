@@ -1,3 +1,8 @@
+@php
+  use App\Category;
+  $categories = Category::all()
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -41,15 +46,15 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item oferta" href="ofertas">Ofertas</a>
               {{-- foreach para que se pongan las catergorias automaticamte (en proceso) --}}
-              {{-- @foreach ($categories as $category)
-                <a class="dropdown-item" href="/{{$category->name}}s">{{$category->name}}s</a>
-              @endforeach --}}
-              <a class="dropdown-item" href="/remeras">Remeras</a>
+              @foreach ($categories as $category)
+                <a class="dropdown-item" href="/{{$category->name}}">{{$category->name}}s</a>
+              @endforeach
+              {{-- <a class="dropdown-item" href="/remeras">Remeras</a>
               <a class="dropdown-item" href="/camisas">Camisas</a>
               <a class="dropdown-item" href="/jeans">Jeans</a>
               <a class="dropdown-item" href="/buzos">Buzos</a>
               <a class="dropdown-item" href="/camperas">Camperas</a>
-              <a class="dropdown-item" href="/accesorios">Accesorios</a>
+              <a class="dropdown-item" href="/accesorios">Accesorios</a> --}}
             </div>
           </div>
           <!--dropdown-->

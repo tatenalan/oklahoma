@@ -280,10 +280,6 @@ main {
     text-transform:uppercase;
   }
 
-  .pimg1, .pimg2 {
-    background-attachment:fixed;
-  }
-
 }
 /* Cuando la resolucion sea mayor o igual a 1024 va a pasar lo siguiente */
 @media (min-width: 1024px) {

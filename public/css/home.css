@@ -306,6 +306,11 @@ main {
     display: none;
   }
 
+}
+
+/* Cuando la resolucion sea mayor o igual a 1112 va a pasar lo siguiente */
+@media (min-width: 1112px) {
+
   /* Parallax */
 
   .pimg1, .pimg2 {

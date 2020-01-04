@@ -226,6 +226,10 @@ a.ordenar:hover {
     display: none;
   }
 
+  .pimg1, .pimg2 {
+    background-attachment:fixed;
+  }
+
 }
 
 /* Cuando la resolucion sea mayor o igual a 768 va a pasar lo siguiente */
@@ -274,6 +278,10 @@ main {
     font-size:27px;
     letter-spacing:8px;
     text-transform:uppercase;
+  }
+
+  .pimg1, .pimg2 {
+    background-attachment:fixed;
   }
 
 }

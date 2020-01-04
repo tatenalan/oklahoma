@@ -42,11 +42,13 @@ body, html{
 .pimg1{
   background-image: url('../img/clothes.jpeg');
   min-height: 100vh;
+  background-attachment:scroll;
 }
 
 .pimg2{
   background-image: url('../img/clothes2.jpeg');
   min-height: 400px;
+  background-attachment:scroll;
 }
 
 .pimg3{

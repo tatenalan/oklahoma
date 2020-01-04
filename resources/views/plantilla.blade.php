@@ -1,8 +1,9 @@
 @php
-  use App\Category;
-  $categories = Category::all()
+// traemos todas las categorias
+use App\Category;
+// las guardamos en una variable
+$categories = Category::all();
 @endphp
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -49,12 +50,22 @@
               {{-- @foreach ($categories as $category)
                 <a class="dropdown-item" href="/{{$category->name}}s">{{$category->name}}s</a>
               @endforeach --}}
+<<<<<<< HEAD
               <a class="dropdown-item" href="/remeras">Remeras</a>
               <a class="dropdown-item" href="/camisas">Camisas</a>
               <a class="dropdown-item" href="/jeans">Jeans</a>
               <a class="dropdown-item" href="/buzos">Buzos</a>
               <a class="dropdown-item" href="/camperas">Camperas</a>
               <a class="dropdown-item" href="/accesorios">Accesorios</a>
+=======
+              {{--Por cada category--}}
+              @foreach ($categories as $category)
+                {{-- la funcion strtolower() sirve para pasar el category->name a minuscula
+                para que la ruta funcione--}}
+                <a class="dropdown-item" href="/{{strtolower($category['name'])}}s">{{$category['name'].'s'}}</a>
+
+              @endforeach
+>>>>>>> 52fc3be6444ea54b56828012947c3d21ad3bb615
             </div>
           </div>
           <!--dropdown-->

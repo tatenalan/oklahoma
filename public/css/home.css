@@ -226,10 +226,6 @@ a.ordenar:hover {
     display: none;
   }
 
-  .pimg1, .pimg2 {
-    background-attachment:fixed;
-  }
-
 }
 
 /* Cuando la resolucion sea mayor o igual a 768 va a pasar lo siguiente */
@@ -308,6 +304,12 @@ main {
 
   img.img-bannerMobile {
     display: none;
+  }
+
+  /* Parallax */
+
+  .pimg1, .pimg2 {
+    background-attachment:fixed;
   }
 
 }

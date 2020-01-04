@@ -7,7 +7,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <!-- ionicons JS --><script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <!-- ionicons JS --><script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <!-- Bootstrap JS --><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -46,15 +46,15 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item oferta" href="ofertas">Ofertas</a>
               {{-- foreach para que se pongan las catergorias automaticamte (en proceso) --}}
-              @foreach ($categories as $category)
-                <a class="dropdown-item" href="/{{$category->name}}">{{$category->name}}s</a>
-              @endforeach
-              {{-- <a class="dropdown-item" href="/remeras">Remeras</a>
+              {{-- @foreach ($categories as $category)
+                <a class="dropdown-item" href="/{{$category->name}}s">{{$category->name}}s</a>
+              @endforeach --}}
+              <a class="dropdown-item" href="/remeras">Remeras</a>
               <a class="dropdown-item" href="/camisas">Camisas</a>
               <a class="dropdown-item" href="/jeans">Jeans</a>
               <a class="dropdown-item" href="/buzos">Buzos</a>
               <a class="dropdown-item" href="/camperas">Camperas</a>
-              <a class="dropdown-item" href="/accesorios">Accesorios</a> --}}
+              <a class="dropdown-item" href="/accesorios">Accesorios</a>
             </div>
           </div>
           <!--dropdown-->

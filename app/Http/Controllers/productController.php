@@ -53,11 +53,11 @@ class productController extends Controller
 
       $reglas = [
         'name' => 'required|string|min:1|max:50',
-        'price' => 'required|integer|min:50|max:15000',
-        'discount' => 'required|integer|min:0|max:80',
+        'price' => 'required|integer|min:50|max:150000',
+        'discount' => 'integer|min:0|max:80',
         'genre_id' => 'required',
         'category_id' => 'required',
-        "images" => "required|array|min:2",
+        "images" => "required|array|min:1",
         "images.*" => "image|mimes:jpeg,png|max:2000",
         'xs' => 'required',
         's' => 'required',
@@ -68,7 +68,8 @@ class productController extends Controller
 
 
       $mensajes = [
-        "required" => "El campo no puede estar vacio",
+        "name.required" => "Ingrese el nombre del producto",
+        "price.required" => "Ingrese el precio del producto",
         'string' => "El campo :attribute debe ser un texto",
         "price.min" => "El precio debe ser mayor a $50",
         "min" => "El campo :attribute tiene un minimo de :min caracteres",
@@ -76,10 +77,9 @@ class productController extends Controller
         "images.*.image" => "Debe ser un formato de imagen",
         "mimes" => "Formato de imagen invalido",
         "images.*.max" => 'La imagen es muy pesada',
-        "images.min" => "Debes subir al menos 2 imagenes",
-        "images.required" => "Sube 2 imagenes"
+        "images.min" => "Debes subir al menos una imagen",
+        "images.required" => "Sube una imagen del producto"
       ];
-
 
       // Validamos
       $this->validate($request,$reglas,$mensajes);
@@ -199,7 +199,7 @@ class productController extends Controller
         // Declaro las variables de validacion
 
       $reglas = [
-      'name' =>'required|string|min:3|max:40|',
+      'name' =>'required|string|min:2|max:40|',
       'price' =>'required|numeric|min:0|max:100000|',
       'onSale' => 'required',
       'discount' => 'integer|min:0|max:80',
@@ -307,16 +307,8 @@ class productController extends Controller
 
     public function showCategory($categ)  // a prueba
     {
-      $category = Category::where('name', '=', $categ)->get();
-      // me falta traer los productos correspondientes a la categoria elegida
-      // los traigo compactados o los traigo directamente desde la vista con la relacion
-      return view('/category', compact('category', 'products'));
-    }
-
-    public function plantilla()
-    {
-      $categories = Category::all();
-      return view('/plantilla', compact('categories'));
+      // $category = Category::where('name', '=', $categ)->get();
+      // return view('/category', compact('category', 'products'));
     }
 
     public function remeras(Product $product)

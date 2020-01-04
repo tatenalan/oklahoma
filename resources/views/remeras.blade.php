@@ -24,7 +24,7 @@ home
                   <span class="precioAnterior">${{$product->price}}</span> <!-- Muestra precio anterior tachado -->
                   <span class="precio">${{$onSalePrice}}</span><p></p> <!-- Muestra el precio con el descuento incluido -->
                   @else
-                          <p class="precio">{{$product->price}}</p>
+                          <p class="precio">${{$product->price}}</p>
                   @endif
                   <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
                 </div>

@@ -124,7 +124,7 @@ forms
       <div class="row">
 
         <div class="col-lg-4 offset-lg-2 col-md-6 form-group">
-          <label for="">Agregue las imagenes del producto (2 minimo):</label>
+          <label for="">Agregue la/s imagenes del producto:</label>
           <label for="file-upload" class="subir">
           <i class="fas fa-cloud-upload-alt"></i> Subir archivo
           </label>

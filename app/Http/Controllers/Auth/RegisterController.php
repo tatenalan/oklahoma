@@ -88,7 +88,7 @@ class RegisterController extends Controller
       // Instancio un carrito
       // $cart = new Cart;
       // $cart->quantity = 0;
-      // 
+      //
       // $cart->save();
       $path = null;
       if (isset($data['avatar'])) {

@@ -72,7 +72,7 @@ $categories = Category::all();
               <a class="nav-link" href="/ayuda">Ayuda</a>
             </li>
             </ul>
-            <ul class="navbar-nav usuario">
+          <ul class="navbar-nav usuario">
             @if (Auth::user())
             <li class="nav-item">
               @if (Auth::user()->isAdmin == true)

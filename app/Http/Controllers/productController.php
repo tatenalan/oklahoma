@@ -54,7 +54,7 @@ class productController extends Controller
       $reglas = [
         'name' => 'required|string|min:1|max:50',
         'price' => 'required|integer|min:50|max:150000',
-        'discount' => 'integer|min:0|max:80',
+        'discount' => 'integer|min:10|max:80', // para hacer required discount hay que tenerlo hidden siempre
         'genre_id' => 'required',
         'category_id' => 'required',
         "images" => "required|array|min:1",
@@ -64,12 +64,24 @@ class productController extends Controller
         'm' => 'required',
         'l' => 'required',
         'xl' => 'required',
+        't30' => 'required',
+        't32' => 'required',
+        't34' => 'required',
+        't36' => 'required',
+        't38' => 'required',
+        't40' => 'required',
+        't42' => 'required',
+        't44' => 'required',
+        't46' => 'required',
+        't48' => 'required',
       ];
 
 
       $mensajes = [
         "name.required" => "Ingrese el nombre del producto",
         "price.required" => "Ingrese el precio del producto",
+        "genre_id.required" => "Seleccione el genero",
+          "category_id.required" => "Seleccione la categoria",
         'string' => "El campo :attribute debe ser un texto",
         "price.min" => "El precio debe ser mayor a $50",
         "min" => "El campo :attribute tiene un minimo de :min caracteres",
@@ -91,19 +103,21 @@ class productController extends Controller
       $stock->M = $request->m;
       $stock->L = $request->l;           // los campos que escribimos aca deben estar presentes en el form de creacion!
       $stock->XL = $request->xl;
-      // $stock->T26 = $request->t26;
-      // $stock->T28 = $request->t28;
-      // $stock->T30 = $request->t30;
-      // $stock->T32 = $request->t32;
-      // $stock->T34 = $request->t34;
-      // $stock->T36 = $request->t36;
-      // $stock->T38 = $request->t38;
-      // $stock->T40 = $request->t40;
-      // $stock->T42 = $request->t42;
-      // $stock->T44 = $request->t44;
-      // $stock->T46 = $request->t46;
-      // $stock->T48 = $request->t48;
-      // $stock->T50 = $request->t50;
+      $stock->T26 = $request->t26;
+      $stock->T28 = $request->t28;
+      $stock->T30 = $request->t30;
+      $stock->T32 = $request->t32;
+      $stock->T34 = $request->t34;
+      $stock->T36 = $request->t36;
+      $stock->T38 = $request->t38;
+      $stock->T40 = $request->t40;
+      $stock->T42 = $request->t42;
+      $stock->T44 = $request->t44;
+      $stock->T46 = $request->t46;
+      $stock->T48 = $request->t48;
+      $stock->T50 = $request->t50;
+
+      // dd($request);
 
       // guardo en la base de datos
       $stock->save();

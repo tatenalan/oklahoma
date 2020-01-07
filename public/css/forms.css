@@ -53,6 +53,10 @@
 	cursor: pointer;
 }
 
+.hidden {
+	display: none;
+}
+
 /* A partir de aca era contact css que abarcaba el form de contacto y de login */
 
 .container {

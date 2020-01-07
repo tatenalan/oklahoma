@@ -1,6 +1,7 @@
 window.addEventListener('load',function(){
   var formulario = document.querySelector('.form-signup')
   var categoria = formulario[5]
+  console.log(categoria);
 
 categoria.addEventListener('change',function(){
   test = document.getElementById('test1');
@@ -8,7 +9,7 @@ categoria.addEventListener('change',function(){
     var divTalles = document.getElementById('talles')
     divTalles.innerHTML= '';
   }
-  if (categoria.value==1||categoria.value==2||categoria.value==4||categoria.value==5) {
+  if (categoria.value==1||categoria.value==2||categoria.value==4||categoria.value==5||categoria.value==6) {
     // listado de talles
     var talles1 = ['xs','s','m','l','xl']
     // div padre

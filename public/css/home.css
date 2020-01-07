@@ -161,6 +161,9 @@ p.descripcion {
   margin: 0 auto;
   display: block;
   width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 a.ordenar {

@@ -34,6 +34,7 @@ Necesario a terminar / errores a arreglar:
 - al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
 - mercadopago
 - Si elegimos esta en oferta que se habilite el campo descuento
+- Juntar funciones en un archivo Js
 
 
 

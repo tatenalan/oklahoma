@@ -30,20 +30,22 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 
 Necesario a terminar / errores a arreglar:
-- Filtros para productos / buscador
-- al crear un pantalon que muestre sus talles numericos en lugar de xs, s ,m (addproduct.blade)
-- mercadopago
 - Si elegimos esta en oferta que se habilite el campo descuento
 - Juntar funciones en un archivo Js
+- incorporar los talles de pantalones en store, edit y update del producto.
+- olvide mi password funcional
+- mercadopago
+- condiciones de compra/envios/info para el comprador
 
 
 
 Herramientas a Incorporar / cosas extra por hacer 
+- hacer buscador dinamico
+- Filtros para productos
 - que aclare en el producto cuando no hay mas stock de ningun tipo
 - crear plantilla para socialbar asi la sacamos de algunas rutas innecesarias
 - hacerle un confirm al eliminar producto y al editar producto.
 - como hacer para que se desplieguen los productos de la nav bar trayendo todas las categorias con un foreach?
-- incorporar los talles de pantalones en store, edit y update del producto.
 - hacer funcionar la tabla colores
 - pais y provincias con api con AJAX
 - newsletter funcional

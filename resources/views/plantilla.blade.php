@@ -144,7 +144,7 @@ $categories = Category::all();
           </div>
           <div class="col-xs-12 col-md-4 col-lg-4">
             <h5>NUESTRO NEWSLETTER</h5>
-            <form class="" action="/" method="post">
+            <form class="" action="/" method="get">
               {{csrf_field()}}
               <div class="input-group">
                 <input type="email" class="newsletter form-control" placeholder="Dejanos tu email" name="newsletter">

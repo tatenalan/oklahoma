@@ -381,6 +381,12 @@ class productController extends Controller
       return view('ofertas',$vac);
     }
 
+    public function search()
+    {
+      $products = Product::where('name', 'like', '%'. $_GET['search']. '%')->orderBy('price','desc')->get();
+      return view('/search', compact('products'));
+    }
+
     public function delete(int $id){ // borrar producto y deslinkear cualquier relacion, en este caso, borra sus imagenes y su stock
       // llamamos al producto a eliminar mediante su id
       $product = Product::find($id);

@@ -61,6 +61,15 @@ $categories = Category::all();
             </div>
           </div>
           <!--dropdown-->
+        <form class="" action="/search" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar producto" name="search">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-ligth" type="button"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="/nosotros">Nosotros</a>
@@ -71,7 +80,8 @@ $categories = Category::all();
             <li class="nav-item">
               <a class="nav-link" href="/ayuda">Ayuda</a>
             </li>
-            </ul>
+          </ul>
+
           <ul class="navbar-nav usuario">
             @if (Auth::user())
             <li class="nav-item">
@@ -100,7 +110,7 @@ $categories = Category::all();
               <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
             </li>
           </ul>
-        </div>
+        </div> <!-- aqui cierra el collapse div -->
       </nav>
     </header>
     <main>
@@ -134,12 +144,16 @@ $categories = Category::all();
           </div>
           <div class="col-xs-12 col-md-4 col-lg-4">
             <h5>NUESTRO NEWSLETTER</h5>
-            <form class="" action="/" method="get" enctype="multipart/form-data">
-              @csrf
-              <input type="email" class="newsletter" placeholder="Dejanos tu email"></input>
-              <button class="newsletter" type="submit" name="button"><i class="fas fa-at"></i></button>
-              <small class="form-text text-muted">Enterate de todo.</small>
-          </form>
+            <form class="" action="/" method="post">
+              {{csrf_field()}}
+              <div class="input-group">
+                <input type="email" class="newsletter form-control" placeholder="Dejanos tu email" name="newsletter">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-outline-ligth" type="button"><i class="fas fa-at"></i></button>
+                </div>
+              </div>
+                <small class="form-text text-muted">Enterate de todo.</small>
+            </form>
           </div>
         </div>
       </div>

@@ -75,6 +75,15 @@ button.nav-link {
   -moz-user-select: text;
 }
 
+.input-group {
+  border-radius: 0px;
+}
+
+.input-group-append {
+  background-color: white;
+  background-color: #eae2e2;
+}
+
 /* Para hacer que un boton parezca un link (etiqueta a)https://blog.natbat.net/post/46614475051/styling-buttons-as-links */
 
 

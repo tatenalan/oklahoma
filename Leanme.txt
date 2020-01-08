@@ -40,6 +40,8 @@ Necesario a terminar / errores a arreglar:
 
 
 Herramientas a Incorporar / cosas extra por hacer 
+- formulario de contacto funcional
+- loguear con google
 - hacer buscador dinamico
 - Filtros para productos
 - que aclare en el producto cuando no hay mas stock de ningun tipo

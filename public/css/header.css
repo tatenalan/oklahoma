@@ -40,6 +40,7 @@
 
 .dropdown-productos {
   color: rgba(0,0,0,.5);
+  font-weight: 600;
 }
 
 .dropdown-item:hover {
@@ -52,6 +53,10 @@
   top: 38px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+ul a {
+  font-weight: 600;
 }
 
 ul.usuario {

@@ -154,7 +154,7 @@ forms
           @enderror
         </div>
 
-        <div class="tallesPorNumero hidden col-4 col-md-2 offset-md-1 form-group">
+        <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>38: </label>
           <input class="cantidad form-control" type="number" name="t38" min="0" max="100" step="1"  @if (old('t38') !== null) value="{{ old('t38') }}" @else value="0" @endif >
           @error('t38')
@@ -162,7 +162,7 @@ forms
           @enderror
         </div>
 
-        <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
+        <div class="tallesPorNumero hidden col-4 col-md-2 offset-md-1 form-group">
           <label>40: </label>
           <input class="cantidad form-control" type="number" name="t40" min="0" max="100" step="1"  @if (old('t40') !== null) value="{{ old('t40') }}" @else value="0" @endif >
           @error('t40')

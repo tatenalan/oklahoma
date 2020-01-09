@@ -55,6 +55,10 @@
   transform: translateX(-50%);
 }
 
+ul span {
+  font-weight: 600;
+}
+
 ul a {
   font-weight: 600;
 }

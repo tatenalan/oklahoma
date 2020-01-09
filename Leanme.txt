@@ -39,7 +39,8 @@ Necesario a terminar / errores a arreglar:
 
 
 
-Herramientas a Incorporar / cosas extra por hacer 
+Herramientas a Incorporar / cosas extra por hacer
+- Confirmar creacion de usuario por email 
 - formulario de contacto funcional
 - loguear con google
 - hacer buscador dinamico

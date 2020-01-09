@@ -103,8 +103,6 @@ class ProductController extends Controller
       $stock->M = $request->m;
       $stock->L = $request->l;           // los campos que escribimos aca deben estar presentes en el form de creacion!
       $stock->XL = $request->xl;
-      $stock->T26 = $request->t26;
-      $stock->T28 = $request->t28;
       $stock->T30 = $request->t30;
       $stock->T32 = $request->t32;
       $stock->T34 = $request->t34;
@@ -115,7 +113,6 @@ class ProductController extends Controller
       $stock->T44 = $request->t44;
       $stock->T46 = $request->t46;
       $stock->T48 = $request->t48;
-      $stock->T50 = $request->t50;
 
       // dd($request);
 

@@ -58,25 +58,23 @@ product
               @csrf
               <label for="">Talle:</label>
               {{-- Si el producto es id = jeans, entonces muestro talles numericos --}}
-              {{-- @if ($product->category_id==3)
               <select class="talles" name="size">
-                <option value="26">26 @if ($product->stock->T26==0)No hay stock!@endif</option>
-                <option value="28">28 @if ($product->stock->T28==0)No hay stock!@endif</option>
-                <option value="30">30 @if ($product->stock->T30==0)No hay stock!@endif</option>
-                <option value="32">32 @if ($product->stock->T32==0)No hay stock!@endif</option>
-                <option value="34">34 @if ($product->stock->T34==0)No hay stock!@endif</option>
-                <option value="36">36 @if ($product->stock->T36==0)No hay stock!@endif</option>
-                <option value="38">38 @if ($product->stock->T38==0)No hay stock!@endif</option>
-                <option value="40">40 @if ($product->stock->T40==0)No hay stock!@endif</option>
-                <option value="42">42 @if ($product->stock->T42==0)No hay stock!@endif</option>
-                <option value="44">44 @if ($product->stock->T44==0)No hay stock!@endif</option>
-                <option value="46">46 @if ($product->stock->T46==0)No hay stock!@endif</option>
-                <option value="48">48 @if ($product->stock->T48==0)No hay stock!@endif</option>
-                <option value="50">50 @if ($product->stock->T50==0)No hay stock!@endif</option>
-              </select>
-              @else --}}
+              @if ($product->category_id==3)
+                  <option value="26">26 @if ($product->stock->T26==0)No hay stock!@endif</option>
+                  <option value="28">28 @if ($product->stock->T28==0)No hay stock!@endif</option>
+                  <option value="30">30 @if ($product->stock->T30==0)No hay stock!@endif</option>
+                  <option value="32">32 @if ($product->stock->T32==0)No hay stock!@endif</option>
+                  <option value="34">34 @if ($product->stock->T34==0)No hay stock!@endif</option>
+                  <option value="36">36 @if ($product->stock->T36==0)No hay stock!@endif</option>
+                  <option value="38">38 @if ($product->stock->T38==0)No hay stock!@endif</option>
+                  <option value="40">40 @if ($product->stock->T40==0)No hay stock!@endif</option>
+                  <option value="42">42 @if ($product->stock->T42==0)No hay stock!@endif</option>
+                  <option value="44">44 @if ($product->stock->T44==0)No hay stock!@endif</option>
+                  <option value="46">46 @if ($product->stock->T46==0)No hay stock!@endif</option>
+                  <option value="48">48 @if ($product->stock->T48==0)No hay stock!@endif</option>
+                  <option value="50">50 @if ($product->stock->T50==0)No hay stock!@endif</option>
+              @endif
                 @if ($product->stock) {{-- si el stock en la BD no es null --}}
-                  <select class="talles" name="size">
                     @if ($product->stock->XS>0)
                     <option value="XS">XS @if ($product->stock->XS<=3) Quedan pocos! @endif</option> {{-- Si el stock es 0 --}}
                     @endif

@@ -6,7 +6,7 @@
 home
 @endsection
 @section('main')
-
+<a id="top"></a>
       <div class="pimg1">
         <div class="ptext">
           <span class="texto-parallax">Oklahoma</span>
@@ -112,6 +112,7 @@ home
           @endforeach
           </div>
         </section>
+        <a id="myBtn" title="Go to top">Top</a>
       </div>
 
 @endsection('main')

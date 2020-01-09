@@ -5,8 +5,16 @@ function change(){
   document.getElementById('info').innerHTML = pdrs;
 }
 
+// Cuando el usuario clickea en el boton, se scrollea automaticamente hacia el top del documento
+// function topFunction() {
+//   document.body.scrollTop = 0; // For Safari
+//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+// }
 
-
+$("#myBtn").click(function() {
+    showHome();
+    $('html,body').animate({ scrollTop: $("#top").offset().top - 80}, 'slow');
+  });
 
 
 

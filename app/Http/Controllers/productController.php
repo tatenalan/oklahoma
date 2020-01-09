@@ -8,7 +8,7 @@ use App\Category;
 use App\Genre;
 use App\Image;
 use App\Stock;
-class productController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.

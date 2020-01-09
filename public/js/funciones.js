@@ -14,20 +14,23 @@ function change(){
 
 
 
-// Stock por categoría
+// Stock por categoría en vista add product
 
 window.addEventListener('load',function(){
   function stockPorCategoria(){
+    // Selecciono los talles de pantalon, los de tops y el input de categoria
   var categoryId = document.getElementById('categoryId');
   var tallesPorLetra = document.querySelectorAll('.tallesPorLetra');      //>>>>>>>getElementsByClassName<<<<<<<
   var tallesPorNumero = document.querySelectorAll('.tallesPorNumero');
+console.log(tallesPorLetra[0]);
 
+  // Creo un evento que actue cuando cambia el value del input categoria
      categoryId.addEventListener('change',function(){
       if (categoryId.value==1||categoryId.value==2||categoryId.value==4||categoryId.value==5||categoryId.value==6) {
-        // por cada talle de top le quitamos a cada uno la classe hidden
+        // por cada talle de letra (xs, s, m.. etc) le quitamos a cada elemento la clase hidden
         for (talle of tallesPorLetra) {
           talle.classList.remove("hidden");
-          // y le agregamos la clase hidden al de pantalones, zapatillas etc
+          // y le agregamos la clase hidden a los talles numericos etc
           for (talle of tallesPorNumero) {
             if (talle==tallesPorNumero[0]||talle==tallesPorNumero[5]) {
               talle.setAttribute('class', 'hidden col-4 col-md-2 offset-md-1 form-group')
@@ -35,10 +38,11 @@ window.addEventListener('load',function(){
             else {
             talle.setAttribute('class', 'hidden tallesPorNumero col-4 col-md-2 form-group')
             }
+            console.log(tallesPorNumero[0]);
           }
         }
       }
-      // Viceversa a lo hecho arriba
+      // por cada talle numerico (40, 42, 44, etc) le quitamos a cada elemento la clase hidden
       else{
         for (talle of tallesPorNumero) {
           talle.classList.remove("hidden");

@@ -36,6 +36,8 @@ window.addEventListener('load',function(){
     var categoryId = document.getElementById('categoryId');
     var tallesPorLetra = document.querySelectorAll('.tallesPorLetra');      //>>>>>>>getElementsByClassName<<<<<<<
     var tallesPorNumero = document.querySelectorAll('.tallesPorNumero');
+    var inputAlfabetico = document.querySelectorAll('.inputAlfabetico');
+    var inputNumerico = document.querySelectorAll('.inputNumerico');
 
       // Creo un evento que actue cuando cambia el value del input categoria
       categoryId.addEventListener('change',function(){
@@ -47,9 +49,12 @@ window.addEventListener('load',function(){
           talle.classList.remove("hidden");
         }
 
-        // y le agregamos la clase hidden a los talles numericos etc
+        // le agregamos la clase hidden a los talles numericos y le reseteamos su value a 0 etc
         for (talle of tallesPorNumero) {
           talle.classList.add("hidden")
+        }
+        for (input of inputNumerico) {
+          input.value=0;
         }
 
 
@@ -60,10 +65,14 @@ window.addEventListener('load',function(){
           talle.classList.remove("hidden");
         }
 
-        // y le agregamos la clase hidden a los tallespor letra etc
+        // le agregamos la clase hidden a los talles por letra y le reseteamos su value a 0 etc
         for (talle of tallesPorLetra) {
           talle.classList.add("hidden")
         }
+        for (input of inputAlfabetico) {
+          input.value=0;
+        }
+
       } //cierro if
 
 
@@ -91,18 +100,19 @@ window.addEventListener('load',function(){
     // Selecciono el select con id onSale y el div de discount que tiene la clase hidden
     var onSale = document.getElementById('onSale');
     var discount = document.getElementById('discount');
+    var inputDiscount = document.getElementById('inputDiscount');
 
-
-    // Creo un evento que actue cuando cambia el value del input onSale
-    onSale.addEventListener('change',function(){
-      // console.log(onSale.value==1)
-        console.log(discount);
-      if (onSale.value==1) {
-        discount.classList.remove("hidden");
-      } else {
-        discount.classList.add("hidden");
-      }
-
+        // Creo un evento que actue cuando cambia el value del input onSale
+        onSale.addEventListener('change',function(){
+          if (onSale.value==1) {
+            discount.classList.remove("hidden");
+            console.log(inputDiscount.value);
+          } else {
+            discount.classList.add("hidden");
+            inputDiscount.value=0;
+            console.log(inputDiscount.value);
+            console.log(discount);
+          }
     }) // cierre del evento change de onSale
   }// cierre de la funcion onSale
   onSale();

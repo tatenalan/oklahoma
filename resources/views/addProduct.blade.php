@@ -44,7 +44,7 @@ forms
         <div id="discount" @if (old('onSale') == 1) class="col-6 col-lg-4 col-md-6 form-group" @else class="hidden col-6 col-lg-4 col-md-6 form-group" @endif>
           <label>Descuento: </label>
           {{-- Me tiraba el error An invalid form control with name='discount' is not focusable y lo solucione borrando el atributo min="10" , por otro lado Juanca me recomendo validar con JS--}}
-          <input class="cantidad form-control" type="number" name="discount" max="80" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
+          <input id="inputDiscount" class="cantidad form-control" type="number" name="discount" max="80" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
             @error('discount')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -90,7 +90,7 @@ forms
         {{-- talles por letra (remeras, camisas, camperas...etc) --}}
         <div class="hidden tallesPorLetra col-4 col-md-2 offset-md-1 form-group">
           <label for="">XS: </label>
-          <input class="cantidad form-control" type="number" name="xs" min="0" max="100" step="1" @if (old('xs') !== null) value="{{ old('xs') }}" @else value="0" @endif >
+          <input class="inputAlfabetico cantidad form-control" type="number" name="xs" min="0" max="100" step="1" @if (old('xs') !== null) value="{{ old('xs') }}" @else value="0" @endif >
           @error('xs')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -98,7 +98,7 @@ forms
 
         <div class="hidden tallesPorLetra col-4 col-md-2 form-group">
           <label for="">S: </label>
-          <input class="cantidad form-control" type="number" name="s" min="0" max="100" step="1" @if (old('s') !== null) value="{{ old('s') }}" @else value="0" @endif >
+          <input class="inputAlfabetico cantidad form-control" type="number" name="s" min="0" max="100" step="1" @if (old('s') !== null) value="{{ old('s') }}" @else value="0" @endif >
           @error('s')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -106,7 +106,7 @@ forms
 
         <div class="hidden tallesPorLetra col-4 col-md-2 form-group">
           <label for="">M: </label>
-          <input class="cantidad form-control" type="number" name="m" min="0" max="100" step="1" @if (old('m') !== null) value="{{ old('m') }}" @else value="0" @endif >
+          <input class="inputAlfabetico cantidad form-control" type="number" name="m" min="0" max="100" step="1" @if (old('m') !== null) value="{{ old('m') }}" @else value="0" @endif >
           @error('m')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -114,7 +114,7 @@ forms
 
         <div class="hidden tallesPorLetra col-4 col-md-2 form-group">
           <label for="">L: </label>
-          <input class="cantidad form-control" type="number" name="l" min="0" max="100" step="1" @if (old('l') !== null) value="{{ old('l') }}" @else value="0" @endif >
+          <input class="inputAlfabetico cantidad form-control" type="number" name="l" min="0" max="100" step="1" @if (old('l') !== null) value="{{ old('l') }}" @else value="0" @endif >
           @error('l')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -122,7 +122,7 @@ forms
 
         <div class="hidden tallesPorLetra col-4 col-md-2 form-group">
           <label for="">XL: </label>
-          <input class="cantidad form-control" type="number" name="xl" min="0" max="100" step="1" @if (old('xl') !== null) value="{{ old('xl') }}" @else value="0" @endif >
+          <input class="inputAlfabetico cantidad form-control" type="number" name="xl" min="0" max="100" step="1" @if (old('xl') !== null) value="{{ old('xl') }}" @else value="0" @endif >
           @error('xl')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -132,7 +132,7 @@ forms
         {{-- talles por numero (jeans, zapatillas, accesorios, etc..) --}}
         <div class="tallesPorNumero hidden col-4 col-md-2 offset-md-1 form-group">
           <label>30: </label>
-          <input class="cantidad form-control" type="number" name="t30" min="0" max="100" step="1"  @if (old('t30') !== null) value="{{ old('t30') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t30" min="0" max="100" step="1"  @if (old('t30') !== null) value="{{ old('t30') }}" @else value="0" @endif >
           @error('t30')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -140,7 +140,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>32: </label>
-          <input class="cantidad form-control" type="number" name="t32" min="0" max="100" step="1"  @if (old('t32') !== null) value="{{ old('t32') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t32" min="0" max="100" step="1"  @if (old('t32') !== null) value="{{ old('t32') }}" @else value="0" @endif >
           @error('t32')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -148,7 +148,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>34: </label>
-          <input class="cantidad form-control" type="number" name="t34" min="0" max="100" step="1"  @if (old('t34') !== null) value="{{ old('t34') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t34" min="0" max="100" step="1"  @if (old('t34') !== null) value="{{ old('t34') }}" @else value="0" @endif >
           @error('t34')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -156,7 +156,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>36: </label>
-          <input class="cantidad form-control" type="number" name="t36" min="0" max="100" step="1"  @if (old('t36') !== null) value="{{ old('t36') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t36" min="0" max="100" step="1"  @if (old('t36') !== null) value="{{ old('t36') }}" @else value="0" @endif >
           @error('t36')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -164,7 +164,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>38: </label>
-          <input class="cantidad form-control" type="number" name="t38" min="0" max="100" step="1"  @if (old('t38') !== null) value="{{ old('t38') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t38" min="0" max="100" step="1"  @if (old('t38') !== null) value="{{ old('t38') }}" @else value="0" @endif >
           @error('t38')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -172,7 +172,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 offset-md-1 form-group">
           <label>40: </label>
-          <input class="cantidad form-control" type="number" name="t40" min="0" max="100" step="1"  @if (old('t40') !== null) value="{{ old('t40') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t40" min="0" max="100" step="1"  @if (old('t40') !== null) value="{{ old('t40') }}" @else value="0" @endif >
           @error('t40')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -180,7 +180,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>42: </label>
-          <input class="cantidad form-control" type="number" name="t42" min="0" max="100" step="1"  @if (old('t42') !== null) value="{{ old('t42') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t42" min="0" max="100" step="1"  @if (old('t42') !== null) value="{{ old('t42') }}" @else value="0" @endif >
           @error('t42')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -188,7 +188,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>44: </label>
-          <input class="cantidad form-control" type="number" name="t44" min="0" max="100" step="1"  @if (old('t44') !== null) value="{{ old('t44') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t44" min="0" max="100" step="1"  @if (old('t44') !== null) value="{{ old('t44') }}" @else value="0" @endif >
           @error('t44')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -196,7 +196,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>46: </label>
-          <input class="cantidad form-control" type="number" name="t46" min="0" max="100" step="1"  @if (old('t46') !== null) value="{{ old('t46') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t46" min="0" max="100" step="1"  @if (old('t46') !== null) value="{{ old('t46') }}" @else value="0" @endif >
           @error('t46')
             <p class="errorForm">{{ $message }}</p>
           @enderror
@@ -204,7 +204,7 @@ forms
 
         <div class="tallesPorNumero hidden col-4 col-md-2 form-group">
           <label>48: </label>
-          <input class="cantidad form-control" type="number" name="t48" min="0" max="100" step="1"  @if (old('t48') !== null) value="{{ old('t48') }}" @else value="0" @endif >
+          <input class="inputNumerico cantidad form-control" type="number" name="t48" min="0" max="100" step="1"  @if (old('t48') !== null) value="{{ old('t48') }}" @else value="0" @endif >
           @error('t48')
             <p class="errorForm">{{ $message }}</p>
           @enderror

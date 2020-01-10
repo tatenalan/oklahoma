@@ -32,6 +32,7 @@ forms
       </div>
 
       <div class="row">
+
         <div class="col-6 col-lg-4 offset-lg-2 col-md-6 form-group">
           <label for="">En oferta? : </label>
           <select id="onSale" class="form-control" name="onSale">
@@ -42,7 +43,8 @@ forms
 
         <div id="discount" @if (old('onSale') == 1) class="col-6 col-lg-4 col-md-6 form-group" @else class="hidden col-6 col-lg-4 col-md-6 form-group" @endif>
           <label>Descuento: </label>
-          <input class="cantidad form-control" type="number" name="discount" max="80" min="10" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
+          {{-- Me tiraba el error An invalid form control with name='discount' is not focusable y lo solucione borrando el atributo min="10" , por otro lado Juanca me recomendo validar con JS--}}
+          <input class="cantidad form-control" type="number" name="discount" max="80" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
             @error('discount')
               <p class="errorForm">{{ $message }}</p>
             @enderror

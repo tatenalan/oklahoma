@@ -30,8 +30,6 @@ function change(){
 window.addEventListener('load',function(){
 
 
-
-
   // Stock por categoría en vista add product
   function stockPorCategoria(){
     // Selecciono el select de los talles de pantalon, el de los de tops y el div de categoria que tiene la clase hidden
@@ -97,6 +95,8 @@ window.addEventListener('load',function(){
 
     // Creo un evento que actue cuando cambia el value del input onSale
     onSale.addEventListener('change',function(){
+      // console.log(onSale.value==1)
+        console.log(discount);
       if (onSale.value==1) {
         discount.classList.remove("hidden");
       } else {
@@ -106,7 +106,6 @@ window.addEventListener('load',function(){
     }) // cierre del evento change de onSale
   }// cierre de la funcion onSale
   onSale();
-
 
 
 }) //cierre windows.addEventListener('load')

@@ -119,7 +119,7 @@ product
               @csrf
               <button type="submit" class="ordenar btn btn-danger eliminar">Eliminar producto</button>
             </form>
-            <form class="" action="/editproduct/{{$product->id}}" method="get">
+            <form class="" action="/editProduct/{{$product->id}}" method="get">
               @csrf
               <button type="submit" class="ordenar btn btn-info eliminar">Editar producto</button>
             </form>

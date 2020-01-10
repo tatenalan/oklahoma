@@ -86,7 +86,7 @@ $categories = Category::all();
             @if (Auth::user())
             <li class="nav-item">
               @if (Auth::user()->isAdmin == true)
-              <a class="nav-link" href="/addproduct"><i class="fas fa-plus-circle"></i> Add Product</a>
+              <a class="nav-link" href="/addProduct"><i class="fas fa-plus-circle"></i> Add Product</a>
               @endif
             </li>
             <li>

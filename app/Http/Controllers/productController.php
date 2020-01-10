@@ -35,7 +35,7 @@ class ProductController extends Controller
        $categories = Category::all();
        $genres = Genre::all();
        $vac = compact('products','categories', 'genres');
-       return view('addproduct',$vac);
+       return view('addProduct',$vac);
      }
 
     /**
@@ -90,7 +90,8 @@ class ProductController extends Controller
         "mimes" => "Formato de imagen invalido",
         "images.*.max" => 'La imagen es muy pesada',
         "images.min" => "Debes subir al menos una imagen",
-        "images.required" => "Sube una imagen del producto"
+        "images.required" => "Sube una imagen del producto",
+        "discount.min" => "Debe tener al menos un 10% de descuento",
       ];
 
       // Validamos
@@ -193,7 +194,7 @@ class ProductController extends Controller
       $categories = Category::all();
       $stock = Stock::find($id);
 
-      return view('/editproduct', compact('product', 'genres', 'categories','images' , 'stock'));
+      return view('/editProduct', compact('product', 'genres', 'categories','images' , 'stock'));
     }
 
     /**

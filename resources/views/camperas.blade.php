@@ -28,7 +28,7 @@ home
             <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
             @if (Auth::user())
               @if (Auth::user()->isAdmin == true)
-                <a class="ordenar" href="/editproduct/{{$product->id}}">Editar</a>
+                <a class="ordenar" href="/editProduct/{{$product->id}}">Editar</a>
               @endif
             @endif
           </div>

@@ -99,12 +99,8 @@ window.addEventListener('load',function(){
     onSale.addEventListener('change',function(){
       if (onSale.value==1) {
         discount.classList.remove("hidden");
-        console.log(onSale.value);
-        console.log(discount);
       } else {
         discount.classList.add("hidden");
-        console.log(onSale.value);
-        console.log(discount);
       }
 
     }) // cierre del evento change de onSale

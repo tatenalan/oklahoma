@@ -25,8 +25,6 @@ forms
         <div class="col-4 col-lg-4 col-md-6 form-group">
           <label for="">Precio: *</label>
           <input type="number" class="cantidad form-control" min="0" max="50000" step="100" min="50" name="price" @if (old('price') !== null) value="{{ old('price') }}" @else value="0" @endif >
-
-
             @error('price')
               <p class="errorForm">{{ $message }}</p>
             @enderror
@@ -45,6 +43,9 @@ forms
         <div id="discount" @if (old('onSale') == 1) class="col-6 col-lg-4 col-md-6 form-group" @else class="hidden col-6 col-lg-4 col-md-6 form-group" @endif>
           <label>Descuento: </label>
           <input class="cantidad form-control" type="number" name="discount" max="80" min="10" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
+            @error('discount')
+              <p class="errorForm">{{ $message }}</p>
+            @enderror
         </div>
 
       </div>

@@ -69,13 +69,13 @@ Route::get('/ofertas', 'ProductController@ofertas');
 
 Route::get('/search', 'ProductController@search');
 
-Route::get('/addproduct', 'ProductController@new')->middleware('admin');
+Route::get('/addProduct', 'ProductController@new')->middleware('admin');
 
-Route::post('/addproduct', 'ProductController@store')->middleware('admin');
+Route::post('/addProduct', 'ProductController@store')->middleware('admin');
 
 Route::get('/product/{id}', 'ProductController@show');
 
-Route::get('/editproduct/{id}', 'ProductController@edit')->middleware('admin');
+Route::get('/editProduct/{id}', 'ProductController@edit')->middleware('admin');
 
 Route::put('/product/{id}', 'ProductController@update')->middleware('admin');
 

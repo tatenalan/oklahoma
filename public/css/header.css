@@ -59,7 +59,7 @@ ul span {
   font-weight: 600;
 }
 
-ul a {
+.nav-link {
   font-weight: 600;
 }
 
@@ -93,10 +93,15 @@ button.nav-link {
   background-color: #eae2e2;
 }
 
+.search-bar {
+  width: 50%;
+  margin: 0 auto
+}
+
 /* Para hacer que un boton parezca un link (etiqueta a)https://blog.natbat.net/post/46614475051/styling-buttons-as-links */
 
-
-@media (min-width: 993px) {  /* Esto es para que se oculten los link del menu y aparezca el menu hamburguesa */
+/* Cuando la resolucion sea mayor o igual a 993 va a pasar lo siguiente */
+@media (min-width: 993px) {  /* Esto es para que desaparezca el menu hamburguesa */
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox!important;
     display: flex!important;
@@ -107,6 +112,11 @@ button.nav-link {
   .navbar-expand-lg .navbar-toggler {
     display: none;
     z-index: 10000;
+  }
+
+  .search-bar {
+    width: 18%;
+    margin: 0;
   }
 
 }

@@ -10,7 +10,7 @@ forms
     <h5 class="centrado titulo">Agregar Producto</h5>
 
     <!-- Vista de agregar Producto-->
-    <form class="form-signup" method="post" enctype="multipart/form-data">
+    <form class="form-signup" method="post" enctype="multipart/form-data"> <!-- IMPORTANTE tuve que poner el atributo novalidate al form porque me surgia un error con JS. https://www.iteramos.com/pregunta/26396/un-control-de-formulario-no-valido-con-nombre--39-39-no-es-enfocable -->
       @csrf
 
       <div class="row">
@@ -33,13 +33,18 @@ forms
         </div>
       </div>
 
-      <div id="ofertaDescuento" class="row">
+      <div class="row">
         <div class="col-6 col-lg-4 offset-lg-2 col-md-6 form-group">
           <label for="">En oferta? : </label>
-          <select class="form-control" name="onSale">
+          <select id="onSale" class="form-control" name="onSale">
               <option value =0  {{(0 == old('onSale'))?'selected': ''}}>No esta en oferta</option>
               <option value =1  {{(1 == old('onSale'))?'selected': ''}}>Esta en oferta</option>
           </select>
+        </div>
+
+        <div id="discount" @if (old('onSale') == 1) class="col-6 col-lg-4 col-md-6 form-group" @else class="hidden col-6 col-lg-4 col-md-6 form-group" @endif>
+          <label>Descuento: </label>
+          <input class="cantidad form-control" type="number" name="discount" max="80" min="10" step="5" @if (old('discount') !== null) value="{{ old('discount') }}" @else value="0" @endif >
         </div>
 
       </div>

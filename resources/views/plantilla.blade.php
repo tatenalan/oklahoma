@@ -61,7 +61,7 @@ $categories = Category::all();
             </div>
           </div>
           <!--dropdown-->
-        <form class="" action="/search" method="get">
+        <form class="search-bar" action="/search" method="get">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Buscar producto" name="search">
             <div class="input-group-append">

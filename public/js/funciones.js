@@ -1,35 +1,46 @@
 // Toma el nombre del archivo que queremos subir y lo pone dentro del elemento con la clase info para que podamos verlo.
+// esta funcion la utilizamos para cambiar la fachada del input file y poder seguir viendo los nombres de los archivos subidos.
 
 function change(){
   var pdrs = document.getElementById('file-upload').files[0].name;
   document.getElementById('info').innerHTML = pdrs;
 }
 
+// le falta smooth
 // Cuando el usuario clickea en el boton, se scrollea automaticamente hacia el top del documento
 // function topFunction() {
 //   document.body.scrollTop = 0; // For Safari
 //   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 // }
 
-$("#myBtn").click(function() {
-    showHome();
-    $('html,body').animate({ scrollTop: $("#top").offset().top - 80}, 'slow');
-  });
+// web de lares, no puedo hacerlo andar
+// $("#myBtn").click(function() {
+//     showHome();
+//     $('html,body').animate({ scrollTop: $("#top").offset().top - 80}, 'slow');
+//   });
+
+  function scrollToTop() {
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  }
 
 
-
-// Stock por categoría en vista add product
 
 window.addEventListener('load',function(){
+
+
+
+
+  // Stock por categoría en vista add product
   function stockPorCategoria(){
-    // Selecciono los talles de pantalon, los de tops y el input de categoria
-  var categoryId = document.getElementById('categoryId');
-  var tallesPorLetra = document.querySelectorAll('.tallesPorLetra');      //>>>>>>>getElementsByClassName<<<<<<<
-  var tallesPorNumero = document.querySelectorAll('.tallesPorNumero');
+    // Selecciono el select de los talles de pantalon, el de los de tops y el div de categoria que tiene la clase hidden
+    var categoryId = document.getElementById('categoryId');
+    var tallesPorLetra = document.querySelectorAll('.tallesPorLetra');      //>>>>>>>getElementsByClassName<<<<<<<
+    var tallesPorNumero = document.querySelectorAll('.tallesPorNumero');
 
-
-  // Creo un evento que actue cuando cambia el value del input categoria
-     categoryId.addEventListener('change',function(){
+      // Creo un evento que actue cuando cambia el value del input categoria
+      categoryId.addEventListener('change',function(){
       if (categoryId.value==1||categoryId.value==2||categoryId.value==4||categoryId.value==5||categoryId.value==6) {
 
 
@@ -77,66 +88,29 @@ window.addEventListener('load',function(){
 
 
 
-
-  // Funcion de onSale
+  // Creacion de input descuento en vista add product
   function onSale(){
-    var formulario = document.querySelector('.form-signup');
-    var oferta = formulario[3];
-    oferta.addEventListener('change', function(){
-      divHijo = document.getElementById('descuento')
-      if (document.getElementById('descuento')) {
-        if (oferta.value == 1) {
-          var divPadre = document.getElementById('ofertaDescuento');
-          divHijo = document.getElementById('descuento')
-          divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')
-          divHijo.setAttribute('id','descuento')
-          var label = document.createElement('label');
-          label.innerHTML = "Descuento: "
-          var theInput = document.createElement('input');
-          theInput.setAttribute('class','cantidad form-control')
-          theInput.setAttribute('type','number')
-          theInput.setAttribute('name','discount')
-          theInput.setAttribute('max','80')
-          theInput.setAttribute('min','10')
-          theInput.setAttribute('step','5')
-          theInput.setAttribute('value','0')
-          divHijo.appendChild(label)
-          divHijo.appendChild(theInput)
-          divPadre.appendChild(divHijo)
-          console.log(divPadre);
-        }
-        else {
-          var divHijo = document.getElementById('descuento');
-          divHijo.innerHTML = '';
-        }
+    // Selecciono el select con id onSale y el div de discount que tiene la clase hidden
+    var onSale = document.getElementById('onSale');
+    var discount = document.getElementById('discount');
+
+
+    // Creo un evento que actue cuando cambia el value del input onSale
+    onSale.addEventListener('change',function(){
+      if (onSale.value==1) {
+        discount.classList.remove("hidden");
+        console.log(onSale.value);
+        console.log(discount);
+      } else {
+        discount.classList.add("hidden");
+        console.log(onSale.value);
+        console.log(discount);
       }
-      else {
-      if (oferta.value == 1) {
-        var divPadre = document.getElementById('ofertaDescuento');
-        var divHijo = document.createElement('div');
-        divHijo.setAttribute('class', 'col-6 col-lg-4 col-md-6 form-group')
-        divHijo.setAttribute('id','descuento')
-        var label = document.createElement('label');
-        label.innerHTML = "Descuento: "
-        var theInput = document.createElement('input');
-        theInput.setAttribute('class','cantidad form-control')
-        theInput.setAttribute('type','number')
-        theInput.setAttribute('name','discount')
-        theInput.setAttribute('max','80')
-        theInput.setAttribute('min','10')
-        theInput.setAttribute('step','5')
-        theInput.setAttribute('value','0')
-        divHijo.appendChild(label)
-        divHijo.appendChild(theInput)
-        divPadre.appendChild(divHijo)
-        console.log(divPadre);
-      }
-      else {
-        var divHijo = document.getElementById('descuento');
-        divHijo.innerHTML = '';
-      }
-    }
-    })
-  }
+
+    }) // cierre del evento change de onSale
+  }// cierre de la funcion onSale
   onSale();
+
+
+
 }) //cierre windows.addEventListener('load')

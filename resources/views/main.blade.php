@@ -112,7 +112,7 @@ home
           @endforeach
           </div>
         </section>
-        <a id="myBtn" title="Go to top">Top</a>
+        <a onclick="scrollToTop()" class="toTop" title="Go to top"><i class="fas fa-angle-double-up"></i></a>
       </div>
 
 @endsection('main')

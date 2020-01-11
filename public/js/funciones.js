@@ -6,23 +6,9 @@ function change(){
   document.getElementById('info').innerHTML = pdrs;
 }
 
-// le falta smooth
-// Cuando el usuario clickea en el boton, se scrollea automaticamente hacia el top del documento
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
-
-// web de lares, no puedo hacerlo andar
-// $("#myBtn").click(function() {
-//     showHome();
-//     $('html,body').animate({ scrollTop: $("#top").offset().top - 80}, 'slow');
-//   });
-
+// scrollea lentamente hacia la posicion 0 de la ventana
   function scrollToTop() {
-
-  window.scrollTo({top: 0, behavior: 'smooth'});
-
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
 

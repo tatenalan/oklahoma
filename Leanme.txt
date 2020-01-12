@@ -30,9 +30,8 @@ https://blog.natbat.net/post/46614475051/styling-buttons-as-links
 
 
 Necesario a terminar / errores a arreglar:
-- Si elegimos esta en oferta que se habilite el campo descuento
 - separar funciones en varios JS
-- Terminar de mostrar bien el stock en edit product. A diferencia de addproduct que el stock cambia con un evento on change, aqui tiene que mostrarse al cargar la ventana. Windows on load. Crear el JS correspondiente y borrar el if de cada div padre 
+- Terminar de mostrar bien el stock en edit product. A diferencia de addproduct que el stock y el descuento se crean con un evento on change, aqui tienen que mostrarse al cargar la ventana. Windows on load. Crear el JS correspondiente y borrar el if de cada div padre 
 - olvide mi password funcional
 - mercadopago
 - condiciones de compra/envios/info para el comprador

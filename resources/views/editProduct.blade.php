@@ -43,7 +43,7 @@ forms
             </div>
           </div>
 
-          <div id="discount" class="col-6 col-lg-4 col-md-6 form-group">
+          <div id="discount" @if ($product->onSale == 1) class="col-6 col-lg-4 col-md-6 form-group" @else class="hidden col-6 col-lg-4 col-md-6 form-group" @endif>
             <label for="">Descuento: </label>
             <input id="inputDiscount" class="cantidad form-control" type="number" name="discount" min="0" max="80" step="5" value="{{ old('discount',$product->discount)}}">
           </div>
@@ -86,14 +86,14 @@ forms
 
           <div id="talles" class="row">
 
-            <div @if ($category->id == 1 || $category->id == 2 || $category->id == 4 || $category->id == 5 || $category->id == 6) class="tallesPorLetra col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 offset-md-1 form-group" @endif >
+            <div @if ($product->category_id != 3) class="tallesPorLetra col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 offset-md-1 form-group" @endif >
               <label for="">XS: </label>
               <input class="inputAlfabetico cantidad form-control" type="number" class="form-control" name="xs" min="0" max="100" step="1" @if (old('xs') !== null) value="{{ old('xs') }}" @else value="{{$product->stock->XS}}" @endif >
               @error('xs')
                 <p class="errorForm">{{ $message }}</p>
               @enderror
             </div>
-            <div @if ($category->id == 1 || $category->id == 2 || $category->id == 4 || $category->id == 5 || $category->id == 6) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif >
+            <div @if ($product->category_id != 3) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif >
               <label for="">S: </label>
               <input class="inputAlfabetico cantidad form-control" type="number" class="form-control" name="s" min="0" max="100" step="1" @if (old('s') !== null) value="{{ old('s') }}" @else value="{{$product->stock->S}}" @endif >
               @error('s')
@@ -101,7 +101,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 1 || $category->id == 2 || $category->id == 4 || $category->id == 5 || $category->id == 6) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id != 3) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
               <label for="">M: </label>
               <input class="inputAlfabetico cantidad form-control" type="number" class="form-control" name="m" min="0" max="100" step="1" @if (old('m') !== null) value="{{ old('m') }}" @else value="{{$product->stock->M}}" @endif >
               @error('m')
@@ -109,7 +109,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 1 || $category->id == 2 || $category->id == 4 || $category->id == 5 || $category->id == 6) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id != 3) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
               <label for="">L: </label>
               <input class="inputAlfabetico cantidad form-control" type="number" class="form-control" name="l" min="0" max="100" step="1" @if (old('l') !== null) value="{{ old('l') }}" @else value="{{$product->stock->L}}" @endif >
               @error('l')
@@ -117,7 +117,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 1 || $category->id == 2 || $category->id == 4 || $category->id == 5 || $category->id == 6) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id != 3) class="tallesPorLetra col-4 col-md-2 form-group" @else class="hidden tallesPorLetra col-4 col-md-2 form-group" @endif>
               <label for="">XL: </label>
               <input class="inputAlfabetico cantidad form-control" type="number" class="form-control" name="xl" min="0" max="100" step="1" @if (old('xl') !== null) value="{{ old('xl') }}" @else value="{{$product->stock->XL}}" @endif >
               @error('xl')
@@ -127,7 +127,7 @@ forms
 
 
             {{-- talles por numero (jeans, zapatillas, accesorios, etc..) --}}
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @endif>
               <label>30: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t30" min="0" max="100" step="1"  @if (old('30') !== null) value="{{ old('30') }}" @else value="{{$product->stock->t30}}" @endif >
               @error('t30')
@@ -135,7 +135,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>32: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t32" min="0" max="100" step="1"  @if (old('32') !== null) value="{{ old('32') }}" @else value="{{$product->stock->t32}}" @endif >
               @error('t32')
@@ -143,7 +143,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>34: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t34" min="0" max="100" step="1"  @if (old('34') !== null) value="{{ old('34') }}" @else value="{{$product->stock->t34}}" @endif >
               @error('t34')
@@ -151,7 +151,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>36: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t36" min="0" max="100" step="1"  @if (old('36') !== null) value="{{ old('36') }}" @else value="{{$product->stock->t36}}" @endif >
               @error('t36')
@@ -159,7 +159,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>38: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t38" min="0" max="100" step="1"  @if (old('38') !== null) value="{{ old('38') }}" @else value="{{$product->stock->t38}}" @endif >
               @error('t38')
@@ -167,7 +167,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 offset-md-1 form-group" @endif>
               <label>40: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t40" min="0" max="100" step="1"  @if (old('40') !== null) value="{{ old('40') }}" @else value="{{$product->stock->t40}}" @endif >
               @error('t40')
@@ -175,7 +175,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>42: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t42" min="0" max="100" step="1"  @if (old('42') !== null) value="{{ old('42') }}" @else value="{{$product->stock->t42}}" @endif >
               @error('t42')
@@ -183,7 +183,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>44: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t44" min="0" max="100" step="1"  @if (old('44') !== null) value="{{ old('44') }}" @else value="{{$product->stock->t44}}" @endif >
               @error('t44')
@@ -191,7 +191,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>46: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t46" min="0" max="100" step="1"  @if (old('46') !== null) value="{{ old('46') }}" @else value="{{$product->stock->t46}}" @endif >
               @error('t46')
@@ -199,7 +199,7 @@ forms
               @enderror
             </div>
 
-            <div @if ($category->id == 3) class="hidden tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
+            <div @if ($product->category_id == 3) class="tallesPorNumero col-4 col-md-2 form-group" @else class="hidden tallesPorNumero col-4 col-md-2 form-group" @endif>
               <label>48: </label>
               <input class="inputNumerico cantidad form-control" type="number" name="t48" min="0" max="100" step="1"  @if (old('48') !== null) value="{{ old('48') }}" @else value="{{$product->stock->t48}}" @endif >
               @error('t48')

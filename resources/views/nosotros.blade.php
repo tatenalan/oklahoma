@@ -8,9 +8,9 @@ nosotros
 @section('main')
   <div class="container">
   {{-- abre el documento en otra ventana en blanco y te da la posibilidad de descargarlo --}}
-    <a href="/img/documento.pdf" target="_blank">Abrir archivo</a>
+    {{-- <a href="/img/documento.pdf" target="_blank">Abrir archivo</a> --}}
   {{-- te permite descargarlo clickeando el link directamente, el atributo download establece el nombre del archivo --}}
-    <a href="/img/documento.pdf" download=documento >Descargar Archivo</a>
+    {{-- <a href="/img/documento.pdf" download=documento >Descargar Archivo</a> --}}
     <h1>Nosotros!</h1>
     <i class="far fa-smile-wink"></i>
   </div>

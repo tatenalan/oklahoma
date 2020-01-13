@@ -25,7 +25,7 @@ home
             @else
               <p class="precio">${{$product->price}}</p>
             @endif
-            <a class="ordenar" href="#">Ordenar!  <ion-icon name="cart"></ion-icon></a>
+            <a class="ordenar" href="/product/{{$product->id}}">Ordenar!  <ion-icon name="cart"></ion-icon></a>
             @if (Auth::user())
               @if (Auth::user()->isAdmin == true)
                 <a class="ordenar" href="/editProduct/{{$product->id}}">Editar</a>

@@ -60,44 +60,50 @@ product
               {{-- Si el producto es id = jeans, entonces muestro talles numericos --}}
               <select class="talles" name="size">
               @if ($product->category_id==3)
-                  <option value="26">26 @if ($product->stock->T26==0)No hay stock!@endif</option>
-                  <option value="28">28 @if ($product->stock->T28==0)No hay stock!@endif</option>
-                  <option value="30">30 @if ($product->stock->T30==0)No hay stock!@endif</option>
-                  <option value="32">32 @if ($product->stock->T32==0)No hay stock!@endif</option>
-                  <option value="34">34 @if ($product->stock->T34==0)No hay stock!@endif</option>
-                  <option value="36">36 @if ($product->stock->T36==0)No hay stock!@endif</option>
-                  <option value="38">38 @if ($product->stock->T38==0)No hay stock!@endif</option>
-                  <option value="40">40 @if ($product->stock->T40==0)No hay stock!@endif</option>
-                  <option value="42">42 @if ($product->stock->T42==0)No hay stock!@endif</option>
-                  <option value="44">44 @if ($product->stock->T44==0)No hay stock!@endif</option>
-                  <option value="46">46 @if ($product->stock->T46==0)No hay stock!@endif</option>
-                  <option value="48">48 @if ($product->stock->T48==0)No hay stock!@endif</option>
-                  <option value="50">50 @if ($product->stock->T50==0)No hay stock!@endif</option>
+                @if ($product->stock->t26>0) <option value="26">26 @if ($product->stock->T26==0)No hay stock!@elseif ($product->stock->T26<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t28>0) <option value="28">28 @if ($product->stock->T28==0)No hay stock!@elseif ($product->stock->T28<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t30>0) <option value="30">30 @if ($product->stock->T30==0)No hay stock!@elseif ($product->stock->T30<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t32>0) <option value="32">32 @if ($product->stock->T32==0)No hay stock!@elseif ($product->stock->T32<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t34>0) <option value="34">34 @if ($product->stock->T34==0)No hay stock!@elseif ($product->stock->T34<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t36>0) <option value="36">36 @if ($product->stock->T36==0)No hay stock!@elseif ($product->stock->T36<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t38>0) <option value="38">38 @if ($product->stock->T38==0)No hay stock!@elseif ($product->stock->T38<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t40>0) <option value="40">40 @if ($product->stock->T40==0)No hay stock!@elseif ($product->stock->T40<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t42>0) <option value="42">42 @if ($product->stock->T42==0)No hay stock!@elseif ($product->stock->T42<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t44>0) <option value="44">44 @if ($product->stock->T44==0)No hay stock!@elseif ($product->stock->T44<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t46>0) <option value="46">46 @if ($product->stock->T46==0)No hay stock!@elseif ($product->stock->T46<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t48>0) <option value="48">48 @if ($product->stock->T48==0)No hay stock!@elseif ($product->stock->T48<=3) Quedan pocos! @endif</option>@endif
+                @if ($product->stock->t50>0) <option value="50">50 @if ($product->stock->T50==0)No hay stock!@elseif ($product->stock->T50<=3) Quedan pocos! @endif</option>@endif
+              @else {{-- si el stock es mayor a 3 --}}
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="40">40</option>
+                <option value="42">42</option>
+                <option value="44">44</option>
+                <option value="46">46</option>
+                <option value="48">48</option>
+                <option value="50">50</option>
+
               @endif
+
                 @if ($product->stock) {{-- si el stock en la BD no es null --}}
-                    @if ($product->stock->XS>0)
-                    <option value="XS">XS @if ($product->stock->XS<=3) Quedan pocos! @endif</option> {{-- Si el stock es 0 --}}
-                    @endif
-                    @if ($product->stock->S>0)
-                    <option value="S">S @if ($product->stock->S==0)No hay stock!@elseif ($product->stock->S<=3) Quedan pocos! @endif</option>
-                    @endif
-                    @if ($product->stock->M>0)
-                    <option value="M">M @if ($product->stock->M==0)No hay stock!@elseif ($product->stock->M<=3) Quedan pocos! @endif</option>
-                    @endif
-                    @if ($product->stock->L>0)
-                    <option value="L">L @if ($product->stock->L==0)No hay stock!@elseif ($product->stock->L<=3) Quedan pocos! @endif</option>
-                    @endif
-                    @if ($product->stock->XL>0)
-                    <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@elseif ($product->stock->XL<=3) Quedan pocos! @endif</option>
-                    @endif
+                    @if ($product->stock->XS>0) <option value="XS">XS @if ($product->stock->XS==0)No hay stock!@elseif ($product->stock->XS<=3) Quedan pocos! @endif</option>@endif
+                    @if ($product->stock->S>0) <option value="S">S @if ($product->stock->S==0)No hay stock!@elseif ($product->stock->S<=3) Quedan pocos! @endif</option>@endif
+                    @if ($product->stock->M>0) <option value="M">M @if ($product->stock->M==0)No hay stock!@elseif ($product->stock->M<=3) Quedan pocos! @endif</option>@endif
+                    @if ($product->stock->L>0)<option value="L">L @if ($product->stock->L==0)No hay stock!@elseif ($product->stock->L<=3) Quedan pocos! @endif</option>@endif
+                    @if ($product->stock->XL>0) <option value="XL">XL @if ($product->stock->XL==0)No hay stock!@elseif ($product->stock->XL<=3) Quedan pocos! @endif</option>@endif
                   </select>
-                @else {{-- si el stock es mayor a 0 --}}
+                @else {{-- si el stock es mayor a 3 --}}
                     <select class="talles" name="size">
                       <option value="XS">XS</option>
-                      <option value="S">S</option></option>
-                      <option value="M">M</option></option>
-                      <option value="L">L</option></option>
-                      <option value="XL">XL</option></option>
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
                     </select>
                 @endif
                 <p>Cantidad:</p>

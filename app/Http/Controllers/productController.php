@@ -352,7 +352,7 @@ class ProductController extends Controller
       $products = Product::where('category_id', 'like', '4')->orderBy('price')->get();
       $category = Category::where('name', 'like', 'Buzo')->get();
       $vac = compact('products','category');
-      return view('jeans',$vac);
+      return view('buzos',$vac);
     }
 
     public function camperas(Product $product)
@@ -360,7 +360,7 @@ class ProductController extends Controller
       $products = Product::where('category_id', 'like', '5')->orderBy('price')->get();
       $category = Category::where('name', 'like', 'Campera')->get();
       $vac = compact('products','category');
-      return view('jeans',$vac);
+      return view('camperas',$vac);
     }
 
     public function accesorios(Product $product)
@@ -368,7 +368,7 @@ class ProductController extends Controller
       $products = Product::where('category_id', 'like', '6')->orderBy('price')->get();
       $category = Category::where('name', 'like', 'Accesorio')->get();
       $vac = compact('products','category');
-      return view('jeans',$vac);
+      return view('accesorios',$vac);
     }
 
     public function ofertas(Product $product)

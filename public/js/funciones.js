@@ -103,5 +103,17 @@ window.addEventListener('load',function(){
   }// cierre de la funcion onSale
   onSale();
 
-
+  // function hideForm(){
+  //   var rowennn = document.getElementById("row");
+  //   var button = document.getElementById("submit");
+  //   console.log(rowennn);
+  //
+  //     button.addEventListener("click", function(){
+  //       rowennn.classList.add("hidden");
+  //       document.getElementById("text").innerText = "Gracias por enviarnos tu consulta";
+  //
+  //     });
+  // }
+  // hideForm();
+  
 }) //cierre windows.addEventListener('load')

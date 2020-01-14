@@ -37,9 +37,9 @@ if (this.value == ''){
   var mensaje = document.getElementById('surnameText')
   mensaje.setAttribute('hidden', '')
 }
-if (this.value.length<3 && this.value != ''){
+if (this.value.length<2 && this.value != ''){
   var mensaje = document.getElementById('surnameText')
-  mensaje.innerHTML = 'El apellido debe tener al menos 3 letras'
+  mensaje.innerHTML = 'El apellido debe tener al menos 2 letras'
   mensaje.setAttribute('class','errorForm');
   mensaje.removeAttribute('hidden')
 }

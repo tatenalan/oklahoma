@@ -6,11 +6,12 @@ Contact us
 forms
 @endsection
 @section('main')
-  <div class="container">
+  <div id="container" class="container">
       <h5 class="centrado titulo">Formulario de contacto</h5>
-      <div class="row">
+      {{-- <h1 id="text"></h1> --}}
+      <div id="row" class="row">
         <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-          <form method="POST" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfn6YfzOHuTGOlwSK3Bo9KG4P9mO6h93fO66-eebp0ZFEDS_Q/formResponse" target="_blank" id="mG61Hd">
+          <form method="POST" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfn6YfzOHuTGOlwSK3Bo9KG4P9mO6h93fO66-eebp0ZFEDS_Q/formResponse" target="_self" id="mG61Hd">
             <div class="form-group">
               <label>Nombre completo *</label>
               <input type="text" class="form-control" id="fullname" name="entry.2005620554" placeholder="Ingrese su nombre" required>
@@ -22,7 +23,7 @@ forms
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Numero telefonico</label>
-              <input type="number" class="form-control" id="mobilenumber" name='entry.1166974658' placeholder="Ingrese su numero">
+              <input type="text" class="form-control" id="mobilenumber" name='entry.1166974658' placeholder="Ingrese su numero">
             </div>
             <div class="form-group">
               <label>Consulta *</label>

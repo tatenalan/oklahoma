@@ -20,6 +20,8 @@ function changeImage(){
 }
 function confirmar(){
   var acepta = confirm('Esta seguro?');
-  if (!acepta){
-  }
+  if (acepta==true){
+    //ejecuto el boton
+  }else{
+    //no ejecuto nada
 }

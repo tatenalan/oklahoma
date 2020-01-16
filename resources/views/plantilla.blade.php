@@ -144,10 +144,10 @@ $categories = Category::all();
           </div>
           <div class="col-xs-12 col-md-4 col-lg-4">
             <h5>NUESTRO NEWSLETTER</h5>
-            <form class="" action="/" method="get">
+            <form class="" target="_self" id="mG61Hd" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfdRScbGaoPbus19bHsrNOhRr-_-d3Wd9ta8bLtzfTOeZ6a6A/formResponse" method="post">
               {{csrf_field()}}
               <div class="input-group">
-                <input type="email" class="newsletter form-control" placeholder="Dejanos tu email" name="newsletter">
+                <input type="email" class="newsletter form-control" placeholder="Dejanos tu email" name="entry.1296773286">
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-outline-ligth" type="button"><i class="fas fa-at"></i></button>
                 </div>

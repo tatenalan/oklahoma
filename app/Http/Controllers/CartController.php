@@ -51,10 +51,9 @@ class CartController extends Controller
   }
 
   public function buyProduct(Request $request){
+    $carts = Cart::where('user_id', '=', Auth::user()->id)->with('product')->get();
     // El foreach recorre el array de ids
-    foreach ($request->id as $id) {
-      // traemos cada carrito con sus valores
-      $cart = Cart::find($id);
+    foreach ($carts as $cart) {
       // Obtengo el valor del talle y lo guardo en una variable (Elejido por la persona M S L XL)
       $size = $cart->size;
       // Obtengo su objeto de tipo stock y lo guardo en una variable
@@ -64,12 +63,48 @@ class CartController extends Controller
       // guardamos los cambios realizados en el stock
       $stock->save();
       // Por cada id, trae un carrito y lo elimina
-      $cart = Cart::find($id); // Esta dos veces ????????????????????????????
       $cart->delete();
     }
     return redirect('/cart');
   }
 
+  public function confirm(Request $request)
+  {
+        // $cart = session('cart');
+
+        \MercadoPago\SDK::setAccessToken(env('MP_SECRET'));
+
+        $preference = new \MercadoPago\Preference();
+        $productos = [];
+        foreach ($request->id as $id) {
+            $cart = Cart::find($id);
+            $product = Product::find($cart->product_id);
+            $item = new \MercadoPago\Item();
+            $item->title = $product->name;
+            $item->quantity = $cart->quantity;
+            $item->id = $product->id;
+            $item->unit_price = $product->price;
+            $item->currency_id = "ARS";
+            $item->onSale = $product->onSale;
+            $item->discount = $product->discount;
+            $item->genre_id = $product->genre_id;
+            $item->category_id = $product->category_id;
+            $item->stock_id = $product->stock_id;
+            $productos[] = $item;
+        }
+
+        $preference->items = $productos;
+
+        $preference->back_urls = [
+            'success' => url('/buy'),
+            'failure' => url('/mp/failure'),
+            'pending' => url('/mp/pending'),
+        ];
+
+        $preference->save();
+        // dd($preference);
+        return redirect($preference->init_point);
+    }
 
 
 

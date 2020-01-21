@@ -95,7 +95,7 @@ Route::post('/deleteCart', 'CartController@deleteFromCart')->middleware('auth');
 
 Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
-Route::post('/buy', 'CartController@buyProduct')->middleware('auth');
+Route::get('/buy', 'CartController@buyProduct')->middleware('auth');
 
 // users
 
@@ -112,3 +112,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
+
+Route::post('/confirm', 'CartController@confirm')->middleware('auth');

@@ -1,5 +1,5 @@
 window.addEventListener('load',function(){
-  var formulario = document.querySelector('form')
+  var formulario = document.querySelectorAll('form')[1]
   var nombre = formulario[1]
   var apellido = formulario[2]
   var fechaDeNacimiento = formulario[3]
@@ -9,6 +9,7 @@ window.addEventListener('load',function(){
   var terminosYCondiciones = formulario[9]
   var submitButton = formulario[11]
   // Validaciones de nombre
+  console.log(formulario);
   nombre.addEventListener('blur',function(){
   if (this.value == ''){
     var mensaje = document.getElementById('nameText');
@@ -48,21 +49,22 @@ if (this.value.length<2 && this.value != ''){
 
 // Validaciones de email
 email.addEventListener('blur',function(){
+  var expresionRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
   if (this.value == ''){
     var mensaje = document.getElementById('emailText')
     mensaje.innerHTML = 'Por favor ingrese su email'
     mensaje.setAttribute('class','errorForm');
     mensaje.removeAttribute('hidden')
-  } else {
-    var mensaje = document.getElementById('emailText')
-    mensaje.setAttribute('hidden', '')
   }
-  var expresionRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-  if (expresionRegular.test(this.value)==false&&this.value.length>2 && this.value != '') {
+  else if (expresionRegular.test(this.value)==false&&this.value.length>0 && this.value != '') {
     var mensaje = document.getElementById('emailText')
     mensaje.innerHTML = 'Tu email debe tener un formato valido'
     mensaje.setAttribute('class','errorForm');
     mensaje.removeAttribute('hidden')
+  }
+  else {
+    var mensaje = document.getElementById('emailText')
+    mensaje.setAttribute('hidden', '')
   }
 })
  // Validaciones password

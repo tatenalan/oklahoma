@@ -116,7 +116,7 @@ cart
       <p>Total de la compra: $ {{$total}}</p>
 
       {{-- Creamos un boton de compra que recolecta los id de los carritos del usuario --}}
-      <form action="/buy" method="post">
+      <form action="/confirm" method="post">
         @csrf
 
         {{-- Foreach para recorrer cada carrito y obtener su id--}}

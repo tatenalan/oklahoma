@@ -38,19 +38,21 @@ class CartController extends Controller
   public function show()
   {
     $carts = Cart::where('user_id', '=', Auth::user()->id)->with('product')->get();
+     // dd($carts);
     return view('/cart',compact('carts'));
   }
 
   // Borramos el carrito elegido segun su id
   public function deleteFromCart(Request $request)
   {
+    dd($request);
     $cart = Cart::find($request->cart_id);
     $cart->delete();
 
     return redirect('/cart');
   }
 
-  public function buyProduct(Request $request){
+  public function buyProduct(){
     $carts = Cart::where('user_id', '=', Auth::user()->id)->with('product')->get();
     // El foreach recorre el array de ids
     foreach ($carts as $cart) {
@@ -76,20 +78,27 @@ class CartController extends Controller
 
         $preference = new \MercadoPago\Preference();
         $productos = [];
+
         foreach ($request->id as $id) {
             $cart = Cart::find($id);
             $product = Product::find($cart->product_id);
+
+            // creamos un item de compra de mercadopago
             $item = new \MercadoPago\Item();
-            $item->title = $product->name;
-            $item->quantity = $cart->quantity;
+            // Valores que pide mercadopago
             $item->id = $product->id;
             $item->unit_price = $product->price;
             $item->currency_id = "ARS";
-            $item->onSale = $product->onSale;
-            $item->discount = $product->discount;
-            $item->genre_id = $product->genre_id;
+            $item->quantity = $cart->quantity;
+            $item->title = $product->name;
             $item->category_id = $product->category_id;
-            $item->stock_id = $product->stock_id;
+            $item->description = "klvmalksdmflkmasmdflkmaslkdmflkasmlkdlkfaskldmfaslkdmflkmsdlkm";
+            $item->picture_url = $cart->product->images[0]->path;
+            //
+            // $item->onSale = $product->onSale;
+            // $item->discount = $product->discount;
+            // $item->genre_id = $product->genre_id;
+            // $item->stock_id = $product->stock_id;
             $productos[] = $item;
         }
 

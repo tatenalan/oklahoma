@@ -67,11 +67,13 @@ cart
       {{-- Para cada producto agregado al carrito tenemos un boton eliminar que busca su id y lo elimina por post --}}
       <form class="" action="/deleteCart" method="post">
         @csrf
-        <label for="file-upload" class="sacar-carrito">
+        {{-- Tuvimos que agregarle cart id al for del Label y al id del button ,
+        ya que tomaba siempre el primer id del foreach --}}
+        <label for="file-upload{{$cart->id}}" class="sacar-carrito">
           <i class="far fa-trash-alt"></i>
         </label>
-        <input class="producto_id" hidden type="text" name="cart_id" value="{{$cart->id}}">
-        <button class='' id="file-upload" style='display: none;' type="submit">Sacar del Carrito</button>
+        <input class="producto_id" hidden type="submit" value="{{$cart->id}}">
+        <button class='sacar-carrito'style="display:none;" id="file-upload{{$cart->id}}" value="{{$cart->id}}" name="cart_id" type="submit"><i class="far fa-trash-alt"></i></button>
       </form>
     </div> {{-- producto --}}
 

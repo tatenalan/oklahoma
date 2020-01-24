@@ -97,6 +97,8 @@ Route::post('/addToCart', 'CartController@addProduct')->middleware('auth');
 
 Route::get('/buy', 'CartController@buyProduct')->middleware('auth');
 
+Route::post('/confirm', 'CartController@confirm')->middleware('auth');
+
 // users
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
@@ -107,10 +109,14 @@ Route::post('/deleteUser', 'UserController@delete')->middleware('auth');
 
 Route::put('/profile', 'UserController@update')->middleware('auth');
 
+// Auth
+
 Auth::routes();
+
+Route::get('/logout', function() {
+  return redirect('/');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::post('/confirm', 'CartController@confirm')->middleware('auth');

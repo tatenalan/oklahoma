@@ -26,7 +26,7 @@ class UserController extends Controller
     $reglas = [
       'first_name' =>'required|string|min:2|max:40|',
       'last_name' =>'required|string|min:2|max:40|',
-      'email' => ['required', 'string', 'email', 'max:255'], // le sacamos 'unique:users'
+      'email' => ['required', 'string', 'email', 'max:255','unique:users'], // le sacamos 'unique:users'
       'password' => ['nullable', 'min:6'],
       'avatar' => 'image|mimes:jpg,jpeg,png',
     ];
@@ -40,7 +40,8 @@ class UserController extends Controller
     "integer" => "El campo debe ser un numero entero",
     "numeric" => "El campo debe ser un numero",
     "image" => "Debe ser una imagen",
-    "mimes" => "Formato de imagen invalido"
+    "mimes" => "Formato de imagen invalido",
+    "unique" => "El email ingresado ya esta en uso"
     ];
 
     // Validamos
